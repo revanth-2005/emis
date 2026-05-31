@@ -1,0 +1,110 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import CTABanner  from '../../components/CTABanner.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Commercial Building Solar Solutions",
+  "provider": { "@type": "Organization", "name": "Ermis Consultants & Traders Pvt Ltd" },
+  "description": "Rooftop solar solutions for offices, retail outlets, hotels, warehouses, schools, and hospitals in India. Subsidy guidance, net-metering, and complete EPC.",
+  "areaServed": { "@type": "Country", "name": "India" }
+};
+---
+
+<PageLayout
+  title="Commercial Solar Solutions for Offices & Retail"
+  description="Reduce operating costs with rooftop solar for offices, retail, hotels, institutions, and commercial buildings. Ermis Global handles DISCOM approvals, subsidies, and EPC across India."
+  schema={schema}
+>
+  <nav class="bg-neutral-snow border-b border-neutral-rule py-3">
+    <div class="max-w-7xl mx-auto px-4 text-xs text-neutral-muted flex gap-2">
+      <a href="/" class="hover:text-brand-red">Home</a><span>/</span>
+      <a href="/services" class="hover:text-brand-red">Services</a><span>/</span>
+      <span class="text-neutral-ink font-medium">Commercial</span>
+    </div>
+  </nav>
+
+  <section class="bg-neutral-ink py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:grid lg:grid-cols-2 gap-16 items-center">
+      <div>
+        <p class="section-label mb-3 text-brand-light">Commercial Solar</p>
+        <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-5">
+          Cut Your Operating Costs. Green Your Brand.
+        </h1>
+        <p class="text-white/70 text-lg leading-relaxed mb-8">
+          For offices, malls, hotels, schools, and hospitals — rooftop solar reduces electricity
+          bills by 30–60%, qualifies for accelerated depreciation, and demonstrates genuine ESG
+          commitment to stakeholders.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="/get-a-quote" class="btn-primary">Get a Free Energy Audit</a>
+          <a href="/contact"     class="btn-ghost">Talk to an Expert</a>
+        </div>
+      </div>
+      <div class="mt-12 lg:mt-0 grid grid-cols-2 gap-4">
+        {[
+          { v: '10 kW+',   l: 'Minimum project size' },
+          { v: '4–6 yrs',  l: 'Typical payback period' },
+          { v: '40%',      l: 'Max accelerated depreciation (Year 1)' },
+          { v: 'Net-meter',l: 'Export excess units to grid' },
+        ].map((m) => (
+          <div class="bg-white/10 border border-white/20 rounded-xl p-5 text-center">
+            <p class="text-2xl font-extrabold text-white">{m.v}</p>
+            <p class="text-xs text-white/60 mt-1">{m.l}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="section-heading text-center mb-10">Commercial Segments We Serve</h2>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 text-center">
+        {['Offices', 'Retail & Malls', 'Hotels & Resorts', 'Hospitals', 'Schools & Colleges', 'Warehouses'].map((seg) => (
+          <div class="card py-5 flex flex-col items-center gap-2">
+            <div class="w-10 h-10 rounded-full bg-brand-pale flex items-center justify-center">
+              <svg class="w-5 h-5 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+              </svg>
+            </div>
+            <p class="text-sm font-semibold text-neutral-ink">{seg}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Incentives -->
+  <section class="py-16 bg-neutral-snow">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="section-heading text-center mb-10">Financial Incentives You Can Claim</h2>
+      <div class="space-y-4">
+        {[
+          { title: 'Accelerated Depreciation (Section 32)', body: '40% depreciation on the solar asset in Year 1, significantly reducing your tax liability. Effective system cost drops by ~15–20% for profitable entities.' },
+          { title: 'Net-Metering',        body: 'Export surplus generation to the DISCOM grid and receive credits against your future bills. Policy varies by state — we identify the best option for your location.' },
+          { title: 'Priority Sector Lending', body: 'Solar projects can qualify for priority-sector lending rates from banks and NBFCs, reducing financing costs.' },
+          { title: 'MNRE Capital Subsidy', body: 'Certain commercial categories (educational institutions, hospitals) may qualify for central or state capital subsidies — we assess eligibility and file on your behalf.' },
+        ].map((item) => (
+          <details class="card cursor-pointer group">
+            <summary class="flex items-center justify-between font-semibold text-neutral-ink text-sm list-none">
+              {item.title}
+              <svg class="w-4 h-4 text-brand-red flex-shrink-0 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-sm text-neutral-muted leading-relaxed">{item.body}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABanner
+    headline="See How Much Your Building Can Save"
+    body="A free energy audit takes 30 minutes. The savings last 25 years."
+    ctaLabel="Book a Free Energy Audit"
+    ctaHref="/get-a-quote"
+  />
+</PageLayout>

@@ -1,0 +1,68 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+---
+
+<PageLayout
+  title="Cookie Policy"
+  description="Cookie Policy for ermisglobal.com — what cookies we use and how to manage them."
+>
+  <section class="py-16 bg-neutral-snow">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h1 class="text-3xl font-extrabold text-neutral-ink mb-2">Cookie Policy</h1>
+      <p class="text-sm text-neutral-muted mb-10">Last updated: 1 September 2024</p>
+
+      <div class="space-y-8 text-sm text-neutral-muted leading-relaxed">
+        <p>
+          This website uses cookies — small text files stored in your browser — to provide
+          functionality and understand how visitors use the site.
+        </p>
+
+        <section>
+          <h2 class="text-lg font-bold text-neutral-ink mb-3">Cookies We Use</h2>
+          <div class="overflow-x-auto rounded-xl border border-neutral-rule">
+            <table class="w-full text-xs">
+              <thead class="bg-neutral-snow border-b border-neutral-rule">
+                <tr>
+                  <th class="text-left px-4 py-3 font-semibold text-neutral-ink">Cookie</th>
+                  <th class="text-left px-4 py-3 font-semibold text-neutral-ink">Purpose</th>
+                  <th class="text-left px-4 py-3 font-semibold text-neutral-ink">Type</th>
+                  <th class="text-left px-4 py-3 font-semibold text-neutral-ink">Expiry</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-neutral-rule">
+                {[
+                  ['_ga, _gid', 'Google Analytics — anonymised page view tracking', 'Analytics', '2 years / 24h'],
+                  ['netlify-*', 'Netlify form CSRF protection', 'Functional', 'Session'],
+                ].map(([name, purpose, type, expiry]) => (
+                  <tr>
+                    <td class="px-4 py-3 font-mono">{name}</td>
+                    <td class="px-4 py-3">{purpose}</td>
+                    <td class="px-4 py-3">{type}</td>
+                    <td class="px-4 py-3">{expiry}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section>
+          <h2 class="text-lg font-bold text-neutral-ink mb-2">Managing Cookies</h2>
+          <p>
+            You can disable cookies through your browser settings. Note that disabling certain
+            cookies may affect the functionality of the website. Analytics cookies can also be
+            opted out via Google's opt-out browser add-on.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg font-bold text-neutral-ink mb-2">Contact</h2>
+          <p>
+            Questions about this policy? Email us at
+            <a href="mailto:ramc.ermis@gmail.com" class="text-brand-red hover:underline">ramc.ermis@gmail.com</a>.
+          </p>
+        </section>
+      </div>
+    </div>
+  </section>
+</PageLayout>

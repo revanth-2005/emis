@@ -1,0 +1,175 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Get a Free Solar Quote — Ermis Global",
+  "url": "https://ermisglobal.com/get-a-quote"
+};
+---
+
+<PageLayout
+  title="Get a Free Solar Quote"
+  description="Request a free solar site assessment and savings estimate from Ermis Global. No obligation, no hard sell — just clear answers from certified solar engineers."
+  schema={schema}
+>
+  <section class="bg-neutral-ink py-16">
+    <div class="max-w-2xl mx-auto px-4 text-center">
+      <p class="section-label mb-3 text-brand-light">Free, No-Obligation</p>
+      <h1 class="text-4xl font-extrabold text-white mb-4">Get Your Free Solar Quote</h1>
+      <p class="text-white/70 leading-relaxed">
+        Fill in the form below. Our engineer will review your requirements and
+        contact you within 1 business day with an initial estimate.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-neutral-snow">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+
+      <div class="card">
+        <form
+          name="get-a-quote"
+          method="POST"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          class="space-y-6"
+          novalidate
+        >
+          <!-- Netlify hidden fields -->
+          <input type="hidden" name="form-name" value="get-a-quote" />
+          <p class="hidden"><input name="bot-field" /></p>
+
+          <!-- Name + Email -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label for="name" class="block text-sm font-medium text-neutral-ink mb-1.5">Full Name *</label>
+              <input id="name" name="name" type="text" required placeholder="Rajesh Kumar"
+                class="input-field" />
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-medium text-neutral-ink mb-1.5">Email Address *</label>
+              <input id="email" name="email" type="email" required placeholder="rajesh@company.com"
+                class="input-field" />
+            </div>
+          </div>
+
+          <!-- Phone + Organisation -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label for="phone" class="block text-sm font-medium text-neutral-ink mb-1.5">Mobile Number *</label>
+              <input id="phone" name="phone" type="tel" required placeholder="+91 98765 43210"
+                class="input-field" />
+            </div>
+            <div>
+              <label for="org" class="block text-sm font-medium text-neutral-ink mb-1.5">Company / Organisation</label>
+              <input id="org" name="organisation" type="text" placeholder="Your Company Pvt Ltd"
+                class="input-field" />
+            </div>
+          </div>
+
+          <!-- Segment -->
+          <div>
+            <label for="segment" class="block text-sm font-medium text-neutral-ink mb-1.5">I am inquiring for *</label>
+            <select id="segment" name="segment" required class="input-field">
+              <option value="" disabled selected>Select a segment</option>
+              <option value="residential">Residential (Home / Society)</option>
+              <option value="commercial">Commercial (Office / Retail / Institution)</option>
+              <option value="industrial">Enterprise / Industrial (Factory / Warehouse)</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <!-- City + System size -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label for="city" class="block text-sm font-medium text-neutral-ink mb-1.5">City / Location</label>
+              <input id="city" name="city" type="text" placeholder="Mumbai, Maharashtra"
+                class="input-field" />
+            </div>
+            <div>
+              <label for="bill" class="block text-sm font-medium text-neutral-ink mb-1.5">Monthly Electricity Bill (₹)</label>
+              <input id="bill" name="monthly_bill" type="number" min="0" placeholder="15,000"
+                class="input-field" />
+            </div>
+          </div>
+
+          <!-- Roof / Land area -->
+          <div>
+            <label for="area" class="block text-sm font-medium text-neutral-ink mb-1.5">
+              Available Roof / Land Area (approx. sq. ft. — optional)
+            </label>
+            <input id="area" name="area_sqft" type="number" min="0" placeholder="2000"
+              class="input-field" />
+          </div>
+
+          <!-- Message -->
+          <div>
+            <label for="message" class="block text-sm font-medium text-neutral-ink mb-1.5">Additional Details</label>
+            <textarea id="message" name="message" rows="4"
+              placeholder="Any specific requirements, preferred timeline, or questions..."
+              class="input-field resize-none"></textarea>
+          </div>
+
+          <!-- Source (how did you hear) -->
+          <div>
+            <label for="source" class="block text-sm font-medium text-neutral-ink mb-1.5">How did you hear about us?</label>
+            <select id="source" name="source" class="input-field">
+              <option value="" disabled selected>Select an option</option>
+              <option>Google Search</option>
+              <option>LinkedIn</option>
+              <option>Instagram</option>
+              <option>WhatsApp</option>
+              <option>Referral from a friend / colleague</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <!-- Consent -->
+          <div class="flex items-start gap-3">
+            <input id="consent" name="consent" type="checkbox" required
+              class="mt-1 w-4 h-4 text-brand-red border-neutral-rule rounded focus:ring-brand-red" />
+            <label for="consent" class="text-sm text-neutral-muted">
+              I consent to Ermis Global contacting me about solar solutions. I have read the
+              <a href="/privacy-policy" class="text-brand-red hover:underline">Privacy Policy</a>.
+            </label>
+          </div>
+
+          <button type="submit" class="btn-primary w-full justify-center text-base py-3.5">
+            Submit My Enquiry →
+          </button>
+
+          <p class="text-xs text-center text-neutral-muted">
+            We respond within 1 business day. Your information is never shared with third parties.
+          </p>
+        </form>
+      </div>
+
+      <!-- What happens next -->
+      <div class="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-5 text-center">
+        {[
+          { step: '1', title: 'We Review', body: 'Our team reviews your details and prepares initial sizing estimates.' },
+          { step: '2', title: 'Site Call', body: 'We schedule a brief call to understand your requirements better.' },
+          { step: '3', title: 'Free Assessment', body: 'An engineer visits your site and delivers a detailed proposal — at no cost.' },
+        ].map((s) => (
+          <div class="card text-center">
+            <div class="w-9 h-9 rounded-full bg-brand-red text-white font-extrabold text-sm flex items-center justify-center mx-auto mb-3">
+              {s.step}
+            </div>
+            <h3 class="font-semibold text-neutral-ink text-sm mb-1">{s.title}</h3>
+            <p class="text-xs text-neutral-muted">{s.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</PageLayout>
+
+<style>
+  .input-field {
+    @apply w-full px-4 py-2.5 border border-neutral-rule rounded-lg text-sm
+           focus:ring-2 focus:ring-brand-red focus:border-brand-red outline-none
+           bg-white text-neutral-ink placeholder-neutral-muted;
+  }
+</style>

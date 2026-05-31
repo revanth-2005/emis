@@ -1,0 +1,63 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+const lastUpdated = '2024-09-01';
+---
+
+<PageLayout
+  title="Terms of Service"
+  description="Terms of Service for ermisglobal.com — Ermis Consultants & Traders Pvt Ltd."
+>
+  <section class="py-16 bg-neutral-snow">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h1 class="text-3xl font-extrabold text-neutral-ink mb-2">Terms of Service</h1>
+      <p class="text-sm text-neutral-muted mb-10">Last updated: {new Date(lastUpdated).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
+
+      <div class="prose prose-sm max-w-none text-neutral-ink space-y-8">
+        <p class="text-neutral-muted leading-relaxed text-sm">
+          By accessing or using ermisglobal.com, you agree to be bound by these Terms of Service.
+          If you do not agree, please do not use this website.
+        </p>
+
+        {[
+          {
+            heading: '1. Use of Website',
+            body: 'This website is provided for informational purposes and to facilitate enquiries about solar energy services. You agree not to misuse the website, submit false information, or attempt to gain unauthorised access to our systems.'
+          },
+          {
+            heading: '2. No Guarantee of Outcomes',
+            body: 'All savings estimates, payback periods, and financial projections presented on this website are indicative only. Actual results depend on site conditions, tariff changes, local policies, and other factors. A detailed project-specific analysis is provided before any contract is signed.'
+          },
+          {
+            heading: '3. Intellectual Property',
+            body: 'All content, trademarks, logos, and materials on this website are the property of Ermis Consultants & Traders Pvt Ltd or their respective owners. You may not reproduce, distribute, or create derivative works without prior written permission.'
+          },
+          {
+            heading: '4. Third-Party Links',
+            body: 'This website may link to third-party websites (e.g., MNRE, PM Surya Ghar portal, DISCOM portals). We are not responsible for their content or privacy practices.'
+          },
+          {
+            heading: '5. Limitation of Liability',
+            body: 'To the maximum extent permitted by law, Ermis Consultants & Traders Pvt Ltd shall not be liable for any indirect, incidental, or consequential damages arising from your use of this website or reliance on information presented herein.'
+          },
+          {
+            heading: '6. Governing Law',
+            body: 'These Terms are governed by the laws of India. Any disputes shall be subject to the exclusive jurisdiction of the courts in Coimbatore, Tamil Nadu, India.'
+          },
+          {
+            heading: '7. Changes to Terms',
+            body: 'We may update these Terms from time to time. Continued use of the website after changes constitutes acceptance of the revised Terms.'
+          },
+          {
+            heading: '8. Contact',
+            body: 'For questions about these Terms, contact us at <a href="mailto:ramc.ermis@gmail.com" class="text-brand-red hover:underline">ramc.ermis@gmail.com</a>.'
+          },
+        ].map((section) => (
+          <section>
+            <h2 class="text-lg font-bold mb-2">{section.heading}</h2>
+            <p class="text-neutral-muted leading-relaxed text-sm">{section.body}</p>
+          </section>
+        ))}
+      </div>
+    </div>
+  </section>
+</PageLayout>

@@ -1,0 +1,124 @@
+---
+const highlights = [
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>`,
+    title: 'International Expertise',
+    body: 'Our founders bring 40+ years of combined experience working across 15+ countries in global trade and industry. We deliver best practices from world markets, applied to your solar project.',
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>`,
+    title: 'Client-Centric Approach',
+    body: 'Dedicated to understanding and fulfilling your unique requirements. One relationship manager from first call to commissioning — and beyond. No call centres, no handoffs.',
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>`,
+    title: 'Sustainable Growth',
+    body: 'Committed to renewable energy and responsible business practices. Every system we design targets 25-year performance, ALMM-listed panels, and maximum subsidy capture for you.',
+  },
+];
+
+const reasons = [
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>`,
+    title: 'End-to-End Project Ownership',
+    body: 'Site survey, system design, DISCOM approvals, installation, commissioning, and annual O&M — all under one roof.',
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>`,
+    title: 'Subsidy & Financing Guidance',
+    body: 'We navigate PM Surya Ghar, state DISCOM incentives, accelerated depreciation (Section 32), and solar loan options to maximise your returns.',
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/>`,
+    title: 'ALMM-Listed Modules Only',
+    body: 'We specify only Approved List of Models & Manufacturers (ALMM) panels — ensuring subsidy eligibility and long-term performance guarantees.',
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>`,
+    title: 'Data-Driven Energy Audits',
+    body: 'Every proposal starts with a detailed energy audit and shadow analysis. You get a precise ROI model with real payback period, not ballpark figures.',
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>`,
+    title: 'MNRE-Aligned Design',
+    body: 'All systems designed to Ministry of New & Renewable Energy specifications — ensuring compliance, performance, and eligibility for government incentives.',
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>`,
+    title: 'Pan-India Service Reach',
+    body: 'With offices in Coimbatore and Salem, and partners across states, we execute projects anywhere in India — metros to remote industrial sites.',
+  },
+];
+---
+
+<!-- Why Choose Section -->
+<section class="py-20 bg-neutral-snow">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="text-center mb-14">
+      <p class="section-label mb-3">Why Choose Ermis</p>
+      <h2 class="section-heading">Experience, Expertise &amp; Commitment to Excellence</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+      {highlights.map((h) => (
+        <div class="card hover:shadow-lg transition-shadow duration-200">
+          <div class="w-12 h-12 rounded-xl bg-brand-pale flex items-center justify-center mb-5">
+            <svg class="w-6 h-6 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <Fragment set:html={h.icon} />
+            </svg>
+          </div>
+          <h3 class="font-bold text-neutral-ink mb-2">{h.title}</h3>
+          <p class="text-sm text-neutral-muted leading-relaxed">{h.body}</p>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<!-- Detailed Reasons -->
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="lg:grid lg:grid-cols-2 lg:gap-16 lg:items-start">
+
+      <div class="mb-12 lg:mb-0 lg:sticky lg:top-24">
+        <p class="section-label mb-3">Our Promise</p>
+        <h2 class="section-heading mb-5">
+          Solar Made Simple,<br/>Savings Made Real
+        </h2>
+        <p class="text-neutral-muted leading-relaxed mb-8">
+          We founded Ermis to fix what's broken in India's solar market — bad information,
+          opaque pricing, and vendors who disappear after installation. Our team's international
+          track record means you get global standards delivered locally.
+        </p>
+        <a href="/about" class="btn-outline inline-flex">
+          Our Story →
+        </a>
+        <div class="mt-10 rounded-2xl bg-brand-pale border border-brand-red/20 p-6">
+          <p class="text-4xl font-extrabold text-brand-red">&lt; 7 yrs</p>
+          <p class="text-sm font-semibold text-neutral-ink mt-1">Typical payback period</p>
+          <p class="text-xs text-neutral-muted mt-1">for a commercial rooftop installation*</p>
+          <p class="text-xs text-neutral-muted mt-4">*Indicative. Actual payback depends on system size, local tariff, and available subsidies.</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        {reasons.map((r) => (
+          <div class="flex gap-4">
+            <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-brand-pale flex items-center justify-center">
+              <svg class="w-5 h-5 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <Fragment set:html={r.icon} />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-semibold text-neutral-ink text-sm mb-1">{r.title}</h3>
+              <p class="text-xs text-neutral-muted leading-relaxed">{r.body}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </div>
+</section>

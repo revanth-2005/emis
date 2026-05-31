@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ermisglobal.com/sitemap-index.xml

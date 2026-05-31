@@ -1,0 +1,336 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import CTABanner  from '../components/CTABanner.astro';
+
+const values = [
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>`,
+    title: 'Excellence',
+    body: 'Committed to delivering the highest quality in every project and partnership. We hold ourselves to international standards.',
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>`,
+    title: 'Global Reach',
+    body: 'Leveraging 40+ years of international experience across 15+ countries to connect markets and drive growth for our clients.',
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>`,
+    title: 'Sustainability',
+    body: 'Focused on renewable energy solutions that benefit our planet\'s future — every project we deliver reduces carbon load and energy costs.',
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>`,
+    title: 'Integrity',
+    body: 'Building trust through transparent operations and honest partnerships. No hidden costs, no inflated estimates — just straight answers.',
+  },
+];
+
+const team = [
+  {
+    name: 'Mr. Ramanadane C',
+    role: 'Director',
+    bio: 'Experienced professional with extensive expertise in the textile value chain. Has worked in international locations bringing global perspectives and best practices to Ermis.',
+    expertise: ['International Trade', 'Textile Industry', 'Business Development', 'Strategic Planning'],
+  },
+  {
+    name: 'Mr. Ramkumar Thiyagarajan',
+    role: 'Director',
+    bio: 'Seasoned professional with long-standing experience in the textile value chain and international operations. Brings deep industry knowledge and global business acumen to the organization.',
+    expertise: ['Global Operations', 'Supply Chain', 'Renewable Energy', 'Market Expansion'],
+  },
+];
+
+const leadershipStats = [
+  { value: '40+', label: 'Years Combined Experience', note: 'In textile value chain and international trade' },
+  { value: '15+', label: 'Countries',                  note: 'International work experience across continents' },
+  { value: '100%', label: 'Client-Focused',            note: 'Dedicated to delivering exceptional results' },
+];
+---
+
+<PageLayout
+  title="About Ermis Global — Who We Are"
+  description="Founded in 2026 by experienced international professionals, Ermis Consultants & Traders Pvt Ltd delivers solar energy solutions and international trade services with a commitment to excellence."
+>
+
+  <!-- Page hero -->
+  <section class="bg-neutral-snow py-14">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-4xl md:text-5xl font-extrabold text-brand-red mb-5">
+        About Ermis
+      </h1>
+      <p class="text-neutral-muted text-lg leading-relaxed max-w-3xl">
+        Founded in 2026 by two experienced professionals with international expertise, Ermis Consultants &amp;
+        Traders Private Limited is dedicated to contributing to international trade across all domains
+        with an initial focus on sustainable and renewable energy.
+      </p>
+    </div>
+  </section>
+
+  <!-- Our Story -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:grid lg:grid-cols-2 lg:gap-16 lg:items-start">
+
+      <!-- Left: visual -->
+      <div class="mb-10 lg:mb-0">
+        <div class="rounded-2xl overflow-hidden bg-neutral-ink aspect-[4/3] flex items-center justify-center relative">
+          <div class="absolute inset-0 bg-gradient-to-br from-brand-red/30 to-neutral-ink"></div>
+          <div class="relative text-center px-8">
+            <p class="text-7xl font-extrabold text-white/10 leading-none mb-2">2026</p>
+            <p class="text-white font-bold text-xl">Starting Our Journey</p>
+            <p class="text-white/60 text-sm mt-2">to a Sustainable Future</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: text -->
+      <div>
+        <p class="section-label mb-3">Our Story</p>
+        <h2 class="section-heading mb-5">Founded with a Vision</h2>
+        <div class="space-y-4 text-neutral-muted leading-relaxed">
+          <p>
+            Ermis was founded with a clear vision: to bridge international markets while driving the adoption
+            of sustainable energy solutions. Our founders bring decades of combined experience in the textile
+            value chain and have worked extensively in international locations, giving us unique insights into
+            global trade dynamics.
+          </p>
+          <p>
+            Starting with a focus on renewable energy — particularly solar power installations — we are
+            establishing ourselves as trusted partners for both residential and industrial clients. Our
+            commitment extends beyond installations: we provide comprehensive sourcing and trading services
+            for products across global markets.
+          </p>
+          <p>
+            With offices in Coimbatore and Salem, India, we are strategically positioned to serve clients
+            across South India while expanding our global reach. We are growing our portfolio to include
+            technology products while staying true to our core mission of sustainability and excellence.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Red banner: founding statement -->
+  <section class="bg-brand-red py-14">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <p class="text-white text-xl md:text-2xl leading-relaxed font-medium">
+        Founded in 2026 with a vision to transform India's renewable energy landscape and facilitate
+        seamless international trade. We bring decades of international experience to deliver excellence
+        from day one.
+      </p>
+    </div>
+  </section>
+
+  <!-- Mission & Vision -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="card">
+          <div class="w-12 h-12 rounded-xl bg-brand-pale flex items-center justify-center mb-5">
+            <svg class="w-6 h-6 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h2 class="text-xl font-bold text-neutral-ink mb-3">Our Mission</h2>
+          <p class="text-neutral-muted leading-relaxed">
+            To empower businesses and individuals with sustainable energy solutions while facilitating
+            seamless international trade. We strive to make renewable energy accessible and affordable
+            while connecting global markets with reliability and integrity.
+          </p>
+        </div>
+        <div class="card">
+          <div class="w-12 h-12 rounded-xl bg-brand-pale flex items-center justify-center mb-5">
+            <svg class="w-6 h-6 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+            </svg>
+          </div>
+          <h2 class="text-xl font-bold text-neutral-ink mb-3">Our Vision</h2>
+          <p class="text-neutral-muted leading-relaxed">
+            To become a leading force in the renewable energy sector and international trade, recognised for
+            our commitment to sustainability, innovation, and customer satisfaction. We envision a future
+            where clean energy powers communities and global commerce thrives on trust and efficiency.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Values -->
+  <section class="py-16 bg-neutral-snow">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <p class="section-label mb-3">The Principles That Guide Everything We Do</p>
+        <h2 class="section-heading">Our Core Values</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {values.map((v) => (
+          <div class="text-center">
+            <div class="w-16 h-16 rounded-2xl bg-brand-pale flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <Fragment set:html={v.icon} />
+              </svg>
+            </div>
+            <h3 class="font-bold text-neutral-ink mb-2">{v.title}</h3>
+            <p class="text-sm text-neutral-muted leading-relaxed">{v.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <p class="section-label mb-3">Meet Our Team</p>
+        <h2 class="section-heading">Led by Experienced Professionals</h2>
+        <p class="text-neutral-muted mt-3 max-w-2xl mx-auto">
+          With decades of international experience in the textile value chain and global trade,
+          our directors bring world-class expertise to every client engagement.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        {team.map((member) => (
+          <div class="card">
+            <!-- Avatar -->
+            <div class="w-full h-48 rounded-xl bg-gradient-to-br from-neutral-ink to-neutral-ink/80 flex items-end mb-5 relative overflow-hidden">
+              <div class="absolute inset-0 bg-gradient-to-br from-brand-red/20 to-transparent"></div>
+              <div class="relative w-full p-4 bg-gradient-to-t from-neutral-ink to-transparent">
+                <p class="text-white font-bold">{member.name}</p>
+                <p class="text-white/60 text-sm">{member.role}</p>
+              </div>
+            </div>
+            <p class="text-sm text-neutral-muted leading-relaxed mb-4">{member.bio}</p>
+            <div>
+              <p class="text-xs font-semibold text-neutral-ink mb-2 flex items-center gap-2">
+                <svg class="w-4 h-4 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+                Areas of Expertise
+              </p>
+              <div class="flex flex-wrap gap-2">
+                {member.expertise.map((tag) => (
+                  <span class="text-xs px-3 py-1 rounded-full bg-brand-pale text-brand-red border border-brand-red/20 font-medium">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Leadership Philosophy -->
+  <section class="py-16 bg-neutral-snow">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="section-heading">Our Leadership Philosophy</h2>
+        <p class="text-neutral-muted mt-3 max-w-2xl mx-auto">
+          Our directors bring a wealth of international experience and a commitment to excellence,
+          sustainability, and client success.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12">
+        {leadershipStats.map((s) => (
+          <div class="card text-center">
+            <p class="text-5xl font-extrabold text-brand-red mb-2">{s.value}</p>
+            <p class="font-bold text-neutral-ink mb-1">{s.label}</p>
+            <p class="text-sm text-neutral-muted">{s.note}</p>
+          </div>
+        ))}
+      </div>
+      <!-- Quote -->
+      <div class="max-w-3xl mx-auto rounded-2xl border-2 border-brand-red/20 bg-brand-pale p-8 text-center">
+        <blockquote class="text-xl md:text-2xl font-medium text-neutral-ink italic leading-relaxed mb-4">
+          "Our vision is to lead the transition to sustainable energy while building bridges in
+          international trade. We're committed to creating value for our clients and contributing
+          to a more sustainable future."
+        </blockquote>
+        <p class="text-brand-red font-semibold">— Ermis Leadership Team</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Locations -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <p class="section-label mb-3">Our Offices</p>
+        <h2 class="section-heading">Serving Clients Across South India</h2>
+        <p class="text-neutral-muted mt-3">With strategic offices for maximum client accessibility</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+        <div class="card border-2 border-brand-red/10">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-lg bg-brand-pale flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-neutral-ink mb-1">Head Office — Coimbatore</h3>
+              <p class="text-xs text-brand-red font-medium mb-2">Tamil Nadu, India</p>
+              <address class="not-italic text-sm text-neutral-muted leading-relaxed mb-3">
+                3/73, Kurundasala Nagar, K. Vadamadurai<br/>
+                NGGO Colony, Kurudampalayam<br/>
+                Coimbatore – 641017
+              </address>
+              <a href="mailto:ramc.ermis@gmail.com" class="text-xs text-brand-red hover:underline block">ramc.ermis@gmail.com</a>
+              <a href="tel:+919894821309" class="text-xs text-brand-red hover:underline block">+91 98948 21309 / +91 81482 21308</a>
+            </div>
+          </div>
+        </div>
+        <div class="card border-2 border-brand-red/10">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-lg bg-brand-pale flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-neutral-ink mb-1">Branch Office — Salem</h3>
+              <p class="text-xs text-brand-red font-medium mb-2">Tamil Nadu, India</p>
+              <address class="not-italic text-sm text-neutral-muted leading-relaxed mb-3">
+                Salem, Tamil Nadu, India
+              </address>
+              <a href="mailto:ramkumart.ermis@gmail.com" class="text-xs text-brand-red hover:underline block">ramkumart.ermis@gmail.com</a>
+              <a href="tel:+919902257789" class="text-xs text-brand-red hover:underline block">+91 99022 57789</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Legal strip -->
+  <section class="py-10 bg-neutral-snow border-t border-neutral-rule">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="section-label mb-4">Legal &amp; Compliance</p>
+      <div class="flex flex-wrap justify-center gap-8 text-sm text-neutral-muted">
+        <span>CIN: <strong class="text-neutral-ink">U46590TZ2026OPC038272</strong></span>
+        <span>GST: <strong class="text-neutral-ink">33AAJCE5545J1ZH</strong></span>
+        <span>Registered: <strong class="text-neutral-ink">Coimbatore, Tamil Nadu, India (MCA)</strong></span>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner
+    headline="Ready to Transform Your Energy Future?"
+    body="Get in touch with our experts today for a free consultation. Zero pressure, zero cost."
+    ctaLabel="Contact Us Now"
+    ctaHref="/contact"
+    ctaSecondaryLabel="View Our Services"
+    ctaSecondaryHref="/services"
+  />
+</PageLayout>

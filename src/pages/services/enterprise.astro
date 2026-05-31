@@ -1,0 +1,124 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import CTABanner  from '../../components/CTABanner.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Enterprise & Industrial Solar Solutions",
+  "provider": { "@type": "Organization", "name": "Ermis Consultants & Traders Pvt Ltd" },
+  "description": "Large-scale rooftop and ground-mount solar energy solutions for factories, warehouses, and industrial plants across India. Includes captive power, open access, EPC, and O&M.",
+  "areaServed": { "@type": "Country", "name": "India" }
+};
+
+const useCases = [
+  { title: 'Manufacturing Plants',  body: 'Reduce per-unit production cost with on-site captive solar. Claim accelerated depreciation (Section 32) in Year 1.' },
+  { title: 'Warehouses & Logistics', body: 'Large flat roof areas = large solar arrays = large savings. Ideal for 24x7 operations with peak daytime consumption.' },
+  { title: 'Data Centres',          body: 'Meet sustainability mandates and reduce PUE with behind-the-meter solar + battery storage integration.' },
+  { title: 'SEZ & Industrial Parks', body: 'Common area solar + open access wheeling for multiple units within a park.' },
+];
+---
+
+<PageLayout
+  title="Enterprise & Industrial Solar Solutions"
+  description="Large-scale solar for factories, warehouses, and industrial plants in India. Ground-mount, rooftop, captive power, open access, EPC & O&M. Get a free DPR from Ermis Global."
+  schema={schema}
+>
+  <!-- Breadcrumb -->
+  <nav class="bg-neutral-snow border-b border-neutral-rule py-3">
+    <div class="max-w-7xl mx-auto px-4 text-xs text-neutral-muted flex gap-2">
+      <a href="/" class="hover:text-brand-red">Home</a>
+      <span>/</span>
+      <a href="/services" class="hover:text-brand-red">Services</a>
+      <span>/</span>
+      <span class="text-neutral-ink font-medium">Enterprise & Industrial</span>
+    </div>
+  </nav>
+
+  <section class="bg-neutral-ink py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:grid lg:grid-cols-2 gap-16 items-center">
+      <div>
+        <p class="section-label mb-3 text-brand-light">Enterprise & Industrial Solar</p>
+        <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-5">
+          Turn Your Roof or Land Into a Power Plant
+        </h1>
+        <p class="text-white/70 text-lg leading-relaxed mb-8">
+          For manufacturers, warehouses, and industrial campuses, solar isn't a CSR exercise —
+          it's a margin improvement. We design and deliver projects from 100 kW to 50 MW+,
+          with complete DISCOM, CERC, and state regulatory handling.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="/get-a-quote" class="btn-primary">Get a Free DPR</a>
+          <a href="/contact"     class="btn-ghost">Talk to an Engineer</a>
+        </div>
+      </div>
+      <!-- Key metrics -->
+      <div class="mt-12 lg:mt-0 grid grid-cols-2 gap-4">
+        {[
+          { v: '100 kW+', l: 'Minimum project size' },
+          { v: '25 yr',   l: 'Panel performance guarantee' },
+          { v: '30–40%',  l: 'Typical electricity cost reduction' },
+          { v: 'Yr 1',    l: 'Accelerated depreciation benefit' },
+        ].map((m) => (
+          <div class="bg-white/10 border border-white/20 rounded-xl p-5 text-center">
+            <p class="text-2xl font-extrabold text-white">{m.v}</p>
+            <p class="text-xs text-white/60 mt-1">{m.l}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- What we deliver -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="section-heading mb-10 text-center">What We Deliver</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          { t: 'Detailed Project Report (DPR)',     b: 'Full techno-commercial report with energy yield simulation (PVsyst), financial model, IRR, and payback analysis.' },
+          { t: 'EPC — Full Turnkey Execution',      b: 'Engineering, procurement of ALMM-listed modules, inverters, and BOS; civil works; grid-tie commissioning.' },
+          { t: 'Open Access & Captive Advisory',    b: 'State-specific open access routing, banking regulations, and cross-subsidy surcharge optimisation.' },
+          { t: 'RESCO & BOOT Structuring',          b: 'Zero-capex models where we fund, own, and operate the plant — you pay only for consumed units at a fixed tariff.' },
+          { t: 'Regulatory & DISCOM Compliance',   b: 'State commission approvals, net-metering/gross-metering selection, synchronisation reports, and metering.' },
+          { t: 'O&M & Remote Monitoring',           b: 'SCADA-enabled monitoring, preventive maintenance schedules, PR (Performance Ratio) tracking, and annual reporting.' },
+        ].map((item) => (
+          <div class="card">
+            <h3 class="font-bold text-neutral-ink mb-2">{item.t}</h3>
+            <p class="text-sm text-neutral-muted leading-relaxed">{item.b}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Use cases -->
+  <section class="py-16 bg-neutral-snow">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="section-heading text-center mb-10">Industries We Serve</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        {useCases.map((uc) => (
+          <div class="flex gap-4 card">
+            <div class="w-10 h-10 flex-shrink-0 rounded-lg bg-brand-pale flex items-center justify-center">
+              <svg class="w-5 h-5 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-semibold text-neutral-ink mb-1">{uc.title}</h3>
+              <p class="text-sm text-neutral-muted leading-relaxed">{uc.body}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABanner
+    headline="Ready to Reduce Your Energy Cost at Scale?"
+    body="Our engineers will prepare a free DPR and financial model for your site — no obligation."
+    ctaLabel="Request a Free DPR"
+    ctaHref="/get-a-quote"
+    ctaSecondaryLabel="View Case Studies"
+    ctaSecondaryHref="/portfolio"
+  />
+</PageLayout>

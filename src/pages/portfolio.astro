@@ -1,0 +1,155 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import CTABanner  from '../components/CTABanner.astro';
+
+const capabilities = [
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-2 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>`,
+    title: 'Enterprise & Industrial Solar',
+    body: 'Ground-mount and large rooftop plants from 100 kW upwards. RESCO and BOOT financing models available. DPR, EPC, and O&M services.',
+    tags: ['100 kW+', 'Factories', 'Warehouses', 'Captive Power'],
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>`,
+    title: 'Commercial Buildings',
+    body: 'Rooftop net-metering systems for offices, retail, hotels, and institutions. DISCOM approval, grid-tie, subsidy, and accelerated depreciation.',
+    tags: ['10 kW+', 'Offices', 'Hotels', 'Institutions'],
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>`,
+    title: 'Residential Solar',
+    body: 'PM Surya Ghar Muft Bijli Yojana eligible installations. Central subsidy up to ₹78,000. Hassle-free installation in 7–14 days.',
+    tags: ['1–10 kW', 'PM Surya Ghar', '₹78k Subsidy', 'Fast Install'],
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>`,
+    title: 'International Trading',
+    body: 'Global sourcing and trading services for products across any country or region. Leveraging 15+ countries of operational experience.',
+    tags: ['Global Sourcing', '15+ Countries', 'B2B Trading'],
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>`,
+    title: 'Renewable Energy Consulting',
+    body: 'Expert consulting on sustainable energy solutions. ROI modelling, shadow analysis, DISCOM liaison, and regulatory advisory.',
+    tags: ['ROI Modelling', 'DISCOM Advisory', 'Policy Navigation'],
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>`,
+    title: 'Sourcing & Procurement',
+    body: 'End-to-end procurement for ALMM-listed solar modules, inverters, and BOS components. Quality-assured supply chain management.',
+    tags: ['ALMM Panels', 'Inverters', 'BOS Components'],
+  },
+];
+
+const readinessStats = [
+  { value: '2026', label: 'Year Founded',              note: 'Driven by a clear mission' },
+  { value: '40+',  label: 'Years Combined Experience', note: 'Global trade & energy expertise' },
+  { value: '15+',  label: 'Countries Experience',      note: 'International operations' },
+];
+---
+
+<PageLayout
+  title="Our Capabilities — Ermis Global Solar & Trading"
+  description="Ermis Global's service capabilities: enterprise, commercial, and residential solar installations, international trading, and renewable energy consulting across India."
+>
+
+  <!-- Hero -->
+  <section class="bg-neutral-ink py-16">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <p class="section-label mb-3 text-brand-light">What We Do</p>
+      <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-5">
+        Ready to Make an Impact
+      </h1>
+      <p class="text-white/70 text-lg leading-relaxed">
+        With decades of combined international experience and a commitment to excellence,
+        we're ready to deliver world-class solar energy solutions and trading services —
+        from day one.
+      </p>
+    </div>
+  </section>
+
+  <!-- Readiness stats -->
+  <section class="bg-brand-red py-12">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center text-white">
+        {readinessStats.map((s) => (
+          <div>
+            <p class="text-5xl font-extrabold mb-1">{s.value}</p>
+            <p class="font-semibold">{s.label}</p>
+            <p class="text-white/60 text-sm mt-1">{s.note}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Capabilities grid -->
+  <section class="py-16 bg-neutral-snow">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <p class="section-label mb-3">Our Services</p>
+        <h2 class="section-heading">Comprehensive Solutions for Every Scale</h2>
+        <p class="text-neutral-muted mt-3 max-w-2xl mx-auto">
+          Whether you run a factory, manage a commercial building, or own a home — Ermis Global
+          designs and delivers the right solution for your needs and budget.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {capabilities.map((c) => (
+          <div class="card flex flex-col">
+            <div class="w-12 h-12 rounded-xl bg-brand-pale flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <Fragment set:html={c.icon} />
+              </svg>
+            </div>
+            <h3 class="font-bold text-neutral-ink mb-2">{c.title}</h3>
+            <p class="text-sm text-neutral-muted leading-relaxed flex-1 mb-4">{c.body}</p>
+            <div class="flex flex-wrap gap-2">
+              {c.tags.map((tag) => (
+                <span class="text-xs px-2.5 py-1 rounded-full bg-neutral-snow text-neutral-muted border border-neutral-rule">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Process teaser -->
+  <section class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="section-label mb-3">How We Work</p>
+      <h2 class="section-heading mb-5">From Inquiry to Bill Savings</h2>
+      <p class="text-neutral-muted mb-10">
+        Our structured 5-step process ensures every project is delivered on time, on spec,
+        and with full documentation — from first call to commissioning and beyond.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4 text-sm">
+        {['Free Site Assessment', 'Custom System Design', 'Approvals & Net-Metering', 'Installation & Commissioning', 'Monitoring & O&M'].map((step, i) => (
+          <div class="flex items-center gap-2">
+            <span class="w-7 h-7 rounded-full bg-brand-red text-white text-xs font-bold flex items-center justify-center flex-shrink-0">
+              {i + 1}
+            </span>
+            <span class="text-neutral-ink font-medium">{step}</span>
+            {i < 4 && <span class="text-neutral-rule hidden sm:block">→</span>}
+          </div>
+        ))}
+      </div>
+      <div class="mt-8">
+        <a href="/get-a-quote" class="btn-primary">Start with a Free Assessment</a>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner
+    headline="Ready to Be Our First Success Story?"
+    body="We're actively taking on projects. Site assessment is free, and so is the proposal. Let's get started."
+    ctaLabel="Get Your Free Assessment"
+    ctaHref="/get-a-quote"
+    ctaSecondaryLabel="Contact Us"
+    ctaSecondaryHref="/contact"
+  />
+</PageLayout>

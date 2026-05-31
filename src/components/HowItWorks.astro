@@ -1,0 +1,66 @@
+---
+const steps = [
+  {
+    num:   '01',
+    title: 'Free Site Assessment',
+    body:  'Our engineer visits your site (or reviews satellite imagery for remote sites) to measure roof/land area, shadow patterns, grid connection points, and current energy consumption.',
+  },
+  {
+    num:   '02',
+    title: 'Custom System Design & Proposal',
+    body:  'We prepare a detailed DPR with system sizing, module layout, single-line diagram, expected generation (kWh/year), and a financial model with ROI, payback period, and subsidy workings.',
+  },
+  {
+    num:   '03',
+    title: 'Approvals & Net-Metering',
+    body:  'We handle all DISCOM applications, net-metering agreements, and structural clearances on your behalf. This includes PM Surya Ghar portal registration for residential clients.',
+  },
+  {
+    num:   '04',
+    title: 'Installation & Commissioning',
+    body:  'Our certified installation team deploys the system with zero disruption to your operations. Post-installation, we commission, test, and hand over with a full documentation package.',
+  },
+  {
+    num:   '05',
+    title: 'Monitoring & O&M',
+    body:  'Real-time generation monitoring via app or portal. Scheduled preventive maintenance, rapid fault response, and annual performance reviews — keeping your system at peak output for 25+ years.',
+  },
+];
+---
+
+<section class="py-20 bg-neutral-snow">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="text-center mb-14">
+      <p class="section-label mb-3">The Process</p>
+      <h2 class="section-heading">From Inquiry to Bill Savings<br class="hidden md:block"/> — Here's How It Works</h2>
+    </div>
+
+    <div class="relative">
+      <!-- Connector line (desktop) -->
+      <div class="hidden lg:block absolute top-8 left-0 right-0 h-0.5 bg-neutral-rule mx-[10%]" aria-hidden="true"></div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+        {steps.map((step, i) => (
+          <div class="relative flex flex-col items-center text-center lg:items-center">
+            <!-- Step number bubble -->
+            <div class:list={[
+              'relative z-10 w-16 h-16 rounded-full flex items-center justify-center text-xl font-extrabold mb-5 border-4 border-neutral-snow',
+              i === 0 ? 'bg-brand-red text-white' : 'bg-white text-brand-red border-brand-red shadow-card'
+            ]}>
+              {step.num}
+            </div>
+            <h3 class="font-bold text-neutral-ink mb-2 text-sm leading-snug">{step.title}</h3>
+            <p class="text-xs text-neutral-muted leading-relaxed">{step.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="text-center mt-12">
+      <a href="/get-a-quote" class="btn-primary">
+        Start with a Free Assessment
+      </a>
+    </div>
+  </div>
+</section>

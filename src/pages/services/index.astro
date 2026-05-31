@@ -1,0 +1,73 @@
+---
+import PageLayout   from '../../layouts/PageLayout.astro';
+import ServicesGrid from '../../components/ServicesGrid.astro';
+import CTABanner    from '../../components/CTABanner.astro';
+---
+
+<PageLayout
+  title="Solar Energy Services"
+  description="Ermis Global offers end-to-end solar energy services for enterprise, commercial, and residential clients across India — from DPR to commissioning and O&M."
+>
+  <section class="bg-neutral-ink py-16">
+    <div class="max-w-2xl mx-auto px-4 text-center">
+      <h1 class="text-4xl font-extrabold text-white mb-4">Our Solar Services</h1>
+      <p class="text-white/70 leading-relaxed">
+        Whether you need a 3 kW rooftop for your home or a 5 MW captive power plant for your factory —
+        we have the expertise, partnerships, and process to deliver it right.
+      </p>
+    </div>
+  </section>
+
+  <ServicesGrid />
+
+  <!-- Additional services table -->
+  <section class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="section-heading text-center mb-8">Full Service Offering</h2>
+      <div class="overflow-x-auto rounded-xl border border-neutral-rule">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="bg-neutral-snow border-b border-neutral-rule">
+              <th class="text-left px-5 py-3.5 font-semibold text-neutral-ink">Service</th>
+              <th class="text-center px-4 py-3.5 font-semibold text-brand-red">Enterprise</th>
+              <th class="text-center px-4 py-3.5 font-semibold text-brand-red">Commercial</th>
+              <th class="text-center px-4 py-3.5 font-semibold text-brand-red">Residential</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-neutral-rule">
+            {[
+              ['Site Survey & Feasibility Study',      '✓','✓','✓'],
+              ['Energy Audit',                          '✓','✓','—'],
+              ['Detailed Project Report (DPR)',         '✓','✓','—'],
+              ['System Design & Shadow Analysis',       '✓','✓','✓'],
+              ['DISCOM Approval Handling',              '✓','✓','✓'],
+              ['PM Surya Ghar Registration',            '—','—','✓'],
+              ['Subsidy & Incentive Processing',        '—','✓','✓'],
+              ['EPC (Engineering, Procurement, Construction)', '✓','✓','✓'],
+              ['Net-Metering Setup',                    '✓','✓','✓'],
+              ['Solar Loan Facilitation',               '—','✓','✓'],
+              ['Performance Monitoring (App/Portal)',   '✓','✓','✓'],
+              ['Annual O&M Contract',                   '✓','✓','✓'],
+              ['Open Access / Captive Power Advisory',  '✓','—','—'],
+              ['RESCO / BOOT Model Structuring',        '✓','—','—'],
+            ].map(([svc, ent, com, res]) => (
+              <tr class="hover:bg-neutral-snow transition-colors">
+                <td class="px-5 py-3 text-neutral-ink">{svc}</td>
+                <td class="px-4 py-3 text-center">{ent === '✓' ? <span class="text-brand-red font-bold">✓</span> : <span class="text-neutral-muted">—</span>}</td>
+                <td class="px-4 py-3 text-center">{com === '✓' ? <span class="text-brand-red font-bold">✓</span> : <span class="text-neutral-muted">—</span>}</td>
+                <td class="px-4 py-3 text-center">{res === '✓' ? <span class="text-brand-red font-bold">✓</span> : <span class="text-neutral-muted">—</span>}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner
+    headline="Not Sure Which Service You Need?"
+    body="Speak to our engineers. A 15-minute call is all it takes to identify the right solution for your property and budget."
+    ctaLabel="Talk to an Engineer"
+    ctaHref="/contact"
+  />
+</PageLayout>

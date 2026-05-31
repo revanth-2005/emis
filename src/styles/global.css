@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Metropolis — brand font, self-hosted via /public/fonts/ */
+@font-face {
+  font-family: 'Metropolis';
+  src: url('/fonts/Metropolis-400.woff2') format('woff2');
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Metropolis';
+  src: url('/fonts/Metropolis-500.woff2') format('woff2');
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Metropolis';
+  src: url('/fonts/Metropolis-600.woff2') format('woff2');
+  font-weight: 600; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Metropolis';
+  src: url('/fonts/Metropolis-700.woff2') format('woff2');
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Metropolis';
+  src: url('/fonts/Metropolis-800.woff2') format('woff2');
+  font-weight: 800; font-style: normal; font-display: swap;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply text-neutral-ink antialiased;
+    font-family: 'Metropolis', system-ui, sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold leading-tight tracking-tight;
+  }
+
+  /*
+   * Solar panel grid — applied to all sections.
+   * Two layers: panel-module borders (120×80px) + cell subdivision (24×20px = 5×4 cells per panel).
+   * On dark/red bg sections the dark-ink lines are invisible; on white/snow sections they show faintly.
+   */
+  section {
+    background-image:
+      linear-gradient(rgba(17,24,39,0.055) 1.5px, transparent 1.5px),
+      linear-gradient(90deg, rgba(17,24,39,0.055) 1.5px, transparent 1.5px),
+      linear-gradient(rgba(17,24,39,0.022) 0.5px, transparent 0.5px),
+      linear-gradient(90deg, rgba(17,24,39,0.022) 0.5px, transparent 0.5px);
+    background-size: 120px 80px, 120px 80px, 24px 20px, 24px 20px;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center gap-2 bg-brand-red text-white font-semibold
+           px-6 py-3 rounded-lg shadow-cta hover:bg-brand-dark transition-colors duration-200;
+  }
+  .btn-outline {
+    @apply inline-flex items-center gap-2 border-2 border-brand-red text-brand-red font-semibold
+           px-6 py-3 rounded-lg hover:bg-brand-pale transition-colors duration-200;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 text-white font-semibold
+           px-6 py-3 rounded-lg border-2 border-white hover:bg-white hover:text-brand-red
+           transition-colors duration-200;
+  }
+  .section-label {
+    @apply text-brand-red text-sm font-semibold uppercase tracking-widest;
+  }
+  .section-heading {
+    @apply text-3xl md:text-4xl font-bold text-neutral-ink;
+  }
+  .card {
+    @apply bg-white rounded-2xl shadow-card p-6 md:p-8;
+  }
+}

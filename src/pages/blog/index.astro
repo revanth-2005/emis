@@ -1,0 +1,152 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+
+const posts = [
+  {
+    slug:     'topcon-perc-hjt-polycrystalline-solar-panels-india',
+    title:    'TOPCon vs Mono PERC vs HJT vs Polycrystalline: Which Solar Panel is Right for India in 2025?',
+    excerpt:  'A data-driven comparison of the four major solar cell technologies — efficiency, temperature performance, 25-year yield, degradation, and price — with India-specific analysis and real charts.',
+    category: 'Technical Deep-Dive',
+    date:     '2025-05-30',
+    author:   'Mr. Ramanadane C, Director',
+    draft:    false,
+  },
+  {
+    slug:     'pm-surya-ghar-guide-2024',
+    title:    'PM Surya Ghar Muft Bijli Yojana: Complete Guide for Indian Homeowners (2024)',
+    excerpt:  'Everything you need to know about the ₹75,000 crore central government scheme — eligibility, subsidy amounts, application steps, and DISCOM net-metering.',
+    category: 'Policy & Subsidies',
+    date:     '2024-09-01',
+    draft:    true,
+  },
+  {
+    slug:     'solar-payback-period-india',
+    title:    'Solar Payback Period in India: What to Expect in 2024',
+    excerpt:  'How to calculate your real payback period — accounting for tariff escalation, degradation, and subsidy. With worked examples for residential and commercial systems.',
+    category: 'Finance & ROI',
+    date:     '2024-09-15',
+    draft:    true,
+  },
+  {
+    slug:     'almm-listed-modules-explained',
+    title:    'ALMM-Listed Solar Panels: Why It Matters and How to Check',
+    excerpt:  "The Approved List of Models & Manufacturers (ALMM) determines subsidy eligibility and quality standards. Here's how to verify your panel is compliant.",
+    category: 'Technical',
+    date:     '2024-10-01',
+    draft:    true,
+  },
+  {
+    slug:     'open-access-solar-india',
+    title:    'Open Access Solar in India: A Guide for Industrial Buyers',
+    excerpt:  'How Indian manufacturers can procure cheap renewable power via open access — and what the banking, wheeling, and cross-subsidy rules actually mean.',
+    category: 'Enterprise Solar',
+    date:     '2024-10-15',
+    draft:    true,
+  },
+  {
+    slug:     'net-metering-vs-gross-metering',
+    title:    'Net Metering vs Gross Metering: Which Is Better for Your Rooftop Solar?',
+    excerpt:  'Many states have shifted to gross metering or a hybrid model. We break down the financial impact and which states offer what — as of 2024.',
+    category: 'Policy & Subsidies',
+    date:     '2024-11-01',
+    draft:    true,
+  },
+  {
+    slug:     'commercial-solar-accelerated-depreciation',
+    title:    'Accelerated Depreciation on Solar: Claiming 40% in Year 1 (Section 32)',
+    excerpt:  "For profitable businesses, accelerated depreciation can reduce the effective solar system cost by 15–20%. Here's how to calculate and claim it.",
+    category: 'Finance & ROI',
+    date:     '2024-11-15',
+    draft:    true,
+  },
+];
+
+const categories = [...new Set(posts.map((p) => p.category))];
+---
+
+<PageLayout
+  title="Solar Energy Blog — Insights, Policy & Guides"
+  description="Expert solar insights for India — PM Surya Ghar updates, ROI calculators, policy explainers, and technical guides for homeowners, businesses, and enterprises."
+>
+  <section class="bg-neutral-ink py-16">
+    <div class="max-w-2xl mx-auto px-4 text-center">
+      <h1 class="text-4xl font-extrabold text-white mb-4">Solar Insights</h1>
+      <p class="text-white/70 leading-relaxed">
+        Policy updates, ROI guides, technical explainers, and market analysis — written by
+        solar engineers and industry experts for Indian decision-makers.
+      </p>
+    </div>
+  </section>
+
+  <!-- Category filter -->
+  <div class="bg-white border-b border-neutral-rule py-4">
+    <div class="max-w-7xl mx-auto px-4 flex flex-wrap gap-3 justify-center">
+      <a href="/blog" class="px-4 py-1.5 rounded-full text-sm font-medium bg-brand-red text-white">All</a>
+      {categories.map((cat) => (
+        <span class="px-4 py-1.5 rounded-full text-sm font-medium border border-neutral-rule text-neutral-muted">
+          {cat}
+        </span>
+      ))}
+    </div>
+  </div>
+
+  <section class="py-16 bg-neutral-snow">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Draft notice -->
+      <div class="mb-10 p-5 bg-yellow-50 border border-yellow-200 rounded-xl text-sm text-yellow-800">
+        <strong>Content status:</strong> The posts below are planned articles — topic strategy is confirmed.
+        Publish each article when the content is written and reviewed. Remove this notice when the blog is live.
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {posts.map((post) => (
+          <article class="card flex flex-col">
+            <!-- Category + date -->
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-semibold text-brand-red bg-brand-pale px-2.5 py-1 rounded-full">
+                {post.category}
+              </span>
+              <time class="text-xs text-neutral-muted" datetime={post.date}>
+                {new Date(post.date).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}
+              </time>
+            </div>
+
+            <h2 class="font-bold text-neutral-ink mb-3 leading-snug flex-1">{post.title}</h2>
+            <p class="text-sm text-neutral-muted leading-relaxed mb-5">{post.excerpt}</p>
+
+            {post.draft ? (
+              <span class="text-xs text-neutral-muted italic">Coming soon</span>
+            ) : (
+              <a href={`/blog/${post.slug}`} class="text-brand-red text-sm font-semibold hover:underline">
+                Read Article →
+              </a>
+            )}
+          </article>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="py-14 bg-white border-t border-neutral-rule">
+    <div class="max-w-xl mx-auto px-4 text-center">
+      <h2 class="text-2xl font-bold text-neutral-ink mb-2">Get Solar Updates in Your Inbox</h2>
+      <p class="text-neutral-muted text-sm mb-6">
+        New policy changes, subsidy alerts, and project case studies — once a month, no spam.
+      </p>
+      <form name="newsletter" method="POST" data-netlify="true" class="flex gap-3">
+        <input type="hidden" name="form-name" value="newsletter" />
+        <input
+          type="email"
+          name="email"
+          placeholder="you@company.com"
+          required
+          class="flex-1 px-4 py-2.5 border border-neutral-rule rounded-lg text-sm focus:ring-2 focus:ring-brand-red outline-none"
+        />
+        <button type="submit" class="btn-primary text-sm flex-shrink-0">Subscribe</button>
+      </form>
+    </div>
+  </section>
+</PageLayout>

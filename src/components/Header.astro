@@ -1,0 +1,186 @@
+---
+const navLinks = [
+  { label: 'Home',      href: '/' },
+  { label: 'About',     href: '/about' },
+  {
+    label: 'Services', href: '/services',
+    children: [
+      { label: 'Enterprise & Industrial', href: '/services/enterprise' },
+      { label: 'Commercial Buildings',    href: '/services/commercial' },
+      { label: 'Residential',             href: '/services/residential' },
+    ],
+  },
+  { label: 'Products',  href: '/products' },
+  { label: 'Portfolio', href: '/portfolio' },
+  { label: 'Blog',      href: '/blog' },
+  { label: 'Contact',   href: '/contact' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-50 bg-white border-b border-neutral-rule shadow-sm" id="site-header">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 md:h-20">
+
+      <!-- Logo -->
+      <a href="/" class="flex-shrink-0" aria-label="Ermis Global — Home">
+        <img
+          src="/logos/logo-horizontal-color.svg"
+          alt="Ermis Consultants & Traders Pvt Ltd"
+          class="h-10 md:h-12 w-auto"
+          width="200" height="48"
+        />
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden lg:flex items-center gap-1" aria-label="Primary navigation">
+        {navLinks.map((link) => (
+          link.children ? (
+            <div class="relative group">
+              <button
+                class:list={[
+                  'flex items-center gap-1 px-3 py-2 text-sm font-medium rounded-md transition-colors',
+                  currentPath.startsWith('/services')
+                    ? 'text-brand-red'
+                    : 'text-neutral-ink hover:text-brand-red'
+                ]}
+                aria-haspopup="true"
+              >
+                {link.label}
+                <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </button>
+              <div class="absolute top-full left-0 mt-1 w-56 bg-white rounded-xl shadow-card border border-neutral-rule opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                {link.children.map((child) => (
+                  <a
+                    href={child.href}
+                    class:list={[
+                      'block px-4 py-3 text-sm rounded-xl transition-colors',
+                      currentPath === child.href
+                        ? 'text-brand-red font-semibold bg-brand-pale'
+                        : 'text-neutral-ink hover:text-brand-red hover:bg-brand-pale'
+                    ]}
+                  >
+                    {child.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+          ) : (
+            <a
+              href={link.href}
+              class:list={[
+                'px-3 py-2 text-sm font-medium rounded-md transition-colors',
+                currentPath === link.href
+                  ? 'text-brand-red font-semibold'
+                  : 'text-neutral-ink hover:text-brand-red'
+              ]}
+            >
+              {link.label}
+            </a>
+          )
+        ))}
+      </nav>
+
+      <!-- CTA + Phone -->
+      <div class="hidden lg:flex items-center gap-3">
+        <div class="flex flex-col items-end gap-0.5">
+          <a href="tel:+919894821309"
+             class="text-xs font-medium text-neutral-muted hover:text-brand-red transition-colors flex items-center gap-1">
+            <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13
+                   a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0
+                   01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 12V5z"/>
+            </svg>
+            +91 98948 21309
+          </a>
+          <a href="tel:+919902257789"
+             class="text-xs font-medium text-neutral-muted hover:text-brand-red transition-colors flex items-center gap-1">
+            <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13
+                   a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0
+                   01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 12V5z"/>
+            </svg>
+            +91 99022 57789
+          </a>
+        </div>
+        <a href="/get-a-quote" class="btn-primary text-sm py-2.5">
+          Get a Free Quote
+        </a>
+      </div>
+
+      <!-- Mobile menu toggle -->
+      <button
+        id="mobile-menu-btn"
+        class="lg:hidden p-2 rounded-md text-neutral-ink hover:text-brand-red"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+        <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden lg:hidden border-t border-neutral-rule bg-white">
+    <nav class="max-w-7xl mx-auto px-4 py-4 space-y-1" aria-label="Mobile navigation">
+      {navLinks.map((link) => (
+        link.children ? (
+          <div>
+            <p class="px-3 py-2 text-xs font-semibold text-neutral-muted uppercase tracking-wider">{link.label}</p>
+            {link.children.map((child) => (
+              <a
+                href={child.href}
+                class="block pl-6 pr-3 py-2 text-sm text-neutral-ink hover:text-brand-red hover:bg-brand-pale rounded-lg"
+              >
+                {child.label}
+              </a>
+            ))}
+          </div>
+        ) : (
+          <a
+            href={link.href}
+            class:list={[
+              'block px-3 py-2 text-sm rounded-lg',
+              currentPath === link.href
+                ? 'text-brand-red font-semibold bg-brand-pale'
+                : 'text-neutral-ink hover:text-brand-red hover:bg-brand-pale'
+            ]}
+          >
+            {link.label}
+          </a>
+        )
+      ))}
+      <div class="pt-2 border-t border-neutral-rule mt-2">
+        <a href="/get-a-quote" class="btn-primary w-full justify-center text-sm">
+          Get a Free Quote
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const btn   = document.getElementById('mobile-menu-btn')!;
+  const menu  = document.getElementById('mobile-menu')!;
+  const hamb  = document.getElementById('hamburger-icon')!;
+  const close = document.getElementById('close-icon')!;
+
+  btn.addEventListener('click', () => {
+    const isOpen = !menu.classList.contains('hidden');
+    menu.classList.toggle('hidden', isOpen);
+    hamb.classList.toggle('hidden', !isOpen);
+    close.classList.toggle('hidden', isOpen);
+    btn.setAttribute('aria-expanded', String(!isOpen));
+  });
+</script>
