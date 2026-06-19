@@ -16,203 +16,165 @@ const {
 } = Astro.props;
 ---
 
-<section class="relative bg-neutral-ink overflow-hidden">
-  <!-- Solar panel pattern — panel module borders (120×80px) -->
-  <div class="absolute inset-0 pointer-events-none"
-       style="background-image: linear-gradient(rgba(196,59,49,0.22) 1.5px, transparent 1.5px), linear-gradient(90deg, rgba(196,59,49,0.22) 1.5px, transparent 1.5px); background-size: 120px 80px, 120px 80px;">
-  </div>
-  <!-- Solar panel pattern — cell subdivision (24×20px = 5×4 cells per module) -->
-  <div class="absolute inset-0 pointer-events-none"
-       style="background-image: linear-gradient(rgba(196,59,49,0.09) 0.5px, transparent 0.5px), linear-gradient(90deg, rgba(196,59,49,0.09) 0.5px, transparent 0.5px); background-size: 24px 20px, 24px 20px;">
-  </div>
-  <!-- Red glow — full-width radial so there's no hard edge -->
-  <div class="absolute inset-0 pointer-events-none"
-       style="background: radial-gradient(ellipse 70% 80% at 85% 30%, rgba(196,59,49,0.35) 0%, rgba(196,59,49,0.12) 45%, transparent 75%)">
-  </div>
-  <!-- Bottom fade -->
-  <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-neutral-ink to-transparent pointer-events-none"></div>
+<section class="relative bg-neutral-ink overflow-hidden flex" style="min-height: calc(100vh - 80px)">
+  <!-- Solar panel pattern — clipped to left half only -->
+  <div class="absolute inset-y-0 left-0 pointer-events-none" style="right:50%; background-image: linear-gradient(rgba(196,59,49,0.22) 1.5px, transparent 1.5px), linear-gradient(90deg, rgba(196,59,49,0.22) 1.5px, transparent 1.5px); background-size: 120px 80px, 120px 80px;"></div>
+  <div class="absolute inset-y-0 left-0 pointer-events-none" style="right:50%; background-image: linear-gradient(rgba(196,59,49,0.09) 0.5px, transparent 0.5px), linear-gradient(90deg, rgba(196,59,49,0.09) 0.5px, transparent 0.5px); background-size: 24px 20px, 24px 20px;"></div>
+  <!-- Red glow — kept to left half -->
+  <div class="absolute inset-y-0 left-0 pointer-events-none" style="right:50%; background: radial-gradient(ellipse 120% 80% at 70% 30%, rgba(196,59,49,0.40) 0%, rgba(196,59,49,0.15) 50%, transparent 80%)"></div>
+  <!-- Bottom fade — left half only -->
+  <div class="absolute bottom-0 left-0 h-32 pointer-events-none bg-gradient-to-t from-neutral-ink to-transparent" style="right:50%"></div>
 
-  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 lg:py-24">
-    <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
-
-      <!-- Left: copy -->
-      <div>
-        {badge && (
-          <span class="inline-flex items-center gap-2 mb-6 px-3 py-1.5 rounded-full text-xs font-semibold
-                       bg-brand-red/20 text-brand-light border border-brand-red/30">
-            <span class="w-1.5 h-1.5 rounded-full bg-brand-light animate-pulse"></span>
-            {badge}
-          </span>
-        )}
-
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
-          {headline}
-        </h1>
-
-        <p class="text-lg md:text-xl text-white/70 leading-relaxed mb-10">
-          {subheadline}
-        </p>
-
-        <div class="flex flex-col sm:flex-row gap-4">
-          <a href={ctaPrimary.href}
-             class="inline-flex items-center justify-center gap-2 bg-brand-red text-white font-semibold
-                    text-base px-8 py-4 rounded-lg shadow-cta hover:bg-brand-dark transition-colors duration-200">
-            {ctaPrimary.label}
+  <!-- Left: hero copy — constrained width, centred in left half -->
+  <div class="relative z-10 flex-1 flex items-center py-12 px-4 sm:px-8 lg:px-12 xl:px-16">
+    <div class="max-w-lg">
+      {badge && (
+        <span class="inline-flex items-center gap-2 mb-6 px-3 py-1.5 rounded-full text-xs font-semibold
+                     bg-brand-red/20 text-brand-light border border-brand-red/30">
+          <span class="w-1.5 h-1.5 rounded-full bg-brand-light animate-pulse"></span>
+          {badge}
+        </span>
+      )}
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
+        {headline}
+      </h1>
+      <p class="text-lg text-white/70 leading-relaxed mb-8">
+        {subheadline}
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href={ctaPrimary.href}
+           class="inline-flex items-center justify-center gap-2 bg-brand-red text-white font-semibold
+                  text-base px-8 py-4 rounded-lg shadow-cta hover:bg-brand-dark transition-colors duration-200">
+          {ctaPrimary.label}
+        </a>
+        {ctaSecondary && (
+          <a href={ctaSecondary.href}
+             class="inline-flex items-center justify-center gap-2 font-semibold text-base
+                    px-8 py-4 rounded-lg border-2 border-white/50 text-white
+                    hover:border-white hover:bg-white/10 transition-colors duration-200">
+            {ctaSecondary.label}
           </a>
-          {ctaSecondary && (
-            <a href={ctaSecondary.href}
-               class="inline-flex items-center justify-center gap-2 font-semibold text-base
-                      px-8 py-4 rounded-lg border-2 border-white/50 text-white
-                      hover:border-white hover:bg-white/10 transition-colors duration-200">
-              {ctaSecondary.label}
-            </a>
-          )}
-        </div>
-
-        <!-- Trust signals -->
-        <div class="mt-10 flex flex-wrap items-center gap-5 text-sm text-white/50">
-          <span class="flex items-center gap-2">
-            <svg class="w-4 h-4 text-brand-light flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0
-                00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414
-                0l4-4z" clip-rule="evenodd"/>
-            </svg>
-            MNRE-aligned solutions
-          </span>
-          <span class="flex items-center gap-2">
-            <svg class="w-4 h-4 text-brand-light flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0
-                00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414
-                0l4-4z" clip-rule="evenodd"/>
-            </svg>
-            Net-metering & PM Surya Ghar eligible
-          </span>
-          <span class="flex items-center gap-2">
-            <svg class="w-4 h-4 text-brand-light flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0
-                00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414
-                0l4-4z" clip-rule="evenodd"/>
-            </svg>
-            ALMM-listed modules
-          </span>
-        </div>
+        )}
       </div>
-
-      <!-- Right: lead capture form (desktop) / below copy (mobile) -->
-      <div class="mt-10 lg:mt-0">
-        <div class="relative">
-          <div class="absolute -top-6 -right-6 w-32 h-32 bg-brand-red/20 rounded-full blur-3xl pointer-events-none"></div>
-          <div class="absolute -bottom-6 -left-6 w-40 h-40 bg-brand-red/10 rounded-full blur-3xl pointer-events-none"></div>
-
-          <div id="hero-form-wrap" class="relative bg-white rounded-2xl p-6 shadow-2xl">
-            <p class="text-xl font-extrabold text-neutral-ink leading-tight">
-              Save upto <span class="text-brand-red">₹78,000</span> on residential solar — with govt. subsidy
-            </p>
-            <p class="text-sm text-neutral-muted mt-1 mb-5">Book FREE solar consultation with experts</p>
-
-            <form
-              id="hero-lead-form"
-              name="hero-lead"
-              method="POST"
-              data-netlify="true"
-              data-netlify-honeypot="bot-field"
-              class="space-y-3"
-            >
-              <input type="hidden" name="form-name" value="hero-lead" />
-              <p class="hidden"><input name="bot-field" /></p>
-
-              <input
-                name="name" type="text" required placeholder="Full Name"
-                class="hero-input"
-              />
-              <input
-                name="phone" type="tel" required placeholder="Mobile Number"
-                pattern="[6-9][0-9]{9}" title="Enter a valid 10-digit Indian mobile number"
-                class="hero-input"
-              />
-              <input
-                name="pincode" type="text" required placeholder="PIN Code"
-                pattern="[1-9][0-9]{5}" title="Enter a valid 6-digit PIN code"
-                maxlength="6"
-                class="hero-input"
-              />
-
-              <!-- Bill range pill selector -->
-              <div>
-                <p class="text-xs font-medium text-neutral-ink mb-2">Monthly Electricity Bill</p>
-                <div class="grid grid-cols-2 gap-2">
-                  {[
-                    { label: 'Less than ₹1,500', value: '<1500' },
-                    { label: '₹1,500 – ₹2,500',  value: '1500-2500' },
-                    { label: '₹2,500 – ₹4,000',  value: '2500-4000' },
-                    { label: '₹4,000 – ₹8,000',  value: '4000-8000' },
-                    { label: 'More than ₹8,000',  value: '>8000' },
-                  ].map((opt) => (
-                    <div class="relative">
-                      <input
-                        type="radio" name="monthly_bill" value={opt.value}
-                        id={`bill-${opt.value}`}
-                        class="peer sr-only"
-                      />
-                      <label
-                        for={`bill-${opt.value}`}
-                        class="bill-pill peer-checked:bg-brand-red peer-checked:text-white peer-checked:border-brand-red peer-checked:hover:bg-brand-dark peer-checked:hover:text-white"
-                      >
-                        {opt.label}
-                      </label>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <!-- Consent -->
-              <label class="flex items-start gap-2 cursor-pointer">
-                <input type="checkbox" name="consent" required
-                  class="mt-0.5 w-4 h-4 flex-shrink-0 accent-brand-red" />
-                <span class="text-xs text-neutral-muted leading-snug">
-                  I agree to Ermis Global's
-                  <a href="/terms-of-service" class="text-brand-red hover:underline" target="_blank">Terms of Service</a>
-                  and
-                  <a href="/privacy-policy" class="text-brand-red hover:underline" target="_blank">Privacy Policy</a>.
-                </span>
-              </label>
-
-              <button type="submit"
-                class="w-full bg-brand-red text-white font-bold text-sm py-3 rounded-lg
-                       hover:bg-brand-dark transition-colors duration-200 shadow-cta">
-                Book My Free Consultation
-              </button>
-              <p class="text-xs text-center text-neutral-muted">Free, no obligation. We respond within 1 business day.</p>
-            </form>
-          </div>
-
-          <!-- Success state (hidden until form submits) -->
-          <div id="hero-form-success" class="hidden relative bg-white rounded-2xl p-8 shadow-2xl text-center">
-            <div class="w-14 h-14 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">
-              <svg class="w-7 h-7 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-              </svg>
-            </div>
-            <p class="text-lg font-extrabold text-neutral-ink mb-2">You're booked!</p>
-            <p class="text-sm text-neutral-muted leading-relaxed">
-              Our solar expert will call you within 1 business day to schedule your free consultation.
-            </p>
-          </div>
-        </div>
+      <div class="mt-8 flex flex-wrap items-center gap-5 text-sm text-white/50">
+        {[
+          'MNRE-aligned solutions',
+          'Net-metering & PM Surya Ghar eligible',
+          'ALMM-listed modules',
+        ].map((t) => (
+          <span class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-brand-light flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0
+                00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd"/>
+            </svg>
+            {t}
+          </span>
+        ))}
       </div>
-
     </div>
   </div>
+
+  <!-- Right: form panel — flush to scrollbar, full height -->
+  <div class="hidden lg:flex flex-col w-1/2 flex-shrink-0 relative z-10 shadow-[-12px_0_40px_rgba(0,0,0,0.3)]" style="background: linear-gradient(160deg, #ffffff 0%, #fdf1f0 100%)">
+
+    <!-- Red accent bar at top -->
+    <div class="h-1.5 bg-brand-red flex-shrink-0"></div>
+
+    <div id="hero-form-wrap" class="flex flex-col flex-1 px-8 xl:px-10 py-8">
+      <p class="text-2xl font-extrabold text-neutral-ink leading-snug mb-1">
+        Book a <span class="text-brand-red">FREE</span> Solar Consultation
+      </p>
+      <p class="text-sm text-neutral-muted mb-6">Save upto ₹78,000 on residential solar with govt. subsidy</p>
+
+      <form
+        id="hero-lead-form"
+        name="hero-lead"
+        method="POST"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        class="flex flex-col flex-1 space-y-3"
+      >
+        <input type="hidden" name="form-name" value="hero-lead" />
+        <p class="hidden"><input name="bot-field" /></p>
+
+        <input name="name" type="text" required placeholder="Full Name" class="hero-input" />
+        <input name="phone" type="tel" required placeholder="Mobile Number"
+          pattern="[6-9][0-9]{9}" title="Enter a valid 10-digit Indian mobile number"
+          class="hero-input" />
+        <input name="pincode" type="text" required placeholder="PIN Code"
+          pattern="[1-9][0-9]{5}" title="Enter a valid 6-digit PIN code"
+          maxlength="6" class="hero-input" />
+
+        <div>
+          <p class="text-sm font-bold text-neutral-ink mb-2">Monthly Electricity Bill</p>
+          <div class="grid grid-cols-2 gap-2">
+            {[
+              { label: 'Less than ₹1,500', value: '<1500' },
+              { label: '₹1,500 – ₹2,500',  value: '1500-2500' },
+              { label: '₹2,500 – ₹4,000',  value: '2500-4000' },
+              { label: '₹4,000 – ₹8,000',  value: '4000-8000' },
+              { label: 'More than ₹8,000',  value: '>8000' },
+            ].map((opt) => (
+              <div class="relative">
+                <input type="radio" name="monthly_bill" value={opt.value}
+                  id={`bill-${opt.value}`} class="peer sr-only" />
+                <label for={`bill-${opt.value}`}
+                  class="bill-pill peer-checked:bg-brand-red peer-checked:text-white peer-checked:border-brand-red peer-checked:hover:bg-brand-dark peer-checked:hover:text-white">
+                  {opt.label}
+                </label>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <label class="flex items-start gap-2 cursor-pointer">
+          <input type="checkbox" name="consent" required
+            class="mt-0.5 w-4 h-4 flex-shrink-0 accent-brand-red" />
+          <span class="text-xs text-neutral-muted leading-snug">
+            I agree to Ermis Global's
+            <a href="/terms-of-service" class="text-brand-red hover:underline" target="_blank">Terms of Service</a>
+            and
+            <a href="/privacy-policy" class="text-brand-red hover:underline" target="_blank">Privacy Policy</a>.
+          </span>
+        </label>
+
+        <div class="mt-auto pt-2">
+          <button type="submit"
+            class="w-full bg-brand-red text-white font-extrabold text-base py-4 rounded-xl
+                   hover:bg-brand-dark transition-colors duration-200 shadow-cta">
+            Book My FREE Consultation →
+          </button>
+          <p class="text-xs text-center text-neutral-muted mt-2">Free, no obligation. We respond within 1 business day.</p>
+        </div>
+      </form>
+    </div>
+
+    <!-- Success state -->
+    <div id="hero-form-success" class="hidden flex-1 flex flex-col items-center justify-center px-10 text-center">
+      <div class="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">
+        <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+        </svg>
+      </div>
+      <p class="text-2xl font-extrabold text-neutral-ink mb-2">You're booked!</p>
+      <p class="text-base text-neutral-muted leading-relaxed">
+        Our solar expert will call you within 1 business day to schedule your free consultation.
+      </p>
+    </div>
+
+  </div>
+
 </section>
 
 <style>
   .hero-input {
-    @apply w-full px-4 py-2.5 border border-neutral-rule rounded-lg text-sm
+    @apply w-full px-4 py-3 border border-neutral-rule rounded-xl text-base font-medium
            focus:ring-2 focus:ring-brand-red focus:border-brand-red outline-none
-           bg-white text-neutral-ink placeholder-neutral-muted;
+           bg-neutral-snow text-neutral-ink placeholder-neutral-muted;
   }
   .bill-pill {
-    @apply block w-full text-center text-xs font-medium px-2 py-2 rounded-lg border
+    @apply block w-full text-center text-sm font-semibold px-2 py-2.5 rounded-xl border
            border-neutral-rule text-neutral-muted cursor-pointer
            hover:border-brand-red hover:text-brand-red transition-colors duration-150;
   }
