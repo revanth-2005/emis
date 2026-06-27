@@ -1,47 +1,88 @@
 ---
-const credentials = [
-  { label: 'MNRE Registered',         detail: 'Ministry of New & Renewable Energy' },
-  { label: 'ALMM-Listed Modules',     detail: 'Approved List of Models & Manufacturers' },
-  { label: 'PM Surya Ghar Eligible',  detail: 'Central subsidy up to ₹78,000' },
-  { label: 'DISCOM Approved',         detail: 'Net-metering & grid-tie across states' },
-  { label: '25-Year O&M',             detail: 'Full lifecycle support guaranteed' },
-  { label: 'Pan-India Reach',         detail: 'Projects from metros to remote sites' },
-];
+// Credentials and partner logos credibility section
 ---
 
-<section class="py-20 bg-brand-red">
+<section class="py-14 bg-white border-t border-neutral-rule">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-    <div class="text-center mb-12">
-      <p class="text-white/60 text-sm font-semibold uppercase tracking-widest mb-3">Why Clients Trust Us</p>
-      <h2 class="text-3xl md:text-4xl font-bold text-white">Built on Credentials That Matter</h2>
-      <p class="mt-4 text-white/70 max-w-2xl mx-auto">
-        Every project we deliver is backed by government-aligned standards, certified equipment, and a single accountable team — from first inquiry to 25-year O&M.
+    <div class="text-center mb-10">
+      <p class="section-label mb-3">Trust & Compliance</p>
+      <h2 class="section-heading">Government Approved &amp; Certified</h2>
+      <p class="mt-4 text-neutral-muted max-w-2xl mx-auto">
+        Ermis Global operates under official empanelment and licensing, ensuring full eligibility for capital subsidies and grid connectivity.
       </p>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-      {credentials.map((c) => (
-        <div class="flex items-start gap-4 bg-white/10 border border-white/20 rounded-xl p-5">
-          <div class="w-9 h-9 flex-shrink-0 rounded-lg bg-white/20 flex items-center justify-center">
-            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0
-                00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                clip-rule="evenodd"/>
+    <!-- Certification Seals -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+      {[
+        {
+          title: 'MNRE & PM Surya Ghar',
+          subtitle: 'Central Govt. Approval',
+          desc: 'Registered channel partner for PM Surya Ghar Muft Bijli Yojana subsidy disbursement.',
+          icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>`
+        },
+        {
+          title: 'DISCOM Net-Metering',
+          subtitle: 'State Grid Integration',
+          desc: 'Empaneled with TANGEDCO/TEDA for seamless line clear approvals and net-metering commissioning.',
+          icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>`
+        },
+        {
+          title: 'Tier-1 Standards',
+          subtitle: 'ALMM & ISO Certified',
+          desc: 'Exclusively using Approved List of Models (ALMM) panels with ISO 9001:2015 process compliance.',
+          icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>`
+        }
+      ].map((seal) => (
+        <div class="bg-neutral-snow border border-neutral-rule rounded-2xl p-6 text-center group hover:bg-white hover:shadow-lg transition-all duration-300">
+          <div class="w-16 h-16 rounded-full bg-brand-pale border border-brand-red/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-brand-red group-hover:border-brand-red transition-all duration-300">
+            <svg class="w-8 h-8 text-brand-red group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <Fragment set:html={seal.icon} />
             </svg>
           </div>
-          <div>
-            <p class="text-white font-semibold text-sm">{c.label}</p>
-            <p class="text-white/60 text-xs mt-0.5">{c.detail}</p>
-          </div>
+          <span class="inline-block text-[10px] font-bold text-brand-red bg-brand-pale px-2.5 py-1 rounded-full mb-2 uppercase tracking-wider">
+            {seal.subtitle}
+          </span>
+          <h3 class="text-lg font-extrabold text-neutral-ink mb-2">{seal.title}</h3>
+          <p class="text-xs text-neutral-muted leading-relaxed max-w-xs mx-auto">{seal.desc}</p>
         </div>
       ))}
     </div>
 
-    <p class="text-center mt-10 text-white/50 text-sm">
-      Client testimonials available on request —&nbsp;
-      <a href="/contact" class="text-white underline underline-offset-2 hover:text-white/80">speak to a reference client</a>
-    </p>
+    <!-- Partner Logos Strip -->
+    <div class="pt-8 border-t border-neutral-rule text-center">
+      <p class="text-xs font-bold text-neutral-muted uppercase tracking-wider mb-6">Authorized Engineering &amp; Technology Partners</p>
+      
+      <div class="flex flex-wrap items-center justify-center gap-10 md:gap-16 opacity-50 grayscale hover:opacity-75 transition-opacity duration-300">
+        
+        <!-- Waaree SVG Logo -->
+        <div class="h-8 flex items-center" title="Waaree Solar">
+          <span class="text-xl font-black tracking-widest text-neutral-ink font-sans">WAAREE</span>
+        </div>
+
+        <!-- Adani SVG Logo -->
+        <div class="h-8 flex items-center gap-1.5" title="Adani Solar">
+          <span class="text-xl font-bold tracking-tight text-neutral-ink font-sans">adani</span>
+          <span class="w-2.5 h-2.5 rounded-full bg-brand-red"></span>
+        </div>
+
+        <!-- Sungrow SVG Logo -->
+        <div class="h-8 flex items-center gap-1.5" title="Sungrow">
+          <span class="text-xl font-black text-neutral-ink font-sans">SUN</span>
+          <span class="text-xl font-light text-neutral-ink font-sans">GROW</span>
+        </div>
+
+        <!-- Growatt SVG Logo -->
+        <div class="h-8 flex items-center gap-1" title="Growatt">
+          <svg class="w-5 h-5 text-neutral-ink" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 100-2h-1a1 1 0 100 2h1zM5.05 6.464A1 1 0 106.46 5.05L5.75 4.34a1 1 0 10-1.41 1.41l.71.71zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/>
+          </svg>
+          <span class="text-lg font-black text-neutral-ink font-sans">growatt</span>
+        </div>
+
+      </div>
+    </div>
 
   </div>
 </section>

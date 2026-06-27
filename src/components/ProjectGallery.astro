@@ -1,0 +1,121 @@
+---
+const projects = [
+  {
+    image: '/gallery_residential.png',
+    title: '5 kWp Residential Solar',
+    location: 'Coimbatore, Tamil Nadu',
+    system: '5 kWp Grid-Tie',
+    before: '₹6,500/mo',
+    after: '₹320/mo',
+    annualSavings: '₹74,100',
+    payback: '4.2 Years',
+    testimonial: 'Ermis handled all net-metering approvals and central subsidy paperwork. The savings are real and started immediately from month one.',
+    client: 'Rajesh Kumar, Homeowner'
+  },
+  {
+    image: '/gallery_commercial.png',
+    title: '25 kWp Commercial Solar',
+    location: 'Salem, Tamil Nadu',
+    system: '25 kWp Net-Metered',
+    before: '₹34,000/mo',
+    after: '₹8,200/mo',
+    annualSavings: '₹3,09,600',
+    payback: '4.8 Years',
+    testimonial: 'We capitalized on 40% Accelerated Depreciation, saving heavily on corporate tax. Our electricity bills dropped by 75% from the first month.',
+    client: 'S. Meenakshi, Director'
+  },
+  {
+    image: '/gallery_industrial.png',
+    title: '150 kWp Industrial Grid-Tie',
+    location: 'Tiruppur, Tamil Nadu',
+    system: '150 kWp Captive Plant',
+    before: '₹2,10,000/mo',
+    after: '₹52,000/mo',
+    annualSavings: '₹18,96,000',
+    payback: '3.8 Years',
+    testimonial: 'The energy audit and shadow analysis from Ermis was highly detailed. Exceptional engineering and seamless DISCOM grid connectivity.',
+    client: 'K. Palanisamy, Factory Owner'
+  }
+];
+---
+
+<section class="py-14 bg-white border-t border-neutral-rule">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center mb-10">
+      <p class="section-label mb-3">Featured Projects</p>
+      <h2 class="section-heading">Real Installations, Proven Savings</h2>
+      <p class="mt-4 text-neutral-muted max-w-2xl mx-auto">
+        Explore actual rooftop solar projects delivered by Ermis Global and review their audited bill reduction performance.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      {projects.map((p) => (
+        <div class="bg-neutral-snow border border-neutral-rule rounded-2xl overflow-hidden flex flex-col group hover:shadow-lg transition-shadow duration-300">
+          
+          <!-- Image Section with Overlays -->
+          <div class="relative overflow-hidden aspect-[16/10] w-full">
+            <img
+              src={p.image}
+              alt={`${p.title} case study`}
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              loading="lazy"
+            />
+            <!-- Top Location Badge -->
+            <span class="absolute top-3 left-3 text-[10px] font-bold text-white bg-neutral-ink/80 px-2.5 py-1 rounded-md tracking-wider">
+              {p.location}
+            </span>
+            <!-- Bottom System Size Label -->
+            <span class="absolute bottom-3 right-3 text-xs font-bold text-white bg-brand-red px-3 py-1.5 rounded-lg shadow-sm">
+              {p.system}
+            </span>
+          </div>
+
+          <!-- Card Content Body -->
+          <div class="p-6 flex-1 flex flex-col">
+            <h3 class="text-lg font-extrabold text-neutral-ink mb-4">{p.title}</h3>
+            
+            <!-- Before / After Bill Comparison -->
+            <div class="grid grid-cols-2 gap-3 mb-5">
+              <div class="bg-red-50 border border-red-100 rounded-xl p-3 text-center">
+                <p class="text-[9px] font-black text-red-500 uppercase tracking-widest leading-none">Before Solar</p>
+                <p class="text-base font-extrabold text-red-700 line-through mt-1.5 leading-none">{p.before}</p>
+              </div>
+              <div class="bg-green-50 border border-green-100 rounded-xl p-3 text-center">
+                <p class="text-[9px] font-black text-green-600 uppercase tracking-widest leading-none">After Solar</p>
+                <p class="text-base font-extrabold text-green-700 mt-1.5 leading-none">{p.after}</p>
+              </div>
+            </div>
+
+            <!-- Savings Metrics -->
+            <div class="grid grid-cols-2 gap-2 mb-5 border-t border-b border-neutral-rule/60 py-3 text-center">
+              <div>
+                <p class="text-[10px] font-semibold text-neutral-muted">Annual Savings</p>
+                <p class="text-base font-extrabold text-brand-red mt-0.5">{p.annualSavings}</p>
+              </div>
+              <div>
+                <p class="text-[10px] font-semibold text-neutral-muted">ROI Payback</p>
+                <p class="text-base font-extrabold text-neutral-ink mt-0.5">{p.payback}</p>
+              </div>
+            </div>
+
+            <!-- Success Testimony -->
+            <div class="flex-1 flex flex-col justify-between">
+              <blockquote class="relative pl-7 text-xs italic text-neutral-muted leading-relaxed mb-4">
+                <span class="absolute left-0 top-0 text-3xl font-serif text-brand-red/35 select-none leading-none">“</span>
+                {p.testimonial}
+              </blockquote>
+              <cite class="text-[11px] font-bold text-neutral-ink not-italic block border-l-2 border-brand-red pl-2.5">
+                {p.client}
+              </cite>
+            </div>
+
+          </div>
+
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

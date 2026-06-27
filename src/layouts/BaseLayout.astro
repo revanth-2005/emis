@@ -87,5 +87,41 @@ const fullTitle  = title.includes('Ermis') ? title : `${title} | Ermis Global`;
 </head>
 <body class="bg-white">
   <slot />
+
+  <script>
+    // Scroll-reveal Intersection Observer
+    document.addEventListener('DOMContentLoaded', () => {
+      const sections = document.querySelectorAll('section');
+      
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -8% 0px', // Trigger when 8% is visible from the bottom
+        threshold: 0.05
+      };
+      
+      const observer = new IntersectionObserver((entries, self) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            self.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+      
+      sections.forEach(section => {
+        section.classList.add('reveal');
+        
+        // Trigger above-the-fold sections with a micro-delay to enable load transition (e.g. Hero Section)
+        const rect = section.getBoundingClientRect();
+        if (rect.top < window.innerHeight) {
+          setTimeout(() => {
+            section.classList.add('revealed');
+          }, 50);
+        } else {
+          observer.observe(section);
+        }
+      });
+    });
+  </script>
 </body>
 </html>

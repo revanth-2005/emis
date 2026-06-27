@@ -80,7 +80,7 @@ const categories = [...new Set(posts.map((p) => p.category))];
 
   <!-- Category filter -->
   <div class="bg-white border-b border-neutral-rule py-4">
-    <div class="max-w-7xl mx-auto px-4 flex flex-wrap gap-3 justify-center">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap gap-3 justify-center">
       <a href="/blog" class="px-4 py-1.5 rounded-full text-sm font-medium bg-brand-red text-white">All</a>
       {categories.map((cat) => (
         <span class="px-4 py-1.5 rounded-full text-sm font-medium border border-neutral-rule text-neutral-muted">

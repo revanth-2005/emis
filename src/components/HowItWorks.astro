@@ -2,62 +2,79 @@
 const steps = [
   {
     num:   '01',
-    title: 'Free Site Assessment',
-    body:  'Our engineer visits your site (or reviews satellite imagery for remote sites) to measure roof/land area, shadow patterns, grid connection points, and current energy consumption.',
+    title: 'Site Visit',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>`,
+    body:  'Our engineer visits your property to inspect structural readiness, measure solar exposure, and assess your current energy consumption.',
   },
   {
     num:   '02',
-    title: 'Custom System Design & Proposal',
-    body:  'We prepare a detailed DPR with system sizing, module layout, single-line diagram, expected generation (kWh/year), and a financial model with ROI, payback period, and subsidy workings.',
+    title: 'Design',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 4L9 7"/>`,
+    body:  'We prepare a detailed module layout, single-line diagrams, expected generation metrics, and a precise financial payback model.',
   },
   {
     num:   '03',
-    title: 'Approvals & Net-Metering',
-    body:  'We handle all DISCOM applications, net-metering agreements, and structural clearances on your behalf. This includes PM Surya Ghar portal registration for residential clients.',
+    title: 'Approval',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>`,
+    body:  'We manage DISCOM grid connectivity approvals, net-metering agreements, and register you on the PM Surya Ghar national portal.',
   },
   {
     num:   '04',
-    title: 'Installation & Commissioning',
-    body:  'Our certified installation team deploys the system with zero disruption to your operations. Post-installation, we commission, test, and hand over with a full documentation package.',
+    title: 'Installation',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><circle cx="12" cy="12" r="3" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>`,
+    body:  'Our certified engineering team deploys the system with zero disruption. We commission the plant and deliver all compliance papers.',
   },
   {
     num:   '05',
-    title: 'Monitoring & O&M',
-    body:  'Real-time generation monitoring via app or portal. Scheduled preventive maintenance, rapid fault response, and annual performance reviews — keeping your system at peak output for 25+ years.',
+    title: 'Savings',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>`,
+    body:  'Activate real-time app tracking. Start saving from Month 1 while we handle scheduled O&M audits to keep output at peak levels.',
   },
 ];
 ---
 
-<section class="py-20 bg-neutral-snow">
+<section class="py-14 bg-neutral-snow">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-    <div class="text-center mb-14">
+    <div class="text-center mb-10">
       <p class="section-label mb-3">The Process</p>
       <h2 class="section-heading">From Inquiry to Bill Savings<br class="hidden md:block"/> — Here's How It Works</h2>
     </div>
 
     <div class="relative">
-      <!-- Connector line (desktop) -->
-      <div class="hidden lg:block absolute top-8 left-0 right-0 h-0.5 bg-neutral-rule mx-[10%]" aria-hidden="true"></div>
-
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
         {steps.map((step, i) => (
-          <div class="relative flex flex-col items-center text-center lg:items-center">
-            <!-- Step number bubble -->
-            <div class:list={[
-              'relative z-10 w-16 h-16 rounded-full flex items-center justify-center text-xl font-extrabold mb-5 border-4 border-neutral-snow',
-              i === 0 ? 'bg-brand-red text-white' : 'bg-white text-brand-red border-brand-red shadow-card'
-            ]}>
-              {step.num}
+          <div class="relative flex flex-col items-center text-center group">
+            <!-- Chevron separator arrows between steps (desktop) -->
+            {i < steps.length - 1 && (
+              <div class="absolute top-5 -right-[15%] lg:block hidden z-20" aria-hidden="true">
+                <svg class="w-6 h-6 text-brand-red/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
+                </svg>
+              </div>
+            )}
+
+            <!-- Icon bubble with corner index tag -->
+            <div class="relative mb-5 flex-shrink-0">
+              <div class="w-16 h-16 rounded-full bg-white shadow-md border-2 border-brand-red/10 flex items-center justify-center group-hover:bg-brand-red group-hover:border-brand-red transition-all duration-300">
+                <svg class="w-7 h-7 text-brand-red group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <Fragment set:html={step.icon} />
+                </svg>
+              </div>
+              <span class="absolute -top-1 -right-1 bg-neutral-ink text-white text-[10px] font-black w-5 h-5 rounded-full flex items-center justify-center border border-white">
+                {step.num}
+              </span>
             </div>
-            <h3 class="font-bold text-neutral-ink mb-2 text-sm leading-snug">{step.title}</h3>
-            <p class="text-xs text-neutral-muted leading-relaxed">{step.body}</p>
+
+            <!-- Title & Body -->
+            <h3 class="font-bold text-neutral-ink mb-2 text-base leading-snug group-hover:text-brand-red transition-colors duration-250">{step.title}</h3>
+            <p class="text-xs text-neutral-muted leading-relaxed max-w-[240px]">{step.body}</p>
           </div>
         ))}
       </div>
     </div>
 
-    <div class="text-center mt-12">
+    <div class="text-center mt-8">
       <a href="/get-a-quote" class="btn-primary">
         Start with a Free Assessment
       </a>
