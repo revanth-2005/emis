@@ -1,0 +1,21 @@
+# build output
+dist/
+.output/
+
+# astro generated types / tooling state
+.astro/
+
+# dependencies
+node_modules/
+
+# environment variables
+.env
+.env.production
+.env.local
+
+# macOS
+.DS_Store
+
+# editor
+.vscode/
+*.swp
