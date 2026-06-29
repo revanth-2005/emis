@@ -25,8 +25,12 @@ const schema = {
     </div>
   </nav>
 
-  <section class="bg-neutral-ink py-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:grid lg:grid-cols-2 gap-16 items-center">
+  <section class="relative bg-neutral-ink py-20 overflow-hidden">
+    <!-- Visual background image with overlay -->
+    <div class="absolute inset-0 bg-[url('/service_commercial_hero.png')] bg-cover bg-center bg-no-repeat z-0" aria-hidden="true"></div>
+    <div class="absolute inset-0 bg-neutral-ink/80 z-1" aria-hidden="true"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:grid lg:grid-cols-2 gap-16 items-center relative z-10">
       <div>
         <p class="section-label mb-3 text-brand-light">Commercial Solar</p>
         <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-5">
@@ -58,23 +62,81 @@ const schema = {
     </div>
   </section>
 
-  <section class="py-16 bg-white">
+  <section class="py-16 bg-white overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="section-heading text-center mb-10">Commercial Segments We Serve</h2>
-      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 text-center">
-        {['Offices', 'Retail & Malls', 'Hotels & Resorts', 'Hospitals', 'Schools & Colleges', 'Warehouses'].map((seg) => (
-          <div class="card py-5 flex flex-col items-center gap-2">
-            <div class="w-10 h-10 rounded-full bg-brand-pale flex items-center justify-center">
-              <svg class="w-5 h-5 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
-              </svg>
+      <h2 class="section-heading text-center mb-12 segment-header">Commercial Segments We Serve</h2>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          { title: 'Offices',             img: '/segment_offices.png',     desc: 'Power corporate headquarters, IT parks, and business centers with clean energy to cut daily AC loads.' },
+          { title: 'Retail & Malls',       img: '/segment_retail.png',      desc: 'Offset peak daytime electricity usage from extensive lighting and HVAC systems on shopping center roofs.' },
+          { title: 'Hotels & Resorts',     img: '/segment_hotels.png',      desc: 'Provide sustainable luxury experiences while reducing costs for hot water, pools, and guest facilities.' },
+          { title: 'Hospitals',           img: '/segment_hospitals.png',   desc: 'Ensure reliable secondary energy sources for critical cooling and administrative grids.' },
+          { title: 'Schools & Colleges',   img: '/segment_schools.png',     desc: 'Transform educational campus roofs into living labs and slash municipal electricity tariffs.' },
+          { title: 'Warehouses',          img: '/segment_warehouses.png',  desc: 'Maximize massive flat roof profiles to lock in long-term logistics cost reductions.' },
+        ].map((seg, i) => (
+          <div 
+            class="relative overflow-hidden rounded-2xl aspect-[4/3] sm:aspect-[1.4] shadow-card border border-neutral-rule/45 group cursor-pointer segment-card"
+            style={`transition-delay: ${i * 80}ms`}
+          >
+            {/* Background image zoom on hover */}
+            <div 
+              class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105 z-0"
+              style={`background-image: url('${seg.img}')`}
+            ></div>
+            
+            {/* Dark gradient overlay */}
+            <div class="absolute inset-0 bg-gradient-to-t from-neutral-ink via-neutral-ink/50 to-transparent opacity-90 transition-opacity duration-300 group-hover:opacity-95 z-10"></div>
+            
+            {/* Content card */}
+            <div class="absolute inset-0 flex flex-col justify-end p-6 z-20">
+              <h3 class="text-lg font-bold text-white mb-2 transform group-hover:translate-x-1 transition-transform duration-300 flex items-center gap-2">
+                <span class="w-1.5 h-4 bg-brand-red rounded-full"></span>
+                {seg.title}
+              </h3>
+              <p class="text-xs text-white/80 leading-relaxed font-medium transform group-hover:translate-y-0 transition-transform duration-300">
+                {seg.desc}
+              </p>
             </div>
-            <p class="text-sm font-semibold text-neutral-ink">{seg}</p>
           </div>
         ))}
       </div>
     </div>
   </section>
+
+  <style>
+    /* Entrance animations for segment cards */
+    .segment-header,
+    .segment-card {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .segment-header.visible,
+    .segment-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const elements = document.querySelectorAll('.segment-card, .segment-header');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.08,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      elements.forEach((el) => observer.observe(el));
+    });
+  </script>
 
   <!-- Incentives -->
   <section class="py-16 bg-neutral-snow">

@@ -54,8 +54,12 @@ const readinessStats = [
 >
 
   <!-- Hero -->
-  <section class="bg-neutral-ink py-16">
-    <div class="max-w-3xl mx-auto px-4 text-center">
+  <section class="relative bg-neutral-ink py-20 overflow-hidden">
+    <!-- Visual background image with overlay -->
+    <div class="absolute inset-0 bg-[url('/hero_portfolio.png')] bg-cover bg-center bg-no-repeat z-0" aria-hidden="true"></div>
+    <div class="absolute inset-0 bg-neutral-ink/80 z-1" aria-hidden="true"></div>
+
+    <div class="max-w-3xl mx-auto px-4 text-center relative z-10">
       <p class="section-label mb-3 text-brand-light">What We Do</p>
       <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-5">
         Ready to Make an Impact
@@ -74,7 +78,7 @@ const readinessStats = [
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center text-white">
         {readinessStats.map((s) => (
           <div>
-            <p class="text-5xl font-extrabold mb-1">{s.value}</p>
+            <p class="text-5xl font-extrabold mb-1 animate-counter" data-value={s.value}>{s.value}</p>
             <p class="font-semibold">{s.label}</p>
             <p class="text-white/60 text-sm mt-1">{s.note}</p>
           </div>

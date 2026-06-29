@@ -3,11 +3,8 @@ import PageLayout    from '../layouts/PageLayout.astro';
 import Hero          from '../components/Hero.astro';
 import StatsBar      from '../components/StatsBar.astro';
 import ServicesGrid  from '../components/ServicesGrid.astro';
-import WhySolarNow    from '../components/WhySolarNow.astro';
 import Differentiators from '../components/Differentiators.astro';
-import WhyChooseUs   from '../components/WhyChooseUs.astro';
 import HowItWorks    from '../components/HowItWorks.astro';
-import Testimonials  from '../components/Testimonials.astro';
 import CTABanner     from '../components/CTABanner.astro';
 import ProjectGallery from '../components/ProjectGallery.astro';
 
@@ -68,34 +65,62 @@ const faqSchema = {
   <script type="application/ld+json" slot="head" set:html={JSON.stringify(faqSchema)} />
 
   <Hero
-    headline="Slash Your Electricity Bills by Up to 90%"
-    subheadline="Certified, high-performance solar installations for homes, businesses, and industrial plants across India. Save ₹78,000 on residential solar under PM Surya Ghar Muft Bijli Yojana."
-    ctaPrimary={{ label: 'Get a Free Quote', href: '/get-a-quote' }}
-    ctaSecondary={{ label: 'Our Services', href: '/services' }}
+    headline="Powering India's Future with Clean Solar Energy"
+    subheadline="Founded by professionals with 40+ years of combined international experience. We bring global expertise with end-to-end solar solutions"
+    ctaPrimary={{ label: 'Our Services', href: '/services' }}
+    ctaSecondary={{ label: 'Our works', href: '/portfolio' }}
     badge="India's Trusted Solar Partner"
   />
 
   <StatsBar />
 
+  <!-- Who We Are -->
+  <section class="py-20 bg-white overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <!-- Left Column: Visual Image with border highlight -->
+        <div class="lg:col-span-5 relative group whoweare-anim opacity-0 transform translate-y-6 transition-all duration-700 ease-out">
+          <div class="absolute -inset-1 bg-gradient-to-r from-brand-red to-brand-light rounded-2xl blur opacity-10 group-hover:opacity-20 transition duration-1000 group-hover:duration-200"></div>
+          <div class="relative overflow-hidden rounded-2xl shadow-xl border border-neutral-rule/30 aspect-[4/3] sm:aspect-[16/10] lg:aspect-square">
+            <img 
+              src="/service_residential_hero.png" 
+              alt="Clean solar panel roof setup" 
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+          </div>
+        </div>
+
+        <!-- Right Column: Text Content -->
+        <div class="lg:col-span-7 space-y-6 whoweare-anim opacity-0 transform translate-y-6 transition-all duration-700 ease-out" style="transition-delay: 150ms;">
+          <div>
+            <p class="section-label mb-3">Who We Are</p>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-ink leading-tight">
+              Powering a Brighter, Greener Tomorrow
+            </h2>
+          </div>
+          
+          <div class="space-y-4 text-sm sm:text-base text-neutral-muted leading-relaxed">
+            <p>
+              We are a trusted solar energy company committed to helping homeowners, businesses, and industries switch to clean, affordable, and sustainable power. With a focus on quality, innovation, and customer satisfaction, we deliver end-to-end solar solutions that reduce electricity costs while contributing to a greener future.
+            </p>
+            <p>
+              From site assessment and system design to installation, subsidy assistance, net metering, and after-sales support, our experienced team ensures a seamless solar journey. We use high-performance, ALMM-approved solar modules and industry-leading components to deliver reliable systems built for long-term performance and maximum energy savings.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <ServicesGrid />
 
-  <WhySolarNow />
-
-  <Differentiators />
-
-  <WhyChooseUs />
-
-  <HowItWorks />
-
-  <ProjectGallery />
-
-  <!-- Savings Calculator teaser -->
-  <section id="calculator" class="py-14 bg-white border-t border-neutral-rule">
+  <!-- Savings Calculator teaser (Positioned below What We Do) -->
+  <section id="calculator" class="py-20 bg-neutral-snow border-t border-b border-neutral-rule/65">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-10">
+      <div class="text-center mb-12">
         <p class="section-label mb-3">Solar ROI Calculator</p>
         <h2 class="section-heading mb-4">Calculate Your Instant Savings</h2>
-        <p class="text-neutral-muted max-w-2xl mx-auto">
+        <p class="text-neutral-muted max-w-2xl mx-auto text-sm sm:text-base">
           Adjust the inputs below to see your recommended solar system capacity, estimated monthly and annual bill savings, and payback period instantly.
         </p>
       </div>
@@ -103,7 +128,7 @@ const faqSchema = {
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
         
         <!-- Left: Inputs -->
-        <div class="lg:col-span-5 flex flex-col justify-between bg-neutral-snow border border-neutral-rule rounded-2xl p-6 sm:p-8">
+        <div class="lg:col-span-5 flex flex-col justify-between bg-white border border-neutral-rule rounded-2xl p-6 sm:p-8 shadow-sm">
           <div class="space-y-6">
             <!-- Monthly Bill Input & Slider -->
             <div>
@@ -159,7 +184,7 @@ const faqSchema = {
             </div>
           </div>
 
-          <div class="pt-8">
+          <div class="pt-8 mt-6 border-t border-neutral-rule/65">
             <a href="/get-a-quote" class="btn-primary w-full justify-center py-4 text-base rounded-xl shadow-cta">
               Get Detailed Quote Proposal →
             </a>
@@ -179,42 +204,42 @@ const faqSchema = {
               <!-- Card 1: Monthly Savings -->
               <div class="bg-white/5 border border-white/10 rounded-xl p-5 hover:bg-white/8 transition-colors">
                 <p class="text-[10px] text-white/50 font-bold uppercase tracking-wider">Monthly Bill Savings</p>
-                <p class="text-3xl sm:text-4xl font-black text-brand-light mt-1.5 tracking-tight" id="calc-monthly-savings">₹6,750</p>
+                <p class="text-3xl sm:text-4xl font-black text-brand-light mt-1.5 tracking-tight" id="monthly-savings">₹6,375</p>
                 <p class="text-[10px] text-white/40 mt-1 leading-snug">Average savings per month</p>
               </div>
 
               <!-- Card 2: Annual Savings -->
               <div class="bg-white/5 border border-white/10 rounded-xl p-5 hover:bg-white/8 transition-colors">
                 <p class="text-[10px] text-white/50 font-bold uppercase tracking-wider">Annual Cash Savings</p>
-                <p class="text-3xl sm:text-4xl font-black text-white mt-1.5 tracking-tight" id="calc-annual-savings">₹81,000</p>
+                <p class="text-3xl sm:text-4xl font-black text-white mt-1.5 tracking-tight" id="annual-savings">₹76,500</p>
                 <p class="text-[10px] text-white/40 mt-1 leading-snug">Reinvestable yearly capital</p>
               </div>
 
               <!-- Card 3: Recommended System -->
               <div class="bg-white/5 border border-white/10 rounded-xl p-5 hover:bg-white/8 transition-colors">
                 <p class="text-[10px] text-white/50 font-bold uppercase tracking-wider">Recommended System</p>
-                <p class="text-2xl sm:text-3xl font-black text-white mt-2 tracking-tight" id="calc-system-size">5.0 kWp</p>
-                <p class="text-[10px] text-white/40 mt-1 leading-snug" id="calc-panel-count">Requires ~10 modules</p>
+                <p class="text-2xl sm:text-3xl font-black text-white mt-2 tracking-tight" id="system-size">7.8 kWp</p>
+                <p class="text-[10px] text-white/40 mt-1 leading-snug" id="panel-count">Requires ~14 solar modules</p>
               </div>
 
               <!-- Card 4: Payback Period -->
               <div class="bg-white/5 border border-white/10 rounded-xl p-5 hover:bg-white/8 transition-colors">
                 <p class="text-[10px] text-white/50 font-bold uppercase tracking-wider">Est. Payback Period</p>
-                <p class="text-2xl sm:text-3xl font-black text-white mt-2 tracking-tight" id="calc-payback">4.1 Years</p>
-                <p class="text-[10px] text-white/40 mt-1 leading-snug" id="calc-payback-detail">Net payback timeline</p>
+                <p class="text-2xl sm:text-3xl font-black text-white mt-2 tracking-tight" id="payback">4.2 Years</p>
+                <p class="text-[10px] text-white/40 mt-1 leading-snug" id="payback-detail">Net payback timeline</p>
               </div>
             </div>
           </div>
 
           <!-- Bottom Subsidy / AD Incentive highlight message -->
           <div class="mt-8 pt-5 border-t border-white/10">
-            <div class="flex gap-3 items-start bg-white/5 rounded-xl p-4 border border-white/5" id="calc-subsidy-box">
+            <div class="flex gap-3 items-start bg-white/5 rounded-xl p-4 border border-white/5">
               <svg class="w-5 h-5 text-brand-light flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
               </svg>
               <div>
-                <p class="text-xs font-bold text-white" id="calc-incentive-title">PM Surya Ghar Subsidy Benefit</p>
-                <p class="text-[11px] text-white/60 mt-0.5 leading-relaxed" id="calc-incentive-desc">
+                <p class="text-xs font-bold text-white" id="incentive-title">PM Surya Ghar Subsidy Benefit</p>
+                <p class="text-[11px] text-white/60 mt-0.5 leading-relaxed" id="incentive-desc">
                   This residential installation qualifies for a central government subsidy of ₹78,000, lowering your upfront investment.
                 </p>
               </div>
@@ -230,7 +255,12 @@ const faqSchema = {
     </div>
   </section>
 
-  <Testimonials />
+  <Differentiators />
+
+  <HowItWorks />
+
+  <ProjectGallery />
+
 
   <CTABanner
     headline="Ready to Make the Switch to Solar?"
@@ -240,42 +270,62 @@ const faqSchema = {
     ctaSecondaryLabel="Call Us Now"
     ctaSecondaryHref="tel:+919894821309"
   />
-
 </PageLayout>
 
+<style>
+  .whoweare-anim.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
 <script>
+  // Whoweare entrance animations
+  document.addEventListener('DOMContentLoaded', () => {
+    const items = document.querySelectorAll('.whoweare-anim');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -40px 0px'
+    });
+    items.forEach((el) => observer.observe(el));
+  });
+
+  // ROI Calculator Calculations
   const billRange = document.getElementById('bill-range') as HTMLInputElement;
   const billInput = document.getElementById('bill-input') as HTMLInputElement;
   const segmentSelect = document.getElementById('segment') as HTMLSelectElement;
 
-  const monthlySavingsEl = document.getElementById('calc-monthly-savings')!;
-  const annualSavingsEl = document.getElementById('calc-annual-savings')!;
-  const systemSizeEl = document.getElementById('calc-system-size')!;
-  const panelCountEl = document.getElementById('calc-panel-count')!;
-  const paybackEl = document.getElementById('calc-payback')!;
-  const paybackDetailEl = document.getElementById('calc-payback-detail')!;
+  const monthlySavingsEl = document.getElementById('monthly-savings');
+  const annualSavingsEl  = document.getElementById('annual-savings');
+  const systemSizeEl     = document.getElementById('system-size');
+  const panelCountEl     = document.getElementById('panel-count');
+  const paybackEl        = document.getElementById('payback');
+  const paybackDetailEl  = document.getElementById('payback-detail');
 
-  const incentiveTitleEl = document.getElementById('calc-incentive-title')!;
-  const incentiveDescEl = document.getElementById('calc-incentive-desc')!;
+  const incentiveTitleEl = document.getElementById('incentive-title');
+  const incentiveDescEl  = document.getElementById('incentive-desc');
 
   function calculate() {
-    const bill = parseFloat(billInput.value) || 0;
+    if (
+      !billRange || !billInput || !segmentSelect ||
+      !monthlySavingsEl || !annualSavingsEl || !systemSizeEl ||
+      !panelCountEl || !paybackEl || !paybackDetailEl ||
+      !incentiveTitleEl || !incentiveDescEl
+    ) return;
+
+    const bill = parseFloat(billRange.value) || 0;
     const segment = segmentSelect.value;
 
-    if (bill < 500) {
-      monthlySavingsEl.textContent = '₹0';
-      annualSavingsEl.textContent = '₹0';
-      systemSizeEl.textContent = '0.0 kWp';
-      panelCountEl.textContent = 'Enter valid bill';
-      paybackEl.textContent = '-';
-      return;
-    }
+    let tariff = 7.0; // Residential default
+    let ratePerKw = 55000;
 
-    // Mathematical parameters based on Indian contexts:
-    // Tariff rates: Res ~₹7.0, Com ~₹8.5, Ind ~₹7.5
-    let tariff = 7.0;
-    let ratePerKw = 60000; // Base cost per kWp
-    
     if (segment === 'Commercial') {
       tariff = 8.5;
       ratePerKw = 52000;

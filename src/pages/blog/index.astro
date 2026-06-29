@@ -68,8 +68,12 @@ const categories = [...new Set(posts.map((p) => p.category))];
   title="Solar Energy Blog — Insights, Policy & Guides"
   description="Expert solar insights for India — PM Surya Ghar updates, ROI calculators, policy explainers, and technical guides for homeowners, businesses, and enterprises."
 >
-  <section class="bg-neutral-ink py-16">
-    <div class="max-w-2xl mx-auto px-4 text-center">
+  <section class="relative bg-neutral-ink py-20 overflow-hidden">
+    <!-- Visual background image with overlay -->
+    <div class="absolute inset-0 bg-[url('/hero_blog.png')] bg-cover bg-center bg-no-repeat z-0" aria-hidden="true"></div>
+    <div class="absolute inset-0 bg-neutral-ink/80 z-1" aria-hidden="true"></div>
+
+    <div class="max-w-2xl mx-auto px-4 text-center relative z-10">
       <h1 class="text-4xl font-extrabold text-white mb-4">Solar Insights</h1>
       <p class="text-white/70 leading-relaxed">
         Policy updates, ROI guides, technical explainers, and market analysis — written by
@@ -79,13 +83,21 @@ const categories = [...new Set(posts.map((p) => p.category))];
   </section>
 
   <!-- Category filter -->
-  <div class="bg-white border-b border-neutral-rule py-4">
+  <div class="bg-white border-b border-neutral-rule py-4 sticky top-[72px] z-30 shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap gap-3 justify-center">
-      <a href="/blog" class="px-4 py-1.5 rounded-full text-sm font-medium bg-brand-red text-white">All</a>
+      <button 
+        class="filter-btn px-4 py-1.5 rounded-full text-sm font-medium bg-brand-red text-white transition-all duration-200 cursor-pointer shadow-sm"
+        data-category="all"
+      >
+        All
+      </button>
       {categories.map((cat) => (
-        <span class="px-4 py-1.5 rounded-full text-sm font-medium border border-neutral-rule text-neutral-muted">
+        <button 
+          class="filter-btn px-4 py-1.5 rounded-full text-sm font-medium border border-neutral-rule text-neutral-muted hover:border-brand-red/40 hover:text-brand-red transition-all duration-200 cursor-pointer"
+          data-category={cat}
+        >
           {cat}
-        </span>
+        </button>
       ))}
     </div>
   </div>
@@ -99,9 +111,12 @@ const categories = [...new Set(posts.map((p) => p.category))];
         Publish each article when the content is written and reviewed. Remove this notice when the blog is live.
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 blog-posts-grid">
         {posts.map((post) => (
-          <article class="card flex flex-col">
+          <article 
+            class="card flex flex-col blog-post-card transition-all duration-300 opacity-100 transform scale-100" 
+            data-category={post.category}
+          >
             <!-- Category + date -->
             <div class="flex items-center justify-between mb-4">
               <span class="text-xs font-semibold text-brand-red bg-brand-pale px-2.5 py-1 rounded-full">
@@ -128,6 +143,48 @@ const categories = [...new Set(posts.map((p) => p.category))];
 
     </div>
   </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const buttons = document.querySelectorAll('.filter-btn');
+      const cards = document.querySelectorAll('.blog-post-card');
+
+      buttons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          // Remove active styles from all buttons
+          buttons.forEach((b) => {
+            b.classList.remove('bg-brand-red', 'text-white', 'shadow-sm');
+            b.classList.add('border', 'border-neutral-rule', 'text-neutral-muted');
+          });
+
+          // Add active styles to clicked button
+          btn.classList.remove('border', 'border-neutral-rule', 'text-neutral-muted');
+          btn.classList.add('bg-brand-red', 'text-white', 'shadow-sm');
+
+          const category = btn.getAttribute('data-category');
+
+          cards.forEach((card) => {
+            const cardCategory = card.getAttribute('data-category');
+            if (category === 'all' || cardCategory === category) {
+              // Show card with fade & scaling effect
+              (card as HTMLElement).style.display = 'flex';
+              setTimeout(() => {
+                card.classList.remove('opacity-0', 'scale-95', 'translate-y-4');
+                card.classList.add('opacity-100', 'scale-100', 'translate-y-0');
+              }, 10);
+            } else {
+              // Hide card
+              card.classList.remove('opacity-100', 'scale-100', 'translate-y-0');
+              card.classList.add('opacity-0', 'scale-95', 'translate-y-4');
+              setTimeout(() => {
+                (card as HTMLElement).style.display = 'none';
+              }, 300); // matches the transition-all duration (300ms)
+            }
+          });
+        });
+      });
+    });
+  </script>
 
   <!-- Newsletter -->
   <section class="py-14 bg-white border-t border-neutral-rule">

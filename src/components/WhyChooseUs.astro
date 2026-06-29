@@ -6,13 +6,13 @@ const stats = [
     detail: 'Rooftop & ground-mount installations delivered for homes, factories, and commercial hubs.',
   },
   {
-    value: '40+ Yrs',
-    label: 'Combined Experience',
+    value: '40+',
+    label: 'Years Combined Experience',
     detail: 'Our founders bring deep international expertise in global trade, industrial engineering, and solar.',
   },
   {
-    value: '25 Yrs',
-    label: 'Warranty Period',
+    value: '25',
+    label: 'Year Warranty Period',
     detail: 'Linear performance warranty guaranteed on premium, MNRE-approved, and ALMM-listed modules.',
   },
   {
@@ -24,39 +24,327 @@ const stats = [
 
 const reasons = [
   {
-    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>`,
+    icon: `<path fill-rule="evenodd" d="M10 2a1 1 0 00-1 .76C7.94 6.73 5.37 9.09 2 9.5a1 1 0 00-.78 1.17c1.33 5.17 5.1 8.88 8.4 9.8a1 1 0 00.74 0c3.3-.92 7.08-4.62 8.4-9.8a1 1 0 00-.8-.17c-3.37-.41-5.94-2.77-7-6.75A1 1 0 0010 2zm3 8a1 1 0 011.7-.7L12 10.59l2.29-2.29a1 1 0 111.42 1.41l-3 3a1 1 0 01-1.42 0l-1-1a1 1 0 010-1.41z" clip-rule="evenodd" />`,
     title: 'End-to-End Project Ownership',
     body: 'Site survey, system design, DISCOM approvals, installation, commissioning, and annual O&M — all under one roof.',
   },
   {
-    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>`,
+    icon: `<path fill-rule="evenodd" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 7.5h3a1 1 0 110 2h-3v1h3a1 1 0 110 2h-3v1.5a1 1 0 11-2 0V12.5H8a1 1 0 110-2h2v-1H8a1 1 0 110-2h2V7.5H8a1 1 0 110-2h8a1 1 0 110 2h-3z" clip-rule="evenodd" />`,
     title: 'Subsidy & Financing Guidance',
     body: 'We navigate PM Surya Ghar, state DISCOM incentives, accelerated depreciation (Section 32), and solar loan options to maximise your returns.',
   },
   {
-    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/>`,
+    icon: `<path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v6.5h5.5a1 1 0 01.82 1.573l-7 10A1 1 0 0110.5 20V13.5H5a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" />`,
     title: 'ALMM-Listed Modules Only',
     body: 'We specify only Approved List of Models & Manufacturers (ALMM) panels — ensuring subsidy eligibility and long-term performance guarantees.',
   },
   {
-    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>`,
+    icon: `<path d="M2 10a1 1 0 011-1h3a1 1 0 110 2H3a1 1 0 01-1-1zM9 8a1 1 0 011-1h3a1 1 0 110 2h-3a1 1 0 01-1-1zM16 12a1 1 0 011-1h3a1 1 0 110 2h-3a1 1 0 01-1-1z" /><path fill-rule="evenodd" d="M4 2a2 2 0 00-2 2v12a2 2 0 002 2h2v2a1 1 0 102 0v-2h4v2a1 1 0 102 0v-2h4a2 2 0 002-2V4a2 2 0 00-2-2H4zm14 12H4V4h14v10z" clip-rule="evenodd" />`,
     title: 'Data-Driven Energy Audits',
     body: 'Every proposal starts with a detailed energy audit and shadow analysis. You get a precise ROI model with real payback period, not ballpark figures.',
   },
   {
-    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>`,
+    icon: `<path d="M9 2a1 1 0 000 2h6a1 1 0 100-2H9z" /><path fill-rule="evenodd" d="M6 5v14a2 2 0 002 2h8a2 2 0 002-2V5a2 2 0 00-2-2v3a1 1 0 01-1 1H9a1 1 0 01-1-1V3a2 2 0 00-2 2zm3 9a1 1 0 011.7-.7L12 14.58l3.3-3.3a1 1 0 111.4 1.4l-4 4a1 1 0 01-1.4 0l-2-2a1 1 0 010-1.4z" clip-rule="evenodd" />`,
     title: 'MNRE-Aligned Design',
     body: 'All systems designed to Ministry of New & Renewable Energy specifications — ensuring compliance, performance, and eligibility for government incentives.',
   },
   {
-    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>`,
+    icon: `<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM4.332 8.027a6.012 6.012 0 011.912-2.706C6.514 5.731 6.97 6 7.5 6A1.5 1.5 0 019 7.5V9a1 1 0 001 1h2a1 1 0 011 1v1.5a1.5 1.5 0 01-1.5 1.5h-3A1.5 1.5 0 007 15.5v1.657a5.972 5.972 0 01-2.668-3.033 3.002 3.002 0 01.378-3.097 3.005 3.005 0 01-.378-3.00z" clip-rule="evenodd" />`,
     title: 'Pan-India Service Reach',
     body: 'With offices in Coimbatore and Salem, and partners across states, we execute projects anywhere in India — metros to remote industrial sites.',
   },
 ];
 ---
 
-<!-- Why Choose Section -->
+<style>
+  /* ── Floating stat card ── */
+  @keyframes float-card {
+    0%, 100% { transform: translateY(0px); }
+    50%       { transform: translateY(-8px); }
+  }
+  .float-anim {
+    animation: float-card 3.2s ease-in-out infinite;
+  }
+
+  /* ── Shimmer sweep ── */
+  @keyframes shimmer-sweep {
+    0%   { left: -100%; }
+    60%, 100% { left: 150%; }
+  }
+  .shimmer-text {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+  }
+  .shimmer-text::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%; width: 60%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.45), transparent);
+    animation: shimmer-sweep 3.5s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  /* ── Count-up stat cards: slide up on scroll ── */
+  .stat-card {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+  }
+  .stat-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── Reason rows: slide in from right ── */
+  .reason-row {
+    opacity: 0;
+    transform: translateX(32px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .reason-row.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* ── Left panel: slide up ── */
+  .left-panel {
+    opacity: 0;
+    transform: translateY(36px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .left-panel.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── Icon spin on hover ── */
+  .reason-row:hover .icon-bubble {
+    animation: spin-once 0.5s ease forwards;
+    background-color: var(--color-brand-red, #e11d48);
+  }
+  .reason-row:hover .icon-bubble svg {
+    color: #fff;
+  }
+  @keyframes spin-once {
+    0%   { transform: rotate(0deg) scale(1); }
+    50%  { transform: rotate(180deg) scale(1.15); }
+    100% { transform: rotate(360deg) scale(1); }
+  }
+
+  /* ── Red highlight bar on hover ── */
+  .reason-row {
+    position: relative;
+    padding-left: 0;
+    border-radius: 10px;
+    padding: 10px 10px 10px 14px;
+    transition: background 0.25s ease, opacity 0.5s ease, transform 0.5s ease;
+  }
+  .reason-row::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 12%; bottom: 12%;
+    width: 3px;
+    border-radius: 4px;
+    background: var(--color-brand-red, #e11d48);
+    transform: scaleY(0);
+    transform-origin: center;
+    transition: transform 0.25s ease;
+  }
+  .reason-row:hover::before {
+    transform: scaleY(1);
+  }
+  .reason-row:hover {
+    background: #fff5f5;
+  }
+  .reason-row:hover h3 {
+    color: var(--color-brand-red, #e11d48);
+  }
+
+  /* ══ Orbital Diagram ══════════════════════════════════════════════════ */
+  .orbital-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    height: 480px;
+    margin: 0 auto;
+  }
+
+  /* Dashed orbit rings */
+  .o-ring {
+    position: absolute;
+    top: 50%; left: 50%;
+    border-radius: 50%;
+    border: 1.5px dashed rgba(225,29,72,0.22);
+    transform: translate(-50%,-50%);
+    pointer-events: none;
+  }
+  @keyframes ring-cw  { to { transform: translate(-50%,-50%) rotate( 360deg); } }
+  @keyframes ring-ccw { to { transform: translate(-50%,-50%) rotate(-360deg); } }
+  .o-ring-1 { width:180px; height:180px; animation: ring-cw  28s linear infinite; }
+  .o-ring-2 { width:310px; height:310px; animation: ring-ccw 45s linear infinite; }
+  .o-ring-3 { width:440px; height:440px; animation: ring-cw  65s linear infinite; }
+
+  /* Central hub */
+  .o-hub {
+    position: absolute;
+    top:50%; left:50%;
+    transform: translate(-50%,-50%);
+    width: 84px; height: 84px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 0 0 8px rgba(225,29,72,0.08), 0 6px 24px rgba(225,29,72,0.18);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    z-index: 20;
+  }
+  @keyframes hub-pulse {
+    0%,100% { box-shadow: 0 0 0 8px rgba(225,29,72,0.08), 0 6px 24px rgba(225,29,72,0.18); }
+    50%      { box-shadow: 0 0 0 14px rgba(225,29,72,0.13), 0 8px 32px rgba(225,29,72,0.30); }
+  }
+  .o-hub { animation: hub-pulse 2.8s ease-in-out infinite; }
+
+  /* Planet pills */
+  .o-planet {
+    position: absolute;
+    top: 50%; left: 50%;
+    z-index: 10;
+    pointer-events: auto;
+  }
+  .o-pill {
+    transform: translate(-50%, -50%);
+    display: flex; align-items: center; gap: 7px;
+    background: #fff;
+    border: 1px solid rgba(225,29,72,0.15);
+    border-radius: 40px;
+    padding: 6px 12px 6px 8px;
+    box-shadow: 0 3px 14px rgba(0,0,0,0.10);
+    white-space: nowrap;
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    user-select: none;
+  }
+  .o-pill:hover {
+    transform: translate(-50%,-50%) scale(1.08);
+    box-shadow: 0 6px 22px rgba(225,29,72,0.22);
+    border-color: rgba(225,29,72,0.4);
+  }
+  .o-pill-icon {
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    background: rgba(225,29,72,0.1);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .o-pill-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #1a1a1a;
+    letter-spacing: -0.01em;
+  }
+  /* Tooltip on hover */
+  .o-planet { position: absolute; }
+  .o-tooltip {
+    position: absolute;
+    bottom: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1a1a1a;
+    color: #fff;
+    font-size: 10px;
+    line-height: 1.4;
+    padding: 5px 9px;
+    border-radius: 6px;
+    white-space: nowrap;
+    max-width: 180px;
+    white-space: normal;
+    text-align: center;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    z-index: 30;
+  }
+  .o-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%; left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: #1a1a1a;
+  }
+  .o-pill:hover + .o-tooltip,
+  .o-planet:hover .o-tooltip { opacity: 1; }
+
+  /* ══ Detail panel (below the diagram, no overlap) ══════════════════════ */
+  .o-detail {
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: opacity 0.35s ease, max-height 0.45s ease, transform 0.35s ease, margin-top 0.35s ease;
+    margin-top: 0;
+  }
+  .o-detail.open {
+    opacity: 1;
+    max-height: 320px;
+    pointer-events: auto;
+    transform: translateY(0);
+    margin-top: 16px;
+  }
+  .o-detail-card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 22px 20px 20px;
+    box-shadow: 0 8px 40px rgba(225,29,72,0.12), 0 2px 12px rgba(0,0,0,0.07);
+    border: 1px solid rgba(225,29,72,0.14);
+    width: 100%;
+    position: relative;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .o-detail-close {
+    position: absolute;
+    top: 10px; right: 12px;
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(225,29,72,0.08);
+    color: #e11d48;
+    font-size: 15px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s ease;
+    flex-shrink: 0;
+  }
+  .o-detail-close:hover { background: rgba(225,29,72,0.18); }
+  .o-detail-icon {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    background: rgba(225,29,72,0.1);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .o-detail-text { flex: 1; padding-right: 24px; }
+  .o-detail-title {
+    font-size: 14px;
+    font-weight: 800;
+    color: #111;
+    line-height: 1.3;
+    margin-bottom: 6px;
+  }
+  .o-detail-body {
+    font-size: 12px;
+    color: #555;
+    line-height: 1.7;
+  }
+  /* hide tooltip while detail is open */
+  .orbital-wrap.detail-open .o-tooltip { display: none; }
+</style>
+
+<!-- Why Choose Section: stat cards -->
 <section class="py-14 bg-neutral-snow">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -66,10 +354,18 @@ const reasons = [
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-      {stats.map((s) => (
-        <div class="bg-white rounded-2xl border border-neutral-rule shadow-card p-6 text-center hover:shadow-lg transition-shadow duration-200 flex flex-col justify-between">
+      {stats.map((s, i) => (
+        <div
+          class="stat-card bg-white rounded-2xl border border-neutral-rule shadow-card p-6 text-center hover:shadow-lg transition-shadow duration-200 flex flex-col justify-between"
+          style={`transition-delay: ${i * 100}ms`}
+        >
           <div>
-            <p class="text-4xl sm:text-5xl font-black text-brand-red mb-3 tracking-tight">{s.value}</p>
+            <p
+              class="text-4xl sm:text-5xl font-black text-brand-red mb-3 tracking-tight js-countup"
+              data-target={s.value}
+            >
+              {s.value}
+            </p>
             <h3 class="font-bold text-neutral-ink text-base mb-2">{s.label}</h3>
             <p class="text-xs text-neutral-muted leading-relaxed">{s.detail}</p>
           </div>
@@ -85,7 +381,8 @@ const reasons = [
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="lg:grid lg:grid-cols-2 lg:gap-16 lg:items-start">
 
-      <div class="mb-8 lg:mb-0 lg:sticky lg:top-24">
+      <!-- Left sticky panel -->
+      <div class="left-panel mb-8 lg:mb-0 lg:sticky lg:top-24">
         <p class="section-label mb-3">Our Promise</p>
         <h2 class="section-heading mb-5">
           Solar Made Simple,<br/>Savings Made Real
@@ -98,30 +395,287 @@ const reasons = [
         <a href="/about" class="btn-outline inline-flex">
           Our Story →
         </a>
-        <div class="mt-10 rounded-2xl bg-brand-pale border border-brand-red/20 p-6">
-          <p class="text-4xl font-extrabold text-brand-red">&lt; 7 yrs</p>
+
+        <!-- Floating payback card with shimmer -->
+        <div class="float-anim mt-10 rounded-2xl bg-brand-pale border border-brand-red/20 p-6 shadow-md">
+          <p class="shimmer-text text-4xl font-extrabold text-brand-red">&lt; 7 yrs</p>
           <p class="text-sm font-semibold text-neutral-ink mt-1">Typical payback period</p>
           <p class="text-xs text-neutral-muted mt-1">for a commercial rooftop installation*</p>
           <p class="text-xs text-neutral-muted mt-4">*Indicative. Actual payback depends on system size, local tariff, and available subsidies.</p>
         </div>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        {reasons.map((r) => (
-          <div class="flex gap-4">
-            <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-brand-pale flex items-center justify-center">
-              <svg class="w-5 h-5 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <Fragment set:html={r.icon} />
+      <!-- Right: Orbital + Detail panel -->
+      <div>
+      <div class="orbital-wrap" id="orbital-diagram" aria-label="Ermis Solar Service Ecosystem">
+
+        <!-- Orbit rings (visual decoration) -->
+        <div class="o-ring o-ring-1"></div>
+        <div class="o-ring o-ring-2"></div>
+        <div class="o-ring o-ring-3"></div>
+
+        <!-- Central hub -->
+        <div class="o-hub">
+          <svg class="w-6 h-6 text-brand-red" fill="currentColor" viewBox="0 0 24 24">
+            <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v6.5h5.5a1 1 0 01.82 1.573l-7 10A1 1 0 0110.5 20V13.5H5a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" />
+          </svg>
+          <span class="text-[10px] font-black text-neutral-ink tracking-tight mt-0.5">ERMIS</span>
+        </div>
+
+        <!-- Planets (JS positions these) -->
+        <!-- Inner orbit: radius 90 -->
+        <div class="o-planet" data-radius="90" data-angle="0" data-period="28000"
+             data-title="End-to-End Project Ownership"
+             data-body="Site survey, system design, DISCOM approvals, installation, commissioning, and annual O&amp;M — all under one roof.">
+          <div class="o-pill">
+            <div class="o-pill-icon">
+              <svg class="w-3.5 h-3.5 text-brand-red" fill="currentColor" viewBox="0 0 24 24">
+                <path fill-rule="evenodd" d="M10 2a1 1 0 00-1 .76C7.94 6.73 5.37 9.09 2 9.5a1 1 0 00-.78 1.17c1.33 5.17 5.1 8.88 8.4 9.8a1 1 0 00.74 0c3.3-.92 7.08-4.62 8.4-9.8a1 1 0 00-.8-.17c-3.37-.41-5.94-2.77-7-6.75A1 1 0 0010 2z" clip-rule="evenodd" />
               </svg>
             </div>
-            <div>
-              <h3 class="font-semibold text-neutral-ink text-sm mb-1">{r.title}</h3>
-              <p class="text-xs text-neutral-muted leading-relaxed">{r.body}</p>
-            </div>
+            <span class="o-pill-label">End-to-End</span>
           </div>
-        ))}
+          <div class="o-tooltip">End-to-End Project Ownership</div>
+        </div>
+
+        <div class="o-planet" data-radius="90" data-angle="180" data-period="28000"
+             data-title="Subsidy &amp; Financing Guidance"
+             data-body="We navigate PM Surya Ghar, state DISCOM incentives, accelerated depreciation (Section 32), and solar loan options to maximise your returns.">
+          <div class="o-pill">
+            <div class="o-pill-icon">
+              <svg class="w-3.5 h-3.5 text-brand-red" fill="currentColor" viewBox="0 0 24 24">
+                <path fill-rule="evenodd" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 7.5h3a1 1 0 110 2h-3v1h3a1 1 0 110 2h-3v1.5a1 1 0 11-2 0V12.5H8a1 1 0 110-2h2v-1H8a1 1 0 110-2h2V7.5H8a1 1 0 110-2h8a1 1 0 110 2h-3z" clip-rule="evenodd" />
+              </svg>
+            </div>
+            <span class="o-pill-label">Subsidy Guide</span>
+          </div>
+          <div class="o-tooltip">Subsidy &amp; Financing Guidance</div>
+        </div>
+
+        <!-- Middle orbit: radius 155 -->
+        <div class="o-planet" data-radius="155" data-angle="60" data-period="45000"
+             data-title="ALMM-Listed Modules Only"
+             data-body="We specify only Approved List of Models &amp; Manufacturers (ALMM) panels — ensuring subsidy eligibility and long-term performance guarantees.">
+          <div class="o-pill">
+            <div class="o-pill-icon">
+              <svg class="w-3.5 h-3.5 text-brand-red" fill="currentColor" viewBox="0 0 24 24">
+                <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v6.5h5.5a1 1 0 01.82 1.573l-7 10A1 1 0 0110.5 20V13.5H5a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" />
+              </svg>
+            </div>
+            <span class="o-pill-label">ALMM Modules</span>
+          </div>
+          <div class="o-tooltip">ALMM-Listed Modules Only</div>
+        </div>
+
+        <div class="o-planet" data-radius="155" data-angle="240" data-period="45000"
+             data-title="Data-Driven Energy Audits"
+             data-body="Every proposal starts with a detailed energy audit and shadow analysis. You get a precise ROI model with real payback period, not ballpark figures.">
+          <div class="o-pill">
+            <div class="o-pill-icon">
+              <svg class="w-3.5 h-3.5 text-brand-red" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M2 10a1 1 0 011-1h3a1 1 0 110 2H3a1 1 0 01-1-1z" />
+                <path fill-rule="evenodd" d="M4 2a2 2 0 00-2 2v12a2 2 0 002 2h2v2a1 1 0 102 0v-2h4v2a1 1 0 102 0v-2h4a2 2 0 002-2V4a2 2 0 00-2-2H4zm14 12H4V4h14v10z" clip-rule="evenodd" />
+              </svg>
+            </div>
+            <span class="o-pill-label">Energy Audits</span>
+          </div>
+          <div class="o-tooltip">Data-Driven Energy Audits</div>
+        </div>
+
+        <!-- Outer orbit: radius 220 -->
+        <div class="o-planet" data-radius="220" data-angle="120" data-period="65000"
+             data-title="MNRE-Aligned Design"
+             data-body="All systems designed to Ministry of New &amp; Renewable Energy specifications — ensuring compliance, performance, and eligibility for government incentives.">
+          <div class="o-pill">
+            <div class="o-pill-icon">
+              <svg class="w-3.5 h-3.5 text-brand-red" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9 2a1 1 0 000 2h6a1 1 0 100-2H9z" />
+                <path fill-rule="evenodd" d="M6 5v14a2 2 0 002 2h8a2 2 0 002-2V5a2 2 0 00-2-2v3a1 1 0 01-1 1H9a1 1 0 01-1-1V3a2 2 0 00-2 2zm3 9a1 1 0 011.7-.7L12 14.58l3.3-3.3a1 1 0 111.4 1.4l-4 4a1 1 0 01-1.4 0l-2-2a1 1 0 010-1.4z" clip-rule="evenodd" />
+              </svg>
+            </div>
+            <span class="o-pill-label">MNRE Design</span>
+          </div>
+          <div class="o-tooltip">MNRE-Aligned Design</div>
+        </div>
+
+        <div class="o-planet" data-radius="220" data-angle="300" data-period="65000"
+             data-title="Pan-India Service Reach"
+             data-body="With offices in Coimbatore and Salem, and partners across states, we execute projects anywhere in India — metros to remote industrial sites.">
+          <div class="o-pill">
+            <div class="o-pill-icon">
+              <svg class="w-3.5 h-3.5 text-brand-red" fill="currentColor" viewBox="0 0 24 24">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM4.332 8.027a6.012 6.012 0 011.912-2.706C6.514 5.731 6.97 6 7.5 6A1.5 1.5 0 019 7.5V9a1 1 0 001 1h2a1 1 0 011 1v1.5a1.5 1.5 0 01-1.5 1.5h-3A1.5 1.5 0 007 15.5v1.657a5.972 5.972 0 01-2.668-3.033z" clip-rule="evenodd" />
+              </svg>
+            </div>
+            <span class="o-pill-label">Pan-India Reach</span>
+          </div>
+          <div class="o-tooltip">Pan-India Service Reach</div>
+        </div>
+        <!-- (detail panel moved below orbital-wrap, see below) -->
+
+      </div><!-- /orbital-wrap -->
+
+      <!-- Detail panel: slides in BELOW the diagram, no overlap -->
+      <div class="o-detail" id="o-detail" role="region" aria-label="Service detail">
+        <div class="o-detail-card">
+          <div class="o-detail-icon" id="o-detail-icon"></div>
+          <div class="o-detail-text">
+            <p class="o-detail-title" id="o-detail-title"></p>
+            <p class="o-detail-body"  id="o-detail-body"></p>
+          </div>
+          <button class="o-detail-close" id="o-detail-close" aria-label="Close">&times;</button>
+        </div>
       </div>
+
+    </div><!-- /right wrapper -->
 
     </div>
   </div>
 </section>
+
+<script>
+  // ── Intersection Observer: reveal on scroll ──────────────────────────────
+  const reveal = (selector: string) => {
+    const els = document.querySelectorAll<HTMLElement>(selector);
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach((e) => { if (e.isIntersecting) { (e.target as HTMLElement).classList.add('visible'); } }),
+      { threshold: 0.12 }
+    );
+    els.forEach((el) => io.observe(el));
+  };
+
+  reveal('.stat-card');
+  reveal('.reason-row');
+  reveal('.left-panel');
+
+  // ── Count-up animation ───────────────────────────────────────────────────
+  const countUpObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target as HTMLElement;
+        const raw = el.dataset.target ?? '';
+        // Extract the numeric part and any suffix ('+', ' Yrs', etc.)
+        const match = raw.match(/^(\d+)(.*)$/);
+        if (!match) return;
+        const end = parseInt(match[1], 10);
+        const suffix = match[2] ?? '';
+        const duration = 1400;
+        const start = performance.now();
+        const animate = (now: number) => {
+          const progress = Math.min((now - start) / duration, 1);
+          // Ease out cubic
+          const eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.round(eased * end) + suffix;
+          if (progress < 1) requestAnimationFrame(animate);
+        };
+        requestAnimationFrame(animate);
+        countUpObserver.unobserve(el);
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  document.querySelectorAll<HTMLElement>('.js-countup').forEach((el) => {
+    countUpObserver.observe(el);
+  });
+
+  // ── Orbital planet animation ─────────────────────────────────────────────
+  interface PlanetConfig {
+    el: HTMLElement;
+    radius: number;
+    angle: number;   // start angle in degrees
+    period: number;  // ms for one full orbit
+    startTime: number | null;
+  }
+
+  const planets: PlanetConfig[] = Array.from(
+    document.querySelectorAll<HTMLElement>('.o-planet')
+  ).map((el) => ({
+    el,
+    radius: parseFloat(el.dataset.radius ?? '100'),
+    angle:  parseFloat(el.dataset.angle  ?? '0'),
+    period: parseFloat(el.dataset.period ?? '40000'),
+    startTime: null,
+  }));
+
+  function orbitalTick(ts: number) {
+    planets.forEach((p) => {
+      if (p.startTime === null) p.startTime = ts;
+      const elapsed = ts - p.startTime;
+      const deg = p.angle + (elapsed / p.period) * 360;
+      const rad = (deg * Math.PI) / 180;
+      const x = Math.cos(rad) * p.radius;
+      const y = Math.sin(rad) * p.radius;
+      // translate relative to center (50%,50%) of the container
+      p.el.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`;
+    });
+    requestAnimationFrame(orbitalTick);
+  }
+
+  // Start orbit once diagram enters viewport
+  const orbitObserver = new IntersectionObserver(
+    (entries) => {
+      if (entries[0].isIntersecting) {
+        requestAnimationFrame(orbitalTick);
+        orbitObserver.disconnect();
+      }
+    },
+    { threshold: 0.1 }
+  );
+  const diagram = document.getElementById('orbital-diagram');
+  if (diagram) orbitObserver.observe(diagram);
+
+  // ── Planet click → detail overlay ──────────────────────────────────────────
+  const detail      = document.getElementById('o-detail')!;
+  const detailIcon  = document.getElementById('o-detail-icon')!;
+  const detailTitle = document.getElementById('o-detail-title')!;
+  const detailBody  = document.getElementById('o-detail-body')!;
+  const closeBtn    = document.getElementById('o-detail-close')!;
+
+  // Icon SVG map keyed by short pill label
+  const iconMap: Record<string, string> = {
+    'End-to-End Project Ownership': `<svg class="w-6 h-6 text-brand-red" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M10 2a1 1 0 00-1 .76C7.94 6.73 5.37 9.09 2 9.5a1 1 0 00-.78 1.17c1.33 5.17 5.1 8.88 8.4 9.8a1 1 0 00.74 0c3.3-.92 7.08-4.62 8.4-9.8a1 1 0 00-.8-.17c-3.37-.41-5.94-2.77-7-6.75A1 1 0 0010 2z" clip-rule="evenodd" /></svg>`,
+    'Subsidy & Financing Guidance': `<svg class="w-6 h-6 text-brand-red" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 7.5h3a1 1 0 110 2h-3v1h3a1 1 0 110 2h-3v1.5a1 1 0 11-2 0V12.5H8a1 1 0 110-2h2v-1H8a1 1 0 110-2h2V7.5H8a1 1 0 110-2h8a1 1 0 110 2h-3z" clip-rule="evenodd" /></svg>`,
+    'ALMM-Listed Modules Only':     `<svg class="w-6 h-6 text-brand-red" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v6.5h5.5a1 1 0 01.82 1.573l-7 10A1 1 0 0110.5 20V13.5H5a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" /></svg>`,
+    'Data-Driven Energy Audits':    `<svg class="w-6 h-6 text-brand-red" fill="currentColor" viewBox="0 0 24 24"><path d="M2 10a1 1 0 011-1h3a1 1 0 110 2H3a1 1 0 01-1-1z"/><path fill-rule="evenodd" d="M4 2a2 2 0 00-2 2v12a2 2 0 002 2h2v2a1 1 0 102 0v-2h4v2a1 1 0 102 0v-2h4a2 2 0 002-2V4a2 2 0 00-2-2H4zm14 12H4V4h14v10z" clip-rule="evenodd"/></svg>`,
+    'MNRE-Aligned Design':          `<svg class="w-6 h-6 text-brand-red" fill="currentColor" viewBox="0 0 24 24"><path d="M9 2a1 1 0 000 2h6a1 1 0 100-2H9z"/><path fill-rule="evenodd" d="M6 5v14a2 2 0 002 2h8a2 2 0 002-2V5a2 2 0 00-2-2v3a1 1 0 01-1 1H9a1 1 0 01-1-1V3a2 2 0 00-2 2zm3 9a1 1 0 011.7-.7L12 14.58l3.3-3.3a1 1 0 111.4 1.4l-4 4a1 1 0 01-1.4 0l-2-2a1 1 0 010-1.4z" clip-rule="evenodd"/></svg>`,
+    'Pan-India Service Reach':      `<svg class="w-6 h-6 text-brand-red" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM4.332 8.027a6.012 6.012 0 011.912-2.706C6.514 5.731 6.97 6 7.5 6A1.5 1.5 0 019 7.5V9a1 1 0 001 1h2a1 1 0 011 1v1.5a1.5 1.5 0 01-1.5 1.5h-3A1.5 1.5 0 007 15.5v1.657a5.972 5.972 0 01-2.668-3.033z" clip-rule="evenodd"/></svg>`,
+  };
+
+  function openDetail(planet: HTMLElement) {
+    const title = planet.dataset.title ?? '';
+    const body  = planet.dataset.body  ?? '';
+    detailIcon.innerHTML  = iconMap[title] ?? '';
+    detailTitle.textContent = title;
+    detailBody.textContent  = body;
+    detail.classList.add('open');
+    diagram?.classList.add('detail-open');
+  }
+
+  function closeDetail() {
+    detail.classList.remove('open');
+    diagram?.classList.remove('detail-open');
+  }
+
+  // Attach click listeners to each planet
+  document.querySelectorAll<HTMLElement>('.o-planet').forEach((planet) => {
+    planet.addEventListener('click', (e) => {
+      e.stopPropagation();
+      openDetail(planet);
+    });
+  });
+
+  // Close on × button
+  closeBtn.addEventListener('click', (e) => { e.stopPropagation(); closeDetail(); });
+
+  // Close on backdrop click (clicking outside the card)
+  detail.addEventListener('click', (e) => {
+    if (e.target === detail) closeDetail();
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeDetail();
+  });
+</script>

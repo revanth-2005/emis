@@ -121,6 +121,101 @@ const fullTitle  = title.includes('Ermis') ? title : `${title} | Ermis Global`;
           observer.observe(section);
         }
       });
+
+      // Animated Counters Intersection Observer
+      const counters = document.querySelectorAll('.animate-counter');
+      
+      const counterObserverOptions = {
+        root: null,
+        rootMargin: '0px 0px -5% 0px',
+        threshold: 0.1
+      };
+      
+      const animateCounter = (el: HTMLElement) => {
+        const rawValue = el.getAttribute('data-value') || el.textContent || '';
+        const match = rawValue.match(/^([^\d]*)([\d,.]+)([^\d]*)$/);
+        if (!match) return;
+        
+        const prefix = match[1];
+        const targetStr = match[2].replace(/,/g, '');
+        const suffix = match[3];
+        const target = parseFloat(targetStr);
+        if (isNaN(target)) return;
+        
+        // Duration in ms
+        const duration = 1500;
+        
+        // Default start value
+        let start = 0;
+        if (target > 1000) {
+          start = Math.floor(target - 100);
+        }
+        
+        const customStart = el.getAttribute('data-start');
+        if (customStart !== null) {
+          const parsedStart = parseFloat(customStart);
+          if (!isNaN(parsedStart)) {
+            start = parsedStart;
+          }
+        }
+        
+        // Ensure starting state is shown immediately before animation begins
+        el.textContent = prefix + start + suffix;
+        
+        let startTime: number | null = null;
+        
+        const step = (timestamp: number) => {
+          if (!startTime) startTime = timestamp;
+          const progress = Math.min((timestamp - startTime) / duration, 1);
+          // Easing: easeOutQuad
+          const easeProgress = progress * (2 - progress);
+          const currentVal = Math.floor(start + (target - start) * easeProgress);
+          
+          el.textContent = prefix + currentVal + suffix;
+          
+          if (progress < 1) {
+            window.requestAnimationFrame(step);
+          } else {
+            // Ensure exact target is set at the end
+            el.textContent = rawValue;
+          }
+        };
+        
+        window.requestAnimationFrame(step);
+      };
+      
+      const counterObserver = new IntersectionObserver((entries, self) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateCounter(entry.target as HTMLElement);
+            self.unobserve(entry.target);
+          }
+        });
+      }, counterObserverOptions);
+      
+      counters.forEach(counter => {
+        // Pre-set static state to start value to avoid content layout shift / flash
+        const rawValue = counter.getAttribute('data-value') || counter.textContent || '';
+        const match = rawValue.match(/^([^\d]*)([\d,.]+)([^\d]*)$/);
+        if (match) {
+          const prefix = match[1];
+          const targetStr = match[2].replace(/,/g, '');
+          const suffix = match[3];
+          const target = parseFloat(targetStr);
+          if (!isNaN(target)) {
+            let start = 0;
+            if (target > 1000) start = Math.floor(target - 100);
+            const customStart = counter.getAttribute('data-start');
+            if (customStart !== null) {
+              const parsedStart = parseFloat(customStart);
+              if (!isNaN(parsedStart)) start = parsedStart;
+            }
+            counter.textContent = prefix + start + suffix;
+          }
+        }
+        
+        counterObserver.observe(counter);
+      });
     });
   </script>
 </body>

@@ -12,7 +12,7 @@ const stats = [
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center text-white">
       {stats.map((s) => (
         <div>
-          <p class="text-3xl md:text-4xl font-extrabold">{s.value}</p>
+          <p class="text-3xl md:text-4xl font-extrabold animate-counter" data-value={s.value}>{s.value}</p>
           <p class="text-sm font-semibold mt-1 opacity-90">{s.label}</p>
           <p class="text-xs mt-0.5 opacity-60">{s.note}</p>
         </div>

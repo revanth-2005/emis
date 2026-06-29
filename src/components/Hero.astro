@@ -17,8 +17,14 @@ const {
 ---
 
 <section class="relative bg-neutral-ink overflow-hidden py-16 lg:py-24 flex items-center min-h-[calc(100vh-80px)]">
-  <!-- Visual Storytelling background image with dark overlay -->
-  <div class="absolute inset-0 bg-[url('/hero_solar_installation.png')] bg-cover bg-center bg-no-repeat z-0" aria-hidden="true"></div>
+  <!-- Visual Storytelling background image slider with dark overlay -->
+  <div class="absolute inset-0 z-0" aria-hidden="true">
+    <div class="hero-slide absolute inset-0 bg-[url('/hero_solar_installation.png')] bg-cover bg-center bg-no-repeat opacity-100 transition-opacity duration-1000"></div>
+    <div class="hero-slide absolute inset-0 bg-[url('/gallery_commercial.png')] bg-cover bg-center bg-no-repeat opacity-0 transition-opacity duration-1000"></div>
+    <div class="hero-slide absolute inset-0 bg-[url('/gallery_industrial.png')] bg-cover bg-center bg-no-repeat opacity-0 transition-opacity duration-1000"></div>
+    <div class="hero-slide absolute inset-0 bg-[url('/gallery_residential.png')] bg-cover bg-center bg-no-repeat opacity-0 transition-opacity duration-1000"></div>
+    <div class="hero-slide absolute inset-0 bg-[url('/service_commercial.png')] bg-cover bg-center bg-no-repeat opacity-0 transition-opacity duration-1000"></div>
+  </div>
   <div class="absolute inset-0 bg-neutral-ink/80 z-1" aria-hidden="true"></div>
 
   <!-- Bottom fade to next section -->
@@ -51,22 +57,23 @@ const {
           </p>
         </div>
 
-        <!-- Trust Badges -->
+        <!-- Feature Points List -->
         <div class="animate-stagger-item mb-8" style="animation-delay: 400ms;">
-          <div class="flex flex-wrap items-center gap-3">
+          <ul class="space-y-3 text-white/90">
             {[
-              { label: 'MNRE Registered', icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z' },
-              { label: 'PM Surya Ghar Approved', icon: 'M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z' },
-              { label: 'ALMM-Listed Modules', icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2' },
-            ].map((b) => (
-              <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-white/10 text-white border border-white/20 rounded-full text-xs font-semibold backdrop-blur-sm">
-                <svg class="w-3.5 h-3.5 text-brand-light flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={b.icon}/>
-                </svg>
-                {b.label}
-              </span>
+              'Save Up to 90% on Electricity Bills',
+              'MNRE-aligned solutions',
+              'Net-metering & PM Surya Ghar eligible',
+              'ALMM-listed modules'
+            ].map((point) => (
+              <li class="flex items-center gap-3 text-sm sm:text-base font-semibold">
+                <span class="w-5 h-5 rounded-full bg-brand-red flex items-center justify-center text-white flex-shrink-0 text-xs font-bold shadow-sm">
+                  ✓
+                </span>
+                {point}
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
 
         <div class="animate-stagger-item" style="animation-delay: 500ms;">
@@ -231,4 +238,32 @@ const {
     wrap?.classList.add('hidden');
     success?.classList.remove('hidden');
   });
+
+  // Hero Background Slider
+  const slides = document.querySelectorAll('.hero-slide');
+  let currentSlide = 0;
+
+  if (slides.length > 1) {
+    // Preload other slider images to prevent download delay on first cycle
+    const preloadImages = [
+      '/gallery_commercial.png',
+      '/gallery_industrial.png',
+      '/gallery_residential.png',
+      '/service_commercial.png'
+    ];
+    preloadImages.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+
+    setInterval(() => {
+      slides[currentSlide].classList.remove('opacity-100');
+      slides[currentSlide].classList.add('opacity-0');
+      
+      currentSlide = (currentSlide + 1) % slides.length;
+      
+      slides[currentSlide].classList.remove('opacity-0');
+      slides[currentSlide].classList.add('opacity-100');
+    }, 2500); // Expose each slide for 2.5 seconds
+  }
 </script>

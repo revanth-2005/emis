@@ -3,81 +3,145 @@ const steps = [
   {
     num:   '01',
     title: 'Site Visit',
-    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>`,
+    icon: `<path fill-rule="evenodd" d="M11.54 22.35a1 1 0 01-1.08 0l-5.66-5.66a9 9 0 1112.4 0l-5.66 5.66zM11 12a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />`,
     body:  'Our engineer visits your property to inspect structural readiness, measure solar exposure, and assess your current energy consumption.',
   },
   {
     num:   '02',
     title: 'Design',
-    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 4L9 7"/>`,
+    icon: `<path fill-rule="evenodd" d="M2 10a1 1 0 011-1h3a1 1 0 110 2H3a1 1 0 01-1-1zM9 8a1 1 0 011-1h3a1 1 0 110 2h-3a1 1 0 01-1-1zM16 12a1 1 0 011-1h3a1 1 0 110 2h-3a1 1 0 01-1-1z" /><path fill-rule="evenodd" d="M4 2a2 2 0 00-2 2v12a2 2 0 002 2h2v2a1 1 0 102 0v-2h4v2a1 1 0 102 0v-2h4a2 2 0 002-2V4a2 2 0 00-2-2H4zm14 12H4V4h14v10z" clip-rule="evenodd" />`,
     body:  'We prepare a detailed module layout, single-line diagrams, expected generation metrics, and a precise financial payback model.',
   },
   {
     num:   '03',
     title: 'Approval',
-    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>`,
+    icon: `<path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12zm13.707-3.293a1 1 0 00-1.414-1.414L11 10.586 9.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />`,
     body:  'We manage DISCOM grid connectivity approvals, net-metering agreements, and register you on the PM Surya Ghar national portal.',
   },
   {
     num:   '04',
     title: 'Installation',
-    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><circle cx="12" cy="12" r="3" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>`,
+    icon: `<path fill-rule="evenodd" d="M12 2a1 1 0 00-1 1v1.17c-.31.09-.6.22-.88.38l-.83-.83a1 1 0 10-1.41 1.41l.83.83c-.16.28-.29.57-.38.88H6a1 1 0 100 2h1.17c.09.31.22.6.38.88l-.83.83a1 1 0 001.41 1.41l.83-.83c.28.16.57.29.88.38V19a1 1 0 102 0v-1.17c.31-.09.6-.22.88-.38l.83.83a1 1 0 001.41-1.41l-.83-.83c.16-.28.29-.57.38-.88H18a1 1 0 100-2h-1.17c-.09-.31-.22-.6-.38-.88l.83-.83a1 1 0 00-1.41-1.41l-.83.83c-.28-.16-.57-.29-.88-.38V3a1 1 0 00-1-1zM9 10a3 3 0 116 0 3 3 0 01-6 0z" clip-rule="evenodd" />`,
     body:  'Our certified engineering team deploys the system with zero disruption. We commission the plant and deliver all compliance papers.',
   },
   {
     num:   '05',
     title: 'Savings',
-    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>`,
+    icon: `<path fill-rule="evenodd" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 7.5h3a1 1 0 110 2h-3v1h3a1 1 0 110 2h-3v1.5a1 1 0 11-2 0V12.5H8a1 1 0 110-2h2v-1H8a1 1 0 110-2h2V7.5H8a1 1 0 110-2h8a1 1 0 110 2h-3z" clip-rule="evenodd" />`,
     body:  'Activate real-time app tracking. Start saving from Month 1 while we handle scheduled O&M audits to keep output at peak levels.',
   },
 ];
 ---
 
-<section class="py-14 bg-neutral-snow">
+<section class="py-20 bg-neutral-snow">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-start">
+      
+      <!-- Left Column: Sticky Title and CTA -->
+      <div class="lg:col-span-5 lg:sticky lg:top-32 text-center lg:text-left z-20">
+        <p class="section-label mb-3">The Process</p>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-neutral-ink leading-tight">
+          From Inquiry to Bill Savings<br class="hidden lg:block"/> — Here's How It Works
+        </h2>
+        <p class="text-base sm:text-lg text-neutral-muted mt-5 leading-relaxed max-w-xl mx-auto lg:mx-0">
+          We guide you step-by-step through structural design, net-metering approvals, professional installation, and final savings activation.
+        </p>
+        <div class="mt-8 hidden lg:block">
+          <a href="/get-a-quote" class="btn-primary inline-flex">
+            Start with a Free Assessment
+          </a>
+        </div>
+      </div>
 
-    <div class="text-center mb-10">
-      <p class="section-label mb-3">The Process</p>
-      <h2 class="section-heading">From Inquiry to Bill Savings<br class="hidden md:block"/> — Here's How It Works</h2>
-    </div>
-
-    <div class="relative">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+      <!-- Right Column: Sticky Stack Cards -->
+      <div class="lg:col-span-7 relative flex flex-col gap-6" id="sticky-process-stack">
         {steps.map((step, i) => (
-          <div class="relative flex flex-col items-center text-center group">
-            <!-- Chevron separator arrows between steps (desktop) -->
-            {i < steps.length - 1 && (
-              <div class="absolute top-5 -right-[15%] lg:block hidden z-20" aria-hidden="true">
-                <svg class="w-6 h-6 text-brand-red/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
-                </svg>
-              </div>
-            )}
-
+          <div class="process-card md:sticky bg-white rounded-3xl border border-neutral-rule/60 shadow-card p-6 md:p-8 flex flex-col sm:flex-row items-center sm:items-start gap-6 transition-all duration-500 ease-out origin-top z-10"
+               style={`top: ${120 + i * 24}px; z-index: ${i + 1};`}>
+            
             <!-- Icon bubble with corner index tag -->
-            <div class="relative mb-5 flex-shrink-0">
-              <div class="w-16 h-16 rounded-full bg-white shadow-md border-2 border-brand-red/10 flex items-center justify-center group-hover:bg-brand-red group-hover:border-brand-red transition-all duration-300">
-                <svg class="w-7 h-7 text-brand-red group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="relative flex-shrink-0">
+              <div class="w-16 h-16 rounded-2xl bg-brand-pale border-2 border-brand-red/10 flex items-center justify-center shadow-sm">
+                <svg class="w-8 h-8 text-brand-red" fill="currentColor" viewBox="0 0 24 24">
                   <Fragment set:html={step.icon} />
                 </svg>
               </div>
-              <span class="absolute -top-1 -right-1 bg-neutral-ink text-white text-[10px] font-black w-5 h-5 rounded-full flex items-center justify-center border border-white">
+              <span class="absolute -top-1.5 -right-1.5 bg-neutral-ink text-white text-[10px] font-black w-6 h-6 rounded-full flex items-center justify-center border border-white shadow-sm">
                 {step.num}
               </span>
             </div>
 
             <!-- Title & Body -->
-            <h3 class="font-bold text-neutral-ink mb-2 text-base leading-snug group-hover:text-brand-red transition-colors duration-250">{step.title}</h3>
-            <p class="text-xs text-neutral-muted leading-relaxed max-w-[240px]">{step.body}</p>
+            <div class="flex-grow text-center sm:text-left">
+              <h3 class="font-extrabold text-neutral-ink mb-2 text-xl leading-snug">{step.title}</h3>
+              <p class="text-sm md:text-base text-neutral-muted leading-relaxed">{step.body}</p>
+            </div>
           </div>
         ))}
       </div>
+
     </div>
 
-    <div class="text-center mt-8">
-      <a href="/get-a-quote" class="btn-primary">
+    <!-- Mobile Button -->
+    <div class="text-center mt-12 lg:hidden">
+      <a href="/get-a-quote" class="btn-primary inline-flex">
         Start with a Free Assessment
       </a>
     </div>
   </div>
 </section>
+
+<script>
+  function initStickyStack() {
+    const cards = document.querySelectorAll('.process-card') as NodeListOf<HTMLElement>;
+    const container = document.getElementById('sticky-process-stack');
+    
+    if (cards.length === 0 || !container) return;
+
+    const handleScroll = () => {
+      if (window.innerWidth < 768) {
+        // Reset styles on mobile to prevent overlapping issues
+        cards.forEach((card) => {
+          card.style.transform = '';
+          card.style.opacity = '';
+          card.style.filter = '';
+        });
+        return;
+      }
+
+      cards.forEach((card, idx) => {
+        const nextCard = cards[idx + 1];
+        if (nextCard) {
+          const nextCardRect = nextCard.getBoundingClientRect();
+          // The sticky top position for the next card (must match top style)
+          const stickyThreshold = 120 + (idx + 1) * 24;
+          
+          if (nextCardRect.top <= stickyThreshold + 100) {
+            // Next card is close or overlapping. Scale down and fade this card.
+            const overlapAmount = Math.max(0, Math.min(1, (stickyThreshold + 100 - nextCardRect.top) / 200));
+            const scale = 1 - overlapAmount * 0.04;
+            const opacity = 1 - overlapAmount * 0.35;
+            const translate = -overlapAmount * 12;
+            
+            card.style.transform = `scale(${scale}) translateY(${translate}px)`;
+            card.style.opacity = `${opacity}`;
+            card.style.filter = `blur(${overlapAmount * 0.5}px)`;
+          } else {
+            card.style.transform = 'scale(1) translateY(0)';
+            card.style.opacity = '1';
+            card.style.filter = 'none';
+          }
+        }
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleScroll);
+    
+    // Initial run
+    handleScroll();
+  }
+
+  // Set up on page load
+  document.addEventListener('DOMContentLoaded', initStickyStack);
+</script>

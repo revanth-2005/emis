@@ -48,8 +48,12 @@ const faq = [
     </div>
   </nav>
 
-  <section class="bg-neutral-ink py-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:grid lg:grid-cols-2 gap-16 items-center">
+  <section class="relative bg-neutral-ink py-20 overflow-hidden">
+    <!-- Visual background image with overlay -->
+    <div class="absolute inset-0 bg-[url('/service_residential_hero.png')] bg-cover bg-center bg-no-repeat z-0" aria-hidden="true"></div>
+    <div class="absolute inset-0 bg-neutral-ink/80 z-1" aria-hidden="true"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:grid lg:grid-cols-2 gap-16 items-center relative z-10">
       <div>
         <p class="section-label mb-3 text-brand-light">For Your Home</p>
         <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-5">
@@ -101,10 +105,12 @@ const faq = [
   </section>
 
   <!-- How we make it easy -->
-  <section class="py-16 bg-white">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="section-heading text-center mb-10">We Handle Everything — You Just Enjoy the Savings</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+  <section class="py-16 bg-white overflow-hidden">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="section-heading text-center mb-12 timeline-header">We Handle Everything — You Just Enjoy the Savings</h2>
+      
+      <!-- Vertical Timeline Wrapper -->
+      <div class="relative ml-4 sm:ml-6 pl-8 sm:pl-12 space-y-8 py-2">
         {[
           { t: 'Free Home Assessment',        b: 'Our engineer visits your home, measures roof area, checks DISCOM connection, and designs the optimal system.' },
           { t: 'PM Surya Ghar Registration',  b: 'We register you on the national portal, submit documents, and track approval — you don\'t visit any office.' },
@@ -112,18 +118,75 @@ const faq = [
           { t: 'Net-Meter Application',       b: 'We file the net-metering application with your DISCOM and follow up until the bi-directional meter is installed.' },
           { t: 'Certified Installation',      b: 'Our MNRE-certified installation teams complete the physical work in 2–5 days with minimal disruption.' },
           { t: '25-Year Monitoring',          b: 'Track your system\'s daily output via a mobile app. We alert you to any underperformance and dispatch a technician.' },
-        ].map((item) => (
-          <div class="flex gap-4">
-            <div class="w-8 h-8 rounded-full bg-brand-red text-white font-bold text-sm flex items-center justify-center flex-shrink-0 mt-0.5">✓</div>
-            <div>
-              <h3 class="font-semibold text-neutral-ink text-sm mb-1">{item.t}</h3>
-              <p class="text-xs text-neutral-muted leading-relaxed">{item.b}</p>
+        ].map((item, index) => (
+          <div 
+            class="relative timeline-item"
+            style={`transition-delay: ${index * 100}ms`}
+          >
+            {/* Line segment to next dot (only for steps 1-5) */}
+            {index < 5 && (
+              <div class="absolute left-[-32px] sm:left-[-44px] top-[22px] bottom-[-54px] w-[3px] bg-brand-red/15 z-0"></div>
+            )}
+
+            {/* Circle Dot with number */}
+            <div class="absolute -left-[49px] sm:-left-[61px] top-1 w-9 h-9 rounded-full bg-brand-pale border-2 border-brand-red flex items-center justify-center font-bold text-xs text-brand-red transition-all duration-300 shadow-sm timeline-number z-10">
+              {index + 1}
+            </div>
+
+            {/* Timeline details card */}
+            <div class="bg-white rounded-2xl border border-neutral-rule/65 p-6 shadow-card hover:shadow-lg hover:border-brand-red/25 transition-all duration-300 transform hover:-translate-y-1 cursor-default group">
+              <h3 class="font-bold text-neutral-ink text-base mb-2 transition-colors duration-200 group-hover:text-brand-red">{item.t}</h3>
+              <p class="text-sm text-neutral-muted leading-relaxed">{item.b}</p>
             </div>
           </div>
         ))}
       </div>
     </div>
   </section>
+
+  <style>
+    /* Entrance animations for timeline elements */
+    .timeline-header,
+    .timeline-item {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .timeline-header.visible,
+    .timeline-item.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Change state on timeline dot hover */
+    .timeline-item:hover .timeline-number {
+      background-color: var(--color-brand-red, #c43b31);
+      color: #ffffff;
+      transform: scale(1.1);
+      box-shadow: 0 0 10px 2px rgba(196, 59, 49, 0.2);
+    }
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const items = document.querySelectorAll('.timeline-item, .timeline-header');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      items.forEach((el) => observer.observe(el));
+    });
+  </script>
 
   <!-- FAQ -->
   <section id="faq" class="py-16 bg-neutral-snow">

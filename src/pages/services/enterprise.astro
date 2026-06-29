@@ -12,10 +12,26 @@ const schema = {
 };
 
 const useCases = [
-  { title: 'Manufacturing Plants',  body: 'Reduce per-unit production cost with on-site captive solar. Claim accelerated depreciation (Section 32) in Year 1.' },
-  { title: 'Warehouses & Logistics', body: 'Large flat roof areas = large solar arrays = large savings. Ideal for 24x7 operations with peak daytime consumption.' },
-  { title: 'Data Centres',          body: 'Meet sustainability mandates and reduce PUE with behind-the-meter solar + battery storage integration.' },
-  { title: 'SEZ & Industrial Parks', body: 'Common area solar + open access wheeling for multiple units within a park.' },
+  {
+    title: 'Manufacturing Plants',
+    body: 'Reduce per-unit production cost with on-site captive solar. Claim accelerated depreciation (Section 32) in Year 1.',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.25 18H20.75M4.5 18V9.25L9 6V18M9.75 18V11.25L14.25 8V18M15 18V13.25L19.5 10V18" />`
+  },
+  {
+    title: 'Warehouses & Logistics',
+    body: 'Large flat roof areas = large solar arrays = large savings. Ideal for 24x7 operations with peak daytime consumption.',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />`
+  },
+  {
+    title: 'Data Centres',
+    body: 'Meet sustainability mandates and reduce PUE with behind-the-meter solar + battery storage integration.',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />`
+  },
+  {
+    title: 'SEZ & Industrial Parks',
+    body: 'Common area solar + open access wheeling for multiple units within a park.',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 9h1.5m-1.5 3h1.5m-1.5 3h1.5m3.75-6H15m-1.25 3H15m-1.25 3H15" />`
+  },
 ];
 ---
 
@@ -34,8 +50,12 @@ const useCases = [
     </div>
   </nav>
 
-  <section class="bg-neutral-ink py-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:grid lg:grid-cols-2 gap-16 items-center">
+  <section class="relative bg-neutral-ink py-20 overflow-hidden">
+    <!-- Visual background image with overlay -->
+    <div class="absolute inset-0 bg-[url('/service_industrial_hero.png')] bg-cover bg-center bg-no-repeat z-0" aria-hidden="true"></div>
+    <div class="absolute inset-0 bg-neutral-ink/80 z-1" aria-hidden="true"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:grid lg:grid-cols-2 gap-16 items-center relative z-10">
       <div>
         <p class="section-label mb-3 text-brand-light">Enterprise & Industrial Solar</p>
         <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-5">
@@ -91,19 +111,22 @@ const useCases = [
   </section>
 
   <!-- Use cases -->
-  <section class="py-16 bg-neutral-snow">
+  <section class="py-16 bg-neutral-snow overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="section-heading text-center mb-10">Industries We Serve</h2>
+      <h2 class="section-heading text-center mb-10 reveal-item">Industries We Serve</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        {useCases.map((uc) => (
-          <div class="flex gap-4 card">
-            <div class="w-10 h-10 flex-shrink-0 rounded-lg bg-brand-pale flex items-center justify-center">
-              <svg class="w-5 h-5 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+        {useCases.map((uc, i) => (
+          <div
+            class="flex gap-4 card usecase-card"
+            style={`transition-delay: ${i * 120}ms`}
+          >
+            <div class="w-10 h-10 flex-shrink-0 rounded-lg bg-brand-pale flex items-center justify-center icon-container transition-all duration-300">
+              <svg class="w-5 h-5 text-brand-red transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <Fragment set:html={uc.icon} />
               </svg>
             </div>
             <div>
-              <h3 class="font-semibold text-neutral-ink mb-1">{uc.title}</h3>
+              <h3 class="font-semibold text-neutral-ink mb-1 transition-colors duration-200">{uc.title}</h3>
               <p class="text-sm text-neutral-muted leading-relaxed">{uc.body}</p>
             </div>
           </div>
@@ -111,6 +134,88 @@ const useCases = [
       </div>
     </div>
   </section>
+
+  <style>
+    /* Use Case cards fade up entrance styling */
+    .reveal-item,
+    .usecase-card {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    
+    .reveal-item.visible,
+    .usecase-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Use Case Card Hover effects */
+    .usecase-card {
+      position: relative;
+      cursor: pointer;
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    
+    .usecase-card:hover {
+      transform: translateY(-4px) scale(1.015);
+      box-shadow: 0 10px 25px -5px rgba(196, 59, 49, 0.08), 0 8px 16px -8px rgba(196, 59, 49, 0.08);
+      border-color: rgba(196, 59, 49, 0.25);
+    }
+
+    .usecase-card:hover .icon-container {
+      background: var(--color-brand-red, #c43b31);
+    }
+    
+    .usecase-card:hover .icon-container svg {
+      color: #ffffff;
+      transform: scale(1.1) rotate(12deg);
+    }
+
+    .usecase-card:hover h3 {
+      color: var(--color-brand-red, #c43b31);
+    }
+
+    /* Small red active highlight strip at the left */
+    .usecase-card::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 25%;
+      bottom: 25%;
+      width: 3px;
+      background: var(--color-brand-red, #c43b31);
+      border-radius: 0 4px 4px 0;
+      transform: scaleY(0);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .usecase-card:hover::before {
+      transform: scaleY(1);
+    }
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const revealItems = document.querySelectorAll('.usecase-card, .reveal-item');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      });
+
+      revealItems.forEach((el) => observer.observe(el));
+    });
+  </script>
 
   <CTABanner
     headline="Ready to Reduce Your Energy Cost at Scale?"
