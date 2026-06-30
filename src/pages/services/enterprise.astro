@@ -55,35 +55,104 @@ const useCases = [
     <div class="absolute inset-0 bg-[url('/service_industrial_hero.png')] bg-cover bg-center bg-no-repeat z-0" aria-hidden="true"></div>
     <div class="absolute inset-0 bg-neutral-ink/80 z-1" aria-hidden="true"></div>
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:grid lg:grid-cols-2 gap-16 items-center relative z-10">
-      <div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:grid lg:grid-cols-12 gap-12 items-center relative z-10">
+      <div class="lg:col-span-7">
         <p class="section-label mb-3 text-brand-light">Enterprise & Industrial Solar</p>
-        <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-5">
-          Turn Your Roof or Land Into a Power Plant
+        <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-5 leading-tight">
+          Power Your Business with High-Performance Solar Solutions
         </h1>
         <p class="text-white/70 text-lg leading-relaxed mb-8">
-          For manufacturers, warehouses, and industrial campuses, solar isn't a CSR exercise —
-          it's a margin improvement. We design and deliver projects from 100 kW to 50 MW+,
-          with complete DISCOM, CERC, and state regulatory handling.
+          We design, install, and maintain industrial and commercial solar plants ranging from 100 kW to multi-MW for long-term performance.
         </p>
-        <div class="flex flex-col sm:flex-row gap-4">
-          <a href="/get-a-quote" class="btn-primary">Get a Free DPR</a>
-          <a href="/contact"     class="btn-ghost">Talk to an Engineer</a>
+        <div class="flex flex-col sm:flex-row flex-wrap gap-4 items-center">
+          <a href="#dpr-form-card" class="btn-primary w-full sm:w-auto text-center">Get a Free DPR</a>
+          <a href="/contact" class="btn-ghost w-full sm:w-auto text-center">Talk to Solar Expert</a>
         </div>
       </div>
-      <!-- Key metrics -->
-      <div class="mt-12 lg:mt-0 grid grid-cols-2 gap-4">
-        {[
-          { v: '100 kW+', l: 'Minimum project size' },
-          { v: '25 yr',   l: 'Panel performance guarantee' },
-          { v: '30–40%',  l: 'Typical electricity cost reduction' },
-          { v: 'Yr 1',    l: 'Accelerated depreciation benefit' },
-        ].map((m) => (
-          <div class="bg-white/10 border border-white/20 rounded-xl p-5 text-center">
-            <p class="text-2xl font-extrabold text-white">{m.v}</p>
-            <p class="text-xs text-white/60 mt-1">{m.l}</p>
+      <!-- Lead Form Card -->
+      <div class="mt-12 lg:mt-0 lg:col-span-5">
+        <div id="dpr-form-card" class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 shadow-2xl relative transition-all duration-300">
+          
+          <!-- Success State -->
+          <div id="dpr-success" class="hidden flex flex-col items-center justify-center text-center py-10">
+            <div class="w-14 h-14 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mb-4">
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Request Submitted!</h3>
+            <p class="text-white/70 text-sm max-w-xs mx-auto">
+              Thank you. Our solar engineer will review your details and contact you within 1 business day with your free DPR.
+            </p>
           </div>
-        ))}
+
+          <!-- Error State -->
+          <div id="dpr-error" class="hidden flex flex-col items-center justify-center text-center py-10">
+            <div class="w-14 h-14 rounded-full bg-rose-500/20 text-rose-400 flex items-center justify-center mb-4">
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Submission Failed</h3>
+            <p class="text-white/70 text-sm mb-6">
+              Something went wrong. Please try again.
+            </p>
+            <button id="dpr-error-retry" class="px-5 py-2.5 bg-white/15 hover:bg-white/25 text-white border border-white/20 rounded-lg text-sm font-semibold transition-all">
+              Try Again
+            </button>
+          </div>
+
+          <!-- Form Element -->
+          <form
+            id="dpr-form"
+            name="industrial-dpr-request"
+            method="POST"
+            class="space-y-4"
+            novalidate
+          >
+            <input type="hidden" name="form-name" value="industrial-dpr-request" />
+            <h3 class="text-lg font-bold text-white">Get a Free DPR & Estimate</h3>
+            <p class="text-white/60 text-xs">Fill in your details to receive a customized techno-commercial assessment.</p>
+
+            <div class="space-y-3.5">
+              <div>
+                <input id="dpr-name" name="name" type="text" required placeholder="Full Name *"
+                  class="w-full px-3.5 py-2.5 bg-white/5 border border-white/15 focus:border-brand-light focus:ring-1 focus:ring-brand-light rounded-lg text-white placeholder-white/40 text-sm outline-none transition-all" />
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                <div>
+                  <input id="dpr-phone" name="phone" type="tel" required placeholder="Mobile Number *"
+                    class="w-full px-3.5 py-2.5 bg-white/5 border border-white/15 focus:border-brand-light focus:ring-1 focus:ring-brand-light rounded-lg text-white placeholder-white/40 text-sm outline-none transition-all" />
+                </div>
+                <div>
+                  <input id="dpr-email" name="email" type="email" required placeholder="Email Address *"
+                    class="w-full px-3.5 py-2.5 bg-white/5 border border-white/15 focus:border-brand-light focus:ring-1 focus:ring-brand-light rounded-lg text-white placeholder-white/40 text-sm outline-none transition-all" />
+                </div>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                <div>
+                  <input id="dpr-org" name="organisation" type="text" required placeholder="Company Name *"
+                    class="w-full px-3.5 py-2.5 bg-white/5 border border-white/15 focus:border-brand-light focus:ring-1 focus:ring-brand-light rounded-lg text-white placeholder-white/40 text-sm outline-none transition-all" />
+                </div>
+                <div>
+                  <select id="dpr-capacity" name="capacity" required
+                    class="w-full px-3.5 py-2.5 bg-white/5 border border-white/15 focus:border-brand-light focus:ring-1 focus:ring-brand-light rounded-lg text-white/90 placeholder-white/40 text-sm outline-none transition-all [&>option]:bg-neutral-ink [&>option]:text-white">
+                    <option value="" disabled selected class="text-white/40">Required Capacity *</option>
+                    <option value="100kW-500kW">100 kW to 500 kW</option>
+                    <option value="500kW-1MW">500 kW to 1 MW</option>
+                    <option value="1MW-5MW">1 MW to 5 MW</option>
+                    <option value="5MW+">5 MW+</option>
+                    <option value="Unsure">Unsure / Need assessment</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <button type="submit" class="w-full btn-primary justify-center font-bold text-center mt-2">
+              Get a Free DPR
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   </section>
@@ -110,6 +179,80 @@ const useCases = [
     </div>
   </section>
 
+  <!-- The Process -->
+  <section class="py-20 bg-neutral-ink relative overflow-hidden">
+    <!-- subtle background grid -->
+    <div class="absolute inset-0 opacity-5" style="background-image: linear-gradient(rgba(255,255,255,.15) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.15) 1px, transparent 1px); background-size: 40px 40px;" aria-hidden="true"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center mb-14">
+        <p class="section-label text-brand-light mb-3">How It Works</p>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-white">Your Solar Journey in 5 Simple Steps</h2>
+      </div>
+
+      <div class="relative">
+
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+          {[
+            {
+              num: '01',
+              title: 'Free Site Survey',
+              body: 'Our solar experts inspect your property, analyze your electricity usage, and assess available roof or land space to determine the best solution.',
+              icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>`
+            },
+            {
+              num: '02',
+              title: 'System Design & Quotation',
+              body: 'We design a customized solar system based on your energy needs and provide a detailed proposal with estimated savings, ROI, and project timeline.',
+              icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>`
+            },
+            {
+              num: '03',
+              title: 'Approvals & Documentation',
+              body: 'We handle all necessary paperwork — subsidy applications, net metering, and utility approvals — ensuring a completely hassle-free process.',
+              icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>`
+            },
+            {
+              num: '04',
+              title: 'Installation & Testing',
+              body: 'Our certified technicians install the solar system using premium-quality components, followed by thorough testing and commissioning.',
+              icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>`
+            },
+            {
+              num: '05',
+              title: 'Monitoring & After-Sales Support',
+              body: 'Real-time performance monitoring, regular maintenance, and dedicated support to maximize your energy savings for years to come.',
+              icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>`
+            },
+          ].map((step) => (
+            <div class="process-step flex flex-col items-center text-center group">
+              <!-- Step circle -->
+              <div class="relative mb-5">
+                <div class="w-20 h-20 rounded-2xl bg-white/5 border border-white/15 group-hover:border-brand-light/50 group-hover:bg-white/10 flex items-center justify-center transition-all duration-300 shadow-lg">
+                  <svg class="w-7 h-7 text-brand-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <Fragment set:html={step.icon} />
+                  </svg>
+                </div>
+                <span class="absolute -top-2 -right-2 w-7 h-7 rounded-full bg-brand-red text-white text-xs font-black flex items-center justify-center shadow-md">{step.num}</span>
+              </div>
+              <h3 class="font-bold text-white text-sm mb-2 group-hover:text-brand-light transition-colors duration-200">{step.title}</h3>
+              <p class="text-xs text-white/55 leading-relaxed">{step.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="text-center mt-12">
+        <a href="/get-a-quote" class="btn-primary inline-flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+          </svg>
+          Get Your Free Solar Consultation
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- Use cases -->
   <section class="py-16 bg-neutral-snow overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -130,6 +273,59 @@ const useCases = [
               <p class="text-sm text-neutral-muted leading-relaxed">{uc.body}</p>
             </div>
           </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <p class="section-label mb-3">Got Questions?</p>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-neutral-ink">Frequently Asked Questions</h2>
+        <p class="text-neutral-muted mt-3 text-sm">Everything you need to know about enterprise solar solutions.</p>
+      </div>
+
+      <div class="space-y-3" id="faq-list">
+        {[
+          {
+            q: 'What is an enterprise solar power system?',
+            a: 'An enterprise solar power system is a large-scale solar installation designed for businesses, factories, warehouses, commercial buildings, institutions, and industrial facilities to generate clean electricity and significantly reduce energy costs.'
+          },
+          {
+            q: 'How much can my business save with solar?',
+            a: 'Depending on your electricity consumption, system size, and location, businesses can reduce their electricity bills by 50–90% while enjoying long-term savings for over 25 years.'
+          },
+          {
+            q: 'What industries can benefit from enterprise solar?',
+            a: 'Our solutions are ideal for: Manufacturing Plants, Warehouses & Logistics Parks, Commercial Buildings, Hotels & Resorts, Hospitals, Educational Institutions, IT Parks, Shopping Malls, and Industrial Estates.'
+          },
+          {
+            q: 'What is the minimum project size?',
+            a: 'We typically undertake enterprise solar projects starting from 100 kW, with scalable solutions extending to multi-megawatt installations.'
+          },
+          {
+            q: 'How long does installation take?',
+            a: 'Most enterprise solar projects are completed within 4–12 weeks, depending on the project size, site conditions, approvals, and equipment availability.'
+          },
+        ].map((item, i) => (
+          <details class="faq-item group border border-neutral-rule rounded-xl overflow-hidden bg-white hover:border-brand-red/30 transition-colors duration-200" >
+            <summary class="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none select-none">
+              <span class="font-semibold text-neutral-ink text-sm group-open:text-brand-red transition-colors duration-200">
+                <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-brand-pale text-brand-red text-xs font-black mr-3 flex-shrink-0">{i + 1}</span>
+                {item.q}
+              </span>
+              <svg class="w-4 h-4 text-neutral-muted group-open:text-brand-red group-open:rotate-180 transition-all duration-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </summary>
+            <div class="px-6 pb-5 pt-0">
+              <div class="border-t border-neutral-rule/60 pt-4">
+                <p class="text-sm text-neutral-muted leading-relaxed">{item.a}</p>
+              </div>
+            </div>
+          </details>
         ))}
       </div>
     </div>
@@ -199,8 +395,8 @@ const useCases = [
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      // Intersection Observer for scroll animations
       const revealItems = document.querySelectorAll('.usecase-card, .reveal-item');
-      
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
@@ -212,8 +408,60 @@ const useCases = [
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
       });
-
       revealItems.forEach((el) => observer.observe(el));
+
+      // Smooth scroll for hero anchor buttons
+      const anchorBtn = document.querySelector('a[href^="#dpr-form-card"]');
+      anchorBtn?.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = document.getElementById('dpr-form-card');
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          // Highlight card momentarily
+          target.classList.add('ring-2', 'ring-brand-light');
+          setTimeout(() => {
+            target.classList.remove('ring-2', 'ring-brand-light');
+          }, 1500);
+        }
+      });
+
+      // Lead Form submission handler
+      const form = document.getElementById('dpr-form') as HTMLFormElement | null;
+      const successBlock = document.getElementById('dpr-success');
+      const errorBlock = document.getElementById('dpr-error');
+      const retryBtn = document.getElementById('dpr-error-retry');
+
+      form?.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        const data = new FormData(form);
+        try {
+          const response = await fetch('/api/send-lead', {
+            method: 'POST',
+            body: data,
+          });
+          if (response.ok) {
+            form.classList.add('hidden');
+            successBlock?.classList.remove('hidden');
+          } else {
+            form.classList.add('hidden');
+            errorBlock?.classList.remove('hidden');
+          }
+        } catch (_) {
+          form.classList.add('hidden');
+          errorBlock?.classList.remove('hidden');
+        }
+      });
+
+      retryBtn?.addEventListener('click', () => {
+        errorBlock?.classList.add('hidden');
+        form?.classList.remove('hidden');
+      });
     });
   </script>
 

@@ -103,8 +103,7 @@ const steps = [
   function initStickyStack() {
     const cards = Array.from(document.querySelectorAll('.process-card')) as HTMLElement[];
     if (cards.length === 0) return;
-
-    const CARD_TOP = 120; // Must match CSS top value
+    const CARD_TOP = 120;
 
     const onScroll = () => {
       if (window.innerWidth < 768) {
@@ -153,6 +152,7 @@ const steps = [
 
   document.addEventListener('DOMContentLoaded', initStickyStack);
   document.addEventListener('astro:page-load', initStickyStack);
+  initStickyStack();
 </script>
 
 <style>
