@@ -1,0 +1,1 @@
+import"./hoisted.CyZJzBFH.js";document.addEventListener("DOMContentLoaded",()=>{const s=document.querySelectorAll(".segment-card, .segment-header"),r=new IntersectionObserver(e=>{e.forEach(t=>{t.isIntersecting&&(t.target.classList.add("visible"),r.unobserve(t.target))})},{threshold:.08,rootMargin:"0px 0px -40px 0px"});s.forEach(e=>r.observe(e))});
