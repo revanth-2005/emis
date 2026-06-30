@@ -1,14 +1,13 @@
 # build output
 dist/
 .output/
+.vercel/
 
 # astro generated types / tooling state
 .astro/
 
 # dependencies
 node_modules/
-
-
 
 # macOS
 .DS_Store
