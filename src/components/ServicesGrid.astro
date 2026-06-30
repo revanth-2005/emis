@@ -2,7 +2,7 @@
 const segments = [
   {
     icon: `<path fill-rule="evenodd" d="M4 2a2 2 0 00-2 2v16a2 2 0 002 2h16a2 2 0 002-2V8a2 2 0 00-2-2h-6V4a2 2 0 00-2-2H4zm2 5h4v2H6V7zm0 4h4v2H6v-2zm0 4h4v2H6v-2zm12-3h-4v2h4v-2zm0 4h-4v2h4v-2z" clip-rule="evenodd" />`,
-    image: '/service_industrial.png',
+    image: '/segment_warehouses.png',
     title:    'Enterprise & Industrial',
     subtitle: 'Large-scale solar for factories, warehouses, and captive plants',
     features: [
@@ -16,13 +16,13 @@ const segments = [
   },
   {
     icon: `<path fill-rule="evenodd" d="M3 2.25a.75.75 0 000 1.5v16.5h-.75a.75.75 0 000 1.5h19.5a.75.75 0 000-1.5h-.75V3.75a.75.75 0 000-1.5H3zm13.5 16.5H15v-1.5a.75.75 0 00-.75-.75h-4.5a.75.75 0 00-.75.75v1.5H7.5V3.75h9v15zm-3-12.75a.75.75 0 100-1.5.75.75 0 000 1.5zM10.5 6a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm3.75 3.75a.75.75 0 100-1.5.75.75 0 000 1.5zM10.5 9.75a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm3.75 3.75a.75.75 0 100-1.5.75.75 0 000 1.5zM10.5 13.5a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" clip-rule="evenodd" />`,
-    image: '/service_commercial.png',
+    image: '/segment_offices.png',
     title:    'Commercial Buildings',
     subtitle: 'Cut operational costs for offices, retail, hotels, and institutions',
     features: [
       'Rooftop net-metering systems',
       'DISCOM approval & grid-tie',
-      'Subsidy & accelerated depreciation',
+      'Relief via accelerated depreciation',
       'Energy-audit before proposal',
     ],
     href:  '/services/commercial',
@@ -30,7 +30,7 @@ const segments = [
   },
   {
     icon: `<path fill-rule="evenodd" d="M9.53 2.47a.75.75 0 011.06 0l9.018 9a.75.75 0 01-.53 1.28h-1.5v6.75a.75.75 0 01-.75.75h-3a.75.75 0 01-.75-.75v-4.5h-2v4.5a.75.75 0 01-.75.75h-3a.75.75 0 01-.75-.75V12.75H3a.75.75 0 01-.53-1.28l9.018-9z" clip-rule="evenodd" />`,
-    image: '/service_residential.png',
+    image: '/service_residential_hero.png',
     title:    'Residential Homes',
     subtitle: 'Own your power — save ₹78,000+ every year on electricity',
     features: [
@@ -59,14 +59,14 @@ const segments = [
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       {segments.map((seg) => (
-        <div class="bg-white rounded-2xl shadow-card overflow-hidden flex flex-col group hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-neutral-rule">
+        <div class="bg-white rounded-2xl shadow-card flex flex-col group hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-neutral-rule">
 
           <!-- Image Container -->
-          <div class="relative overflow-hidden aspect-[16/10] w-full">
+          <div class="relative overflow-hidden rounded-t-2xl aspect-[16/10] w-full">
             <img
                src={seg.image}
               alt={`${seg.title} project installation`}
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              class={`w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 ${seg.image.includes('residential') ? 'residential-zoom' : ''}`}
               loading="lazy"
             />
             <!-- Overlay Badge -->
@@ -107,3 +107,12 @@ const segments = [
     </div>
   </div>
 </section>
+
+<style>
+  .residential-zoom {
+    transform: scale(1.32) !important;
+  }
+  .group:hover .residential-zoom {
+    transform: scale(1.38) !important;
+  }
+</style>

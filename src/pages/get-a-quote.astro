@@ -29,7 +29,37 @@ const schema = {
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
 
       <div class="card">
+        <!-- Success State -->
+        <div id="quote-success" class="hidden flex flex-col items-center justify-center text-center py-10">
+          <div class="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+          </div>
+          <p class="text-2xl font-extrabold text-neutral-ink mb-2">Quote Request Submitted!</p>
+          <p class="text-base text-neutral-muted max-w-md mx-auto">
+            Thank you. Our solar engineer will review your details and contact you within 1 business day.
+          </p>
+        </div>
+
+        <!-- Error State -->
+        <div id="quote-error" class="hidden flex flex-col items-center justify-center text-center py-10">
+          <div class="w-16 h-16 rounded-full bg-red-100 flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </div>
+          <p class="text-2xl font-extrabold text-neutral-ink mb-2">Submission Failed</p>
+          <p class="text-base text-neutral-muted mb-6">
+            Something went wrong. Please try again.
+          </p>
+          <button id="quote-error-retry" class="btn-outline justify-center text-sm py-2 px-6 mx-auto">
+            Try Again
+          </button>
+        </div>
+
         <form
+          id="quote-form"
           name="get-a-quote"
           method="POST"
           data-netlify="true"
@@ -173,3 +203,43 @@ const schema = {
            bg-white text-neutral-ink placeholder-neutral-muted;
   }
 </style>
+
+<script>
+  const form = document.getElementById('quote-form') as HTMLFormElement | null;
+  const successBlock = document.getElementById('quote-success');
+  const errorBlock = document.getElementById('quote-error');
+  const retryBtn = document.getElementById('quote-error-retry');
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    // Client-side HTML5 validation check
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    const data = new FormData(form);
+    try {
+      const response = await fetch('/api/send-lead', {
+        method: 'POST',
+        body: data,
+      });
+      if (response.ok) {
+        form.classList.add('hidden');
+        successBlock?.classList.remove('hidden');
+      } else {
+        form.classList.add('hidden');
+        errorBlock?.classList.remove('hidden');
+      }
+    } catch (_) {
+      form.classList.add('hidden');
+      errorBlock?.classList.remove('hidden');
+    }
+  });
+
+  retryBtn?.addEventListener('click', () => {
+    errorBlock?.classList.add('hidden');
+    form?.classList.remove('hidden');
+  });
+</script>

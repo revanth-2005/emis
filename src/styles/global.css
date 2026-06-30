@@ -32,9 +32,10 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    @apply overflow-x-hidden w-full;
   }
   body {
-    @apply text-neutral-ink antialiased;
+    @apply text-neutral-ink antialiased overflow-x-hidden w-full;
     font-family: 'Metropolis', system-ui, sans-serif;
   }
   h1, h2, h3, h4, h5, h6 {

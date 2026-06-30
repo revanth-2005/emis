@@ -22,7 +22,6 @@ const {
     <div class="hero-slide absolute inset-0 bg-[url('/hero_solar_installation.png')] bg-cover bg-center bg-no-repeat opacity-100 transition-opacity duration-1000"></div>
     <div class="hero-slide absolute inset-0 bg-[url('/gallery_commercial.png')] bg-cover bg-center bg-no-repeat opacity-0 transition-opacity duration-1000"></div>
     <div class="hero-slide absolute inset-0 bg-[url('/gallery_industrial.png')] bg-cover bg-center bg-no-repeat opacity-0 transition-opacity duration-1000"></div>
-    <div class="hero-slide absolute inset-0 bg-[url('/gallery_residential.png')] bg-cover bg-center bg-no-repeat opacity-0 transition-opacity duration-1000"></div>
     <div class="hero-slide absolute inset-0 bg-[url('/service_commercial.png')] bg-cover bg-center bg-no-repeat opacity-0 transition-opacity duration-1000"></div>
   </div>
   <div class="absolute inset-0 bg-neutral-ink/80 z-1" aria-hidden="true"></div>
@@ -193,6 +192,22 @@ const {
               Our solar expert will call you within 1 business day to schedule your free consultation.
             </p>
           </div>
+
+          <!-- Error state -->
+          <div id="hero-form-error" class="hidden flex flex-col items-center justify-center text-center py-8">
+            <div class="w-16 h-16 rounded-full bg-red-100 flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+              </svg>
+            </div>
+            <p class="text-2xl font-extrabold text-neutral-ink mb-2">Submission Failed</p>
+            <p class="text-base text-neutral-muted leading-relaxed mb-6">
+              Something went wrong. Please try again.
+            </p>
+            <button id="hero-form-error-retry" class="btn-outline justify-center text-sm py-2 px-6">
+              Try Again
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -228,15 +243,33 @@ const {
   const form = document.getElementById('hero-lead-form') as HTMLFormElement | null;
   const wrap = document.getElementById('hero-form-wrap');
   const success = document.getElementById('hero-form-success');
+  const errorBlock = document.getElementById('hero-form-error');
+  const retryBtn = document.getElementById('hero-form-error-retry');
 
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const data = new URLSearchParams(new FormData(form) as any);
+    const data = new FormData(form);
     try {
-      await fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: data.toString() });
-    } catch (_) {}
-    wrap?.classList.add('hidden');
-    success?.classList.remove('hidden');
+      const response = await fetch('/api/send-lead', {
+        method: 'POST',
+        body: data,
+      });
+      if (response.ok) {
+        wrap?.classList.add('hidden');
+        success?.classList.remove('hidden');
+      } else {
+        wrap?.classList.add('hidden');
+        errorBlock?.classList.remove('hidden');
+      }
+    } catch (_) {
+      wrap?.classList.add('hidden');
+      errorBlock?.classList.remove('hidden');
+    }
+  });
+
+  retryBtn?.addEventListener('click', () => {
+    errorBlock?.classList.add('hidden');
+    wrap?.classList.remove('hidden');
   });
 
   // Hero Background Slider
@@ -248,7 +281,6 @@ const {
     const preloadImages = [
       '/gallery_commercial.png',
       '/gallery_industrial.png',
-      '/gallery_residential.png',
       '/service_commercial.png'
     ];
     preloadImages.forEach((src) => {

@@ -9,25 +9,29 @@ const steps = [
   {
     num:   '02',
     title: 'Design',
+    image: '/how_design.png',
     icon: `<path fill-rule="evenodd" d="M2 10a1 1 0 011-1h3a1 1 0 110 2H3a1 1 0 01-1-1zM9 8a1 1 0 011-1h3a1 1 0 110 2h-3a1 1 0 01-1-1zM16 12a1 1 0 011-1h3a1 1 0 110 2h-3a1 1 0 01-1-1z" /><path fill-rule="evenodd" d="M4 2a2 2 0 00-2 2v12a2 2 0 002 2h2v2a1 1 0 102 0v-2h4v2a1 1 0 102 0v-2h4a2 2 0 002-2V4a2 2 0 00-2-2H4zm14 12H4V4h14v10z" clip-rule="evenodd" />`,
     body:  'We prepare a detailed module layout, single-line diagrams, expected generation metrics, and a precise financial payback model.',
   },
   {
     num:   '03',
     title: 'Approval',
+    image: '/how_approve.png',
     icon: `<path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12zm13.707-3.293a1 1 0 00-1.414-1.414L11 10.586 9.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />`,
     body:  'We manage DISCOM grid connectivity approvals, net-metering agreements, and register you on the PM Surya Ghar national portal.',
   },
   {
     num:   '04',
     title: 'Installation',
-    icon: `<path fill-rule="evenodd" d="M12 2a1 1 0 00-1 1v1.17c-.31.09-.6.22-.88.38l-.83-.83a1 1 0 10-1.41 1.41l.83.83c-.16.28-.29.57-.38.88H6a1 1 0 100 2h1.17c.09.31.22.6.38.88l-.83.83a1 1 0 001.41 1.41l.83-.83c.28.16.57.29.88.38V19a1 1 0 102 0v-1.17c.31-.09.6-.22.88-.38l.83.83a1 1 0 001.41-1.41l-.83-.83c.16-.28.29-.57.38-.88H18a1 1 0 100-2h-1.17c-.09-.31-.22-.6-.38-.88l.83-.83a1 1 0 00-1.41-1.41l-.83.83c-.28-.16-.57-.29-.88-.38V3a1 1 0 00-1-1zM9 10a3 3 0 116 0 3 3 0 01-6 0z" clip-rule="evenodd" />`,
+    image: '/how_installation.png',
+    icon: `<path fill-rule="evenodd" d="M19.5 21a3 3 0 003-3v-4.5a3 3 0 00-3-3h-1.5V9a3 3 0 00-3-3H9a3 3 0 00-3 3v1.5H4.5A3 3 0 001.5 13.5V18a3 3 0 003 3h15zM6 9a1.5 1.5 0 011.5-1.5h9A1.5 1.5 0 0118 9v1.5H6V9zm12 6H6v3h12v-3z" clip-rule="evenodd" />`,
     body:  'Our certified engineering team deploys the system with zero disruption. We commission the plant and deliver all compliance papers.',
   },
   {
     num:   '05',
     title: 'Savings',
-    icon: `<path fill-rule="evenodd" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 7.5h3a1 1 0 110 2h-3v1h3a1 1 0 110 2h-3v1.5a1 1 0 11-2 0V12.5H8a1 1 0 110-2h2v-1H8a1 1 0 110-2h2V7.5H8a1 1 0 110-2h8a1 1 0 110 2h-3z" clip-rule="evenodd" />`,
+    image: '/how_saving.png',
+    icon: `<path fill-rule="evenodd" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.75 5.5a2.75 2.75 0 00-2.75 2.75V11h3.5a.75.75 0 010 1.5H11v.75a2.75 2.75 0 002.75 2.75h.5c.96 0 1.75-.78 1.75-1.75a.75.75 0 011.5 0c0 1.56-1.12 2.87-2.6 3.16L17.2 20.2a.75.75 0 11-1.2.9l-3.1-4.13a.75.75 0 01-.15-.47V15H9.5a.75.75 0 010-1.5h3.25a1.25 1.25 0 01-1.25-1.25V11H9.5a.75.75 0 010-1.5h2.16c.38-1.56 1.78-2.75 3.47-2.75a.75.75 0 010 1.5h-.88z" clip-rule="evenodd" />`,
     body:  'Activate real-time app tracking. Start saving from Month 1 while we handle scheduled O&M audits to keep output at peak levels.',
   },
 ];
@@ -62,9 +66,13 @@ const steps = [
             <!-- Icon bubble with corner index tag -->
             <div class="relative flex-shrink-0">
               <div class="w-16 h-16 rounded-2xl bg-brand-pale border-2 border-brand-red/10 flex items-center justify-center shadow-sm">
-                <svg class="w-8 h-8 text-brand-red" fill="currentColor" viewBox="0 0 24 24">
-                  <Fragment set:html={step.icon} />
-                </svg>
+                {step.image ? (
+                  <img src={step.image} alt={step.title} class="w-10 h-10 object-contain rounded-md orange-icon-filter" />
+                ) : (
+                  <svg class="w-8 h-8 text-brand-red" fill="currentColor" viewBox="0 0 24 24">
+                    <Fragment set:html={step.icon} />
+                  </svg>
+                )}
               </div>
               <span class="absolute -top-1.5 -right-1.5 bg-neutral-ink text-white text-[10px] font-black w-6 h-6 rounded-full flex items-center justify-center border border-white shadow-sm">
                 {step.num}
@@ -145,3 +153,10 @@ const steps = [
   // Set up on page load
   document.addEventListener('DOMContentLoaded', initStickyStack);
 </script>
+
+<style>
+  .orange-icon-filter {
+    filter: brightness(1.6) contrast(3) invert(34%) sepia(85%) saturate(2200%) hue-rotate(345deg) brightness(68%) contrast(95%);
+    mix-blend-mode: multiply;
+  }
+</style>
