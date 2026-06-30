@@ -58,10 +58,10 @@ const steps = [
       </div>
 
       <!-- Right Column: Sticky Stack Cards -->
-      <div class="lg:col-span-7 relative flex flex-col gap-6" id="sticky-process-stack">
+      <div class="lg:col-span-7 relative" id="sticky-process-stack" style="padding-bottom: 2rem;">
         {steps.map((step, i) => (
-          <div class="process-card md:sticky bg-white rounded-3xl border border-neutral-rule/60 shadow-card p-6 md:p-8 flex flex-col sm:flex-row items-center sm:items-start gap-6 transition-all duration-500 ease-out origin-top z-10"
-               style={`top: ${120 + i * 24}px; z-index: ${i + 1};`}>
+          <div class="process-card md:sticky bg-white rounded-3xl border border-neutral-rule/60 shadow-card p-6 md:p-8 flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-6"
+               style={`top: 120px; z-index: ${i + 1};`}>
             
             <!-- Icon bubble with corner index tag -->
             <div class="relative flex-shrink-0">
@@ -101,14 +101,13 @@ const steps = [
 
 <script>
   function initStickyStack() {
-    const cards = document.querySelectorAll('.process-card') as NodeListOf<HTMLElement>;
-    const container = document.getElementById('sticky-process-stack');
-    
-    if (cards.length === 0 || !container) return;
+    const cards = Array.from(document.querySelectorAll('.process-card')) as HTMLElement[];
+    if (cards.length === 0) return;
 
-    const handleScroll = () => {
+    const CARD_TOP = 120; // Must match CSS top value
+
+    const onScroll = () => {
       if (window.innerWidth < 768) {
-        // Reset styles on mobile to prevent overlapping issues
         cards.forEach((card) => {
           card.style.transform = '';
           card.style.opacity = '';
@@ -118,45 +117,52 @@ const steps = [
       }
 
       cards.forEach((card, idx) => {
-        const nextCard = cards[idx + 1];
-        if (nextCard) {
-          const nextCardRect = nextCard.getBoundingClientRect();
-          // The sticky top position for the next card (must match top style)
-          const stickyThreshold = 120 + (idx + 1) * 24;
-          
-          if (nextCardRect.top <= stickyThreshold + 100) {
-            // Next card is close or overlapping. Scale down and fade this card.
-            const overlapAmount = Math.max(0, Math.min(1, (stickyThreshold + 100 - nextCardRect.top) / 200));
-            const scale = 1 - overlapAmount * 0.04;
-            const opacity = 1 - overlapAmount * 0.35;
-            const translate = -overlapAmount * 12;
-            
-            card.style.transform = `scale(${scale}) translateY(${translate}px)`;
-            card.style.opacity = `${opacity}`;
-            card.style.filter = `blur(${overlapAmount * 0.5}px)`;
+        // Count how many later cards are already stacked at/above the sticky position
+        let behindAmount = 0;
+
+        for (let j = idx + 1; j < cards.length; j++) {
+          const laterRect = cards[j].getBoundingClientRect();
+          if (laterRect.top <= CARD_TOP + 2) {
+            behindAmount += 1;
           } else {
-            card.style.transform = 'scale(1) translateY(0)';
-            card.style.opacity = '1';
-            card.style.filter = 'none';
+            const partial = Math.max(0, Math.min(1, (CARD_TOP + 100 - laterRect.top) / 100));
+            behindAmount += partial;
+            break;
           }
+        }
+
+        if (behindAmount > 0) {
+          const scale = Math.max(0.88, 1 - behindAmount * 0.035);
+          const translateY = -behindAmount * 10;
+          const opacity = Math.max(0.4, 1 - behindAmount * 0.18);
+          card.style.transform = `scale(${scale}) translateY(${translateY}px)`;
+          card.style.opacity = String(opacity);
+          card.style.filter = `blur(${Math.min(behindAmount * 0.4, 1.5)}px)`;
+        } else {
+          card.style.transform = 'scale(1) translateY(0)';
+          card.style.opacity = '1';
+          card.style.filter = 'none';
         }
       });
     };
 
-    window.addEventListener('scroll', handleScroll);
-    window.addEventListener('resize', handleScroll);
-    
-    // Initial run
-    handleScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    onScroll();
   }
 
-  // Set up on page load
   document.addEventListener('DOMContentLoaded', initStickyStack);
+  document.addEventListener('astro:page-load', initStickyStack);
 </script>
 
 <style>
   .orange-icon-filter {
     filter: brightness(1.3) contrast(1.4) invert(34%) sepia(85%) saturate(2200%) hue-rotate(345deg) brightness(72%) contrast(95%);
     mix-blend-mode: multiply;
+  }
+
+  #sticky-process-stack .process-card {
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.35s ease, filter 0.35s ease;
+    will-change: transform, opacity;
   }
 </style>
