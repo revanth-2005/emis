@@ -1,1 +1,0 @@
-import"./hoisted.CyZJzBFH.js";document.addEventListener("DOMContentLoaded",()=>{const o=document.querySelectorAll(".timeline-item, .timeline-header"),r=new IntersectionObserver(e=>{e.forEach(t=>{t.isIntersecting&&(t.target.classList.add("visible"),r.unobserve(t.target))})},{threshold:.1,rootMargin:"0px 0px -40px 0px"});o.forEach(e=>r.observe(e))});
