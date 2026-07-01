@@ -43,49 +43,36 @@ const schema = {
         </p>
         <div class="flex flex-col sm:flex-row gap-4 items-center flex-wrap">
           <a href="#commercial-lead-form" class="btn-primary w-full sm:w-auto text-center">Get a Free Energy Audit</a>
-          <div class="flex items-center gap-3 w-full sm:w-auto justify-center sm:justify-start">
-            <span class="text-white/60 text-sm font-semibold">Talk to an Expert:</span>
-            <a href="tel:+919894821309" class="p-2.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white transition-all hover:scale-110 flex items-center justify-center" title="Call Us">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 12V5z"/>
-              </svg>
-            </a>
-            <a href="https://wa.me/919894821309?text=Hi,%20I'm%20interested%20in%20Commercial%20Solar%20solutions." target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-full bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-500/30 text-emerald-400 transition-all hover:scale-110 flex items-center justify-center" title="Chat on WhatsApp">
-              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.73-1.455L0 24zm6.59-4.846c1.62.962 3.238 1.443 4.958 1.444 5.393 0 9.778-4.382 9.782-9.77.002-2.611-1.015-5.066-2.868-6.92C16.61 2.054 14.15 1.037 11.533 1.037c-5.396 0-9.783 4.382-9.786 9.77-.001 1.83.485 3.615 1.41 5.22L2.14 21.84l6.096-1.599-1.589-.907zm11.303-4.7c-.29-.145-1.716-.848-1.982-.945-.266-.096-.46-.145-.653.145-.193.29-.747.945-.917 1.139-.17.194-.341.218-.632.073-.29-.145-1.226-.452-2.336-1.442-.864-.77-1.447-1.722-1.617-2.013-.17-.29-.018-.447.127-.591.13-.13.29-.34.436-.51.145-.17.193-.29.29-.485.097-.194.049-.364-.025-.51-.072-.145-.653-1.576-.894-2.158-.236-.569-.475-.491-.653-.5l-.56-.007c-.193 0-.507.073-.77.364-.266.29-1.014.992-1.014 2.42 0 1.428 1.039 2.808 1.184 3.002.145.194 2.045 3.123 4.956 4.378.692.298 1.233.477 1.656.611.696.222 1.329.19 1.83.115.558-.083 1.716-.702 1.958-1.381.242-.679.242-1.261.17-1.381-.073-.119-.266-.194-.557-.34z"/>
-              </svg>
-            </a>
-          </div>
         </div>
       </div>
 
       <!-- Lead Form -->
       <div class="mt-12 lg:mt-0 lg:col-span-5">
-        <div id="commercial-lead-form" class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 shadow-2xl transition-all duration-300">
+        <div id="commercial-lead-form" class="bg-white border border-neutral-rule rounded-2xl p-6 shadow-card transition-all duration-300">
 
           <!-- Success State -->
           <div id="comm-success" class="hidden flex flex-col items-center justify-center text-center py-10">
-            <div class="w-14 h-14 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mb-4">
+            <div class="w-14 h-14 rounded-full bg-emerald-100 text-emerald-500 flex items-center justify-center mb-4">
               <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
               </svg>
             </div>
-            <h3 class="text-xl font-bold text-white mb-2">Request Submitted!</h3>
-            <p class="text-white/70 text-sm max-w-xs mx-auto">
+            <h3 class="text-xl font-bold text-neutral-ink mb-2">Request Submitted!</h3>
+            <p class="text-neutral-muted text-sm max-w-xs mx-auto">
               Thank you. Our solar engineer will contact you within 1 business day with your free energy audit.
             </p>
           </div>
 
           <!-- Error State -->
           <div id="comm-error" class="hidden flex flex-col items-center justify-center text-center py-10">
-            <div class="w-14 h-14 rounded-full bg-rose-500/20 text-rose-400 flex items-center justify-center mb-4">
+            <div class="w-14 h-14 rounded-full bg-rose-100 text-rose-500 flex items-center justify-center mb-4">
               <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/>
               </svg>
             </div>
-            <h3 class="text-xl font-bold text-white mb-2">Submission Failed</h3>
-            <p class="text-white/70 text-sm mb-6">Something went wrong. Please try again.</p>
-            <button id="comm-error-retry" class="px-5 py-2.5 bg-white/15 hover:bg-white/25 text-white border border-white/20 rounded-lg text-sm font-semibold transition-all">
+            <h3 class="text-xl font-bold text-neutral-ink mb-2">Submission Failed</h3>
+            <p class="text-neutral-muted text-sm mb-6">Something went wrong. Please try again.</p>
+            <button id="comm-error-retry" class="px-5 py-2.5 bg-brand-red text-white hover:bg-brand-red/90 border-0 rounded-lg text-sm font-semibold transition-all">
               Try Again
             </button>
           </div>
@@ -93,24 +80,24 @@ const schema = {
           <!-- Form -->
           <form id="comm-form" name="commercial-energy-audit" method="POST" class="space-y-4" novalidate>
             <input type="hidden" name="form-name" value="commercial-energy-audit" />
-            <h3 class="text-lg font-bold text-white">Get a Free Energy Audit</h3>
-            <p class="text-white/60 text-xs">Fill in your details and our expert will contact you within 1 business day.</p>
+            <h3 class="text-lg font-bold text-neutral-ink">Get a Free Energy Audit</h3>
+            <p class="text-neutral-muted text-xs">Fill in your details and our expert will contact you within 1 business day.</p>
 
             <div class="space-y-3.5">
               <input name="name" type="text" required placeholder="Full Name *"
-                class="w-full px-3.5 py-2.5 bg-white/5 border border-white/15 focus:border-brand-light focus:ring-1 focus:ring-brand-light rounded-lg text-white placeholder-white/40 text-sm outline-none transition-all" />
+                class="w-full px-3.5 py-2.5 bg-white border border-neutral-rule focus:border-brand-red focus:ring-1 focus:ring-brand-red rounded-lg text-neutral-ink placeholder-neutral-muted text-sm outline-none transition-all" />
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                 <input name="phone" type="tel" required placeholder="Mobile Number *"
-                  class="w-full px-3.5 py-2.5 bg-white/5 border border-white/15 focus:border-brand-light focus:ring-1 focus:ring-brand-light rounded-lg text-white placeholder-white/40 text-sm outline-none transition-all" />
+                  class="w-full px-3.5 py-2.5 bg-white border border-neutral-rule focus:border-brand-red focus:ring-1 focus:ring-brand-red rounded-lg text-neutral-ink placeholder-neutral-muted text-sm outline-none transition-all" />
                 <input name="email" type="email" required placeholder="Email Address *"
-                  class="w-full px-3.5 py-2.5 bg-white/5 border border-white/15 focus:border-brand-light focus:ring-1 focus:ring-brand-light rounded-lg text-white placeholder-white/40 text-sm outline-none transition-all" />
+                  class="w-full px-3.5 py-2.5 bg-white border border-neutral-rule focus:border-brand-red focus:ring-1 focus:ring-brand-red rounded-lg text-neutral-ink placeholder-neutral-muted text-sm outline-none transition-all" />
               </div>
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                 <input name="organisation" type="text" required placeholder="Company Name *"
-                  class="w-full px-3.5 py-2.5 bg-white/5 border border-white/15 focus:border-brand-light focus:ring-1 focus:ring-brand-light rounded-lg text-white placeholder-white/40 text-sm outline-none transition-all" />
+                  class="w-full px-3.5 py-2.5 bg-white border border-neutral-rule focus:border-brand-red focus:ring-1 focus:ring-brand-red rounded-lg text-neutral-ink placeholder-neutral-muted text-sm outline-none transition-all" />
                 <select name="segment" required
-                  class="w-full px-3.5 py-2.5 bg-white/5 border border-white/15 focus:border-brand-light focus:ring-1 focus:ring-brand-light rounded-lg text-white/90 text-sm outline-none transition-all [&>option]:bg-neutral-ink [&>option]:text-white">
-                  <option value="" disabled selected>Business Type *</option>
+                  class="w-full px-3.5 py-2.5 bg-white border border-neutral-rule focus:border-brand-red focus:ring-1 focus:ring-brand-red rounded-lg text-neutral-ink text-sm outline-none transition-all">
+                  <option value="" disabled selected class="text-neutral-muted">Business Type *</option>
                   <option value="Office">Office / IT Park</option>
                   <option value="Retail">Retail / Mall</option>
                   <option value="Hotel">Hotel / Resort</option>
@@ -231,25 +218,60 @@ const schema = {
   </section>
 
   <!-- Section 4: Financial Incentives -->
-  <section class="py-16 bg-neutral-snow">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="section-heading text-center mb-10">Financial Incentives You Can Claim</h2>
-      <div class="space-y-4">
+  <section class="py-20 bg-neutral-snow border-t border-neutral-rule">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <p class="section-label mb-3">Maximise ROI</p>
+        <h2 class="section-heading">Financial Incentives You Can Claim</h2>
+        <p class="text-neutral-muted mt-3 text-sm max-w-xl mx-auto">
+          Leverage corporate tax reliefs, grid export credits, and government incentives to achieve faster payback on your commercial solar investment.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10 max-w-5xl mx-auto px-4 py-4">
         {[
-          { title: 'Accelerated Depreciation (Section 32)', body: '40% depreciation on the solar asset in Year 1, significantly reducing your tax liability. Effective system cost drops by ~15–20% for profitable entities.' },
-          { title: 'Net-Metering',        body: 'Export surplus generation to the DISCOM grid and receive credits against your future bills. Policy varies by state — we identify the best option for your location.' },
-          { title: 'Priority Sector Lending', body: 'Solar projects can qualify for priority-sector lending rates from banks and NBFCs, reducing financing costs.' },
-          { title: 'MNRE Capital Subsidy', body: 'Certain commercial categories (educational institutions, hospitals) may qualify for central or state capital subsidies — we assess eligibility and file on your behalf.' },
+          { 
+            title: 'Accelerated Depreciation (Section 32)', 
+            body: 'Claim 40% depreciation on the solar asset in Year 1. For profitable entities, this reduces the net system cost by 15–20% through income tax savings.',
+            icon: 'M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2z'
+          },
+          { 
+            title: 'Net-Metering System',        
+            body: 'Export surplus solar power back to the local utility grid. Get billed credit adjustments to offset power drawn during peak/night hours.',
+            icon: 'M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z'
+          },
+          { 
+            title: 'Priority Sector Lending', 
+            body: 'Finance commercial rooftop solar projects under priority sector guidelines. Enjoy reduced interest rates, faster loan processing, and flexible terms.',
+            icon: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z'
+          },
+          { 
+            title: 'MNRE Capital Subsidy', 
+            body: 'Certain commercial categories like educational trusts, healthcare facilities, and non-profits qualify for state subsidies. We track and file for you.',
+            icon: 'M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.364l-.707-.707M15 12a3 3 0 11-6 0 3 3 0 016 0z'
+          },
         ].map((item) => (
-          <details class="card cursor-pointer group">
-            <summary class="flex items-center justify-between font-semibold text-neutral-ink text-sm list-none">
-              {item.title}
-              <svg class="w-4 h-4 text-brand-red flex-shrink-0 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-              </svg>
-            </summary>
-            <p class="mt-3 text-sm text-neutral-muted leading-relaxed">{item.body}</p>
-          </details>
+          <div class="relative bg-white p-6 md:p-8 transition-all duration-300 hover:-translate-y-0.5 group">
+            <!-- Top Line -->
+            <div class="absolute top-0 -left-4 -right-4 h-px bg-neutral-rule/80 group-hover:bg-brand-red/40 transition-colors"></div>
+            <!-- Bottom Line -->
+            <div class="absolute bottom-0 -left-4 -right-4 h-px bg-neutral-rule/80 group-hover:bg-brand-red/40 transition-colors"></div>
+            <!-- Left Line -->
+            <div class="absolute left-0 -top-4 -bottom-4 w-px bg-neutral-rule/80 group-hover:bg-brand-red/40 transition-colors"></div>
+            <!-- Right Line -->
+            <div class="absolute right-0 -top-4 -bottom-4 w-px bg-neutral-rule/80 group-hover:bg-brand-red/40 transition-colors"></div>
+
+            <div class="flex items-start gap-5">
+              <div class="w-12 h-12 rounded-xl bg-brand-pale text-brand-red flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform duration-300">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d={item.icon} />
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-bold text-neutral-ink mb-2 text-base md:text-lg leading-snug group-hover:text-brand-red transition-colors duration-300">{item.title}</h3>
+                <p class="text-xs md:text-sm text-neutral-muted leading-relaxed">{item.body}</p>
+              </div>
+            </div>
+          </div>
         ))}
       </div>
     </div>
