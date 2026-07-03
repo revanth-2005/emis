@@ -75,7 +75,7 @@ export const POST: APIRoute = async ({ request }) => {
 
     // Send Mail
     await transporter.sendMail({
-      from: `"${name || 'Ermis Website'}" <${import.meta.env.SMTP_USER}>`,
+      from: `"${name || 'ERMIS Website'}" <${import.meta.env.SMTP_USER}>`,
       to: import.meta.env.RECEIVER_EMAIL,
       replyTo: email || `${phone}@no-email.com`,
       subject: subject,
