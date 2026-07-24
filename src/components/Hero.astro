@@ -75,7 +75,16 @@ const {
           </ul>
         </div>
 
-        <div class="animate-stagger-item" style="animation-delay: 500ms;">
+        <div class="animate-stagger-item sm:hidden mb-6" style="animation-delay: 500ms;">
+          <button
+            id="mobile-hero-quote-btn"
+            class="w-full bg-brand-red text-white font-extrabold text-lg py-4 rounded-xl shadow-cta hover:bg-brand-dark transition-colors duration-200 text-center"
+          >
+            Get a Free Quote →
+          </button>
+        </div>
+
+        <div class="animate-stagger-item hidden sm:block" style="animation-delay: 500ms;">
           <div class="flex flex-col sm:flex-row gap-4 mb-8 lg:mb-0">
             <a href={ctaPrimary.href}
                class="inline-flex items-center justify-center gap-2 bg-brand-red text-white font-semibold
@@ -95,11 +104,22 @@ const {
       </div>
 
       <!-- Right: floating consultation form card -->
-      <div class="lg:col-span-5 flex flex-col justify-center relative z-10 w-full max-w-md mx-auto lg:max-w-none">
-        <div class="bg-white rounded-2xl shadow-2xl p-6 sm:p-8 w-full">
+      <div id="consultation-form-container" class="hidden sm:flex lg:col-span-5 flex-col justify-center z-10 w-full max-w-md mx-auto lg:max-w-none fixed inset-0 sm:relative sm:inset-auto bg-black/60 sm:bg-transparent items-center sm:items-stretch p-4 sm:p-0 z-50 sm:z-10 overflow-y-auto">
+        <div class="bg-white rounded-2xl shadow-2xl p-6 sm:p-8 w-full relative max-w-md my-auto sm:my-0">
+          <!-- Close button for mobile popup -->
+          <button
+            id="close-mobile-form-btn"
+            type="button"
+            class="sm:hidden absolute top-4 right-4 z-20 text-neutral-muted hover:text-neutral-ink p-2 rounded-full bg-neutral-100 hover:bg-neutral-200 transition-colors"
+            aria-label="Close modal"
+          >
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
           <div id="hero-form-wrap" class="flex flex-col">
-            <div class="animate-stagger-item" style="animation-delay: 100ms;">
-              <p class="text-2xl font-extrabold text-neutral-ink leading-snug mb-1">
+            <div class="animate-stagger-item pr-8 sm:pr-0" style="animation-delay: 100ms;">
+              <p class="text-xl sm:text-2xl font-extrabold text-neutral-ink leading-snug mb-1">
                 Book a <span class="text-brand-red">FREE</span> Consultation
               </p>
               <p class="text-sm text-neutral-muted mb-6">Save up to ₹78,000 on residential solar with central subsidy</p>
@@ -126,10 +146,14 @@ const {
                   class="hero-input w-full" />
               </div>
 
+              <div class="animate-stagger-item" style="animation-delay: 350ms;">
+                <input name="email" type="email" required placeholder="Email Address"
+                  class="hero-input w-full" />
+              </div>
+
               <div class="animate-stagger-item" style="animation-delay: 400ms;">
-                <input name="pincode" type="text" required placeholder="PIN Code"
-                  pattern="[1-9][0-9]{5}" title="Enter a valid 6-digit PIN code"
-                  maxlength="6" class="hero-input w-full" />
+                <input name="address" type="text" required placeholder="City / Address"
+                  class="hero-input w-full" />
               </div>
 
               <div class="animate-stagger-item" style="animation-delay: 500ms;">
@@ -245,6 +269,39 @@ const {
   const success = document.getElementById('hero-form-success');
   const errorBlock = document.getElementById('hero-form-error');
   const retryBtn = document.getElementById('hero-form-error-retry');
+
+  const container = document.getElementById('consultation-form-container');
+  const openMobileHeroBtn = document.getElementById('mobile-hero-quote-btn');
+  const closeMobileBtn = document.getElementById('close-mobile-form-btn');
+
+  const openFormModal = () => {
+    container?.classList.remove('hidden');
+    container?.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeFormModal = () => {
+    container?.classList.add('hidden');
+    container?.classList.remove('flex');
+    document.body.style.overflow = '';
+  };
+
+  openMobileHeroBtn?.addEventListener('click', openFormModal);
+  
+  if (closeMobileBtn) {
+    closeMobileBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      closeFormModal();
+    });
+  }
+
+  // Close when clicking overlay backdrop on mobile
+  container?.addEventListener('click', (e) => {
+    if (e.target === container) {
+      closeFormModal();
+    }
+  });
 
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
