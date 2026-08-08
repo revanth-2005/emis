@@ -4,7 +4,7 @@ import react from '@astrojs/react';
 import node from '@astrojs/node';
 
 export default defineConfig({
-  site: 'https://ermisglobal.com',
+  site: 'https://www.ermisglobal.com',
   output: 'hybrid',
   adapter: node({
     mode: 'standalone',
