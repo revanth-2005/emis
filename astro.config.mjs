@@ -5,7 +5,7 @@ import node from '@astrojs/node';
 
 export default defineConfig({
   site: 'https://www.ermisglobal.com',
-  output: 'hybrid',
+  output: 'server',
   adapter: node({
     mode: 'standalone',
   }),
